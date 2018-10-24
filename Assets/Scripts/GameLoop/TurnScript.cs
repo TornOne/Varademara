@@ -45,28 +45,33 @@ public class TurnScript : MonoBehaviour {
     void Start () {
         instance = this;
 
+        // Turn order and movement testing
+        tilemap = new MovementScript.TileMapPlaceholder(20,20);
+
+        //built tile graph
+        MovementScript.BuildPathGraph(tilemap);
+
+
         List<UnitScript> temporary = new List<UnitScript>(units);
         units.Clear();
-        foreach (UnitScript unit in temporary) AddUnitOrdered(unit);
+        foreach (UnitScript unit in temporary) {
+            AddUnitOrdered(unit);
+            unit.tile = tilemap.tiles[(int)unit.transform.position.x, (int)unit.transform.position.y];
+        }
         activeUnit = units[0];
 
 
 
 
-        // Turn order and movement testing
 
-        tilemap = new MovementScript.TileMapPlaceholder();
-        //built tile graph
-        activeUnit.move_calc.BuildPathGraph(tilemap);
-        
+
     }
 
     // Turn order and movement testing
     void Update () {
         if (gametime < Time.fixedTime - 2)
         {
-
-            List<MovementScript.TilePlaceholder> possible_tiles = activeUnit.move_calc.CalculateMovement(tilemap, tilemap.tiles[activeUnit.xPos, activeUnit.yPos], activeUnit.mP);
+            List<MovementScript.TilePlaceholder> possible_tiles = activeUnit.move_calc.CalculateMovement(tilemap, activeUnit.tile, activeUnit.mP);
             //Debug.Log(possible_tiles.Count);
             List<MovementScript.TilePlaceholder> path = activeUnit.move_calc.FindPathTo(tilemap, possible_tiles[Random.Range(0, possible_tiles.Count)]);
 

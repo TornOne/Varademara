@@ -14,8 +14,8 @@ public class UnitScript : MonoBehaviour {
     public int initiative;  //turn order influencer
     public int idle;        //turns waited
 
-    public int xPos;    //map position
-    public int yPos;
+    //public int xPos;    //map position
+    //public int yPos;
 
     public DamageScript attack_calc;
     public MovementScript move_calc;
@@ -25,6 +25,9 @@ public class UnitScript : MonoBehaviour {
     private Vector3 Start;
     private List<Vector3> End;
     private float lerp;
+
+    public MovementScript.TilePlaceholder tile;
+    public List<MovementScript.TilePlaceholder> path;
 
     // Calculate unit turn weight for turn order
     public int TurnWeight()
@@ -39,14 +42,13 @@ public class UnitScript : MonoBehaviour {
         if (hP <= 0) Destroy(gameObject);
     }
 
-    public void Move(List<Vector3> target)
+    public void Move(List<Vector3> target, List<MovementScript.TilePlaceholder> targetTile)
     {
-        //Start = new Vector3(xPos, yPos, 0);
-        End = target;
         lerp = target.Count;
-        End.Add(new Vector3(xPos, yPos, 0));
-        xPos = (int)End[0].x;
-        yPos = (int)End[0].y;
+        path = targetTile;
+
+        path.Add(tile);
+        tile = path[0];
     }
 
     private void Update()
@@ -54,7 +56,17 @@ public class UnitScript : MonoBehaviour {
         if (lerp > 0)
         {
             lerp -= Time.deltaTime * moveAnimationSpeed;
-            transform.position = Vector3.Lerp(End[(int)lerp+1], End[(int)lerp], (1f-lerp%1));
+            transform.position = Vector3.Lerp(path[(int)lerp + 1].Position(), path[(int)lerp].Position(), (1f - lerp % 1));
+        }
+    }
+
+    void OnDrawGizmos()
+    {
+        if (path == null) return;
+        Gizmos.color = Color.yellow;
+        for (int i = 1; i < path.Count; i++)
+        {
+            Gizmos.DrawLine(path[i-1].Position(), path[i].Position());
         }
     }
 
