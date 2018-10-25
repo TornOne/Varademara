@@ -72,7 +72,7 @@ public class MovementScript : MonoBehaviour {
 
         public Vector3 Position()
         {
-            return new Vector3(x,y,0);
+            return new Vector3(x-0.5f,y-0.5f,0);
         }
 
         public float DistanceTo(TilePlaceholder target)
@@ -140,7 +140,6 @@ public class MovementScript : MonoBehaviour {
         foreach (Node node in graph)
         {
             if (dist[node] <= moveDist) possible_tiles.Add(tileMap.tiles[node.x, node.y]);
-            print(dist[node]);
         }
 
         gizmos_possible_tiles = possible_tiles;
@@ -166,13 +165,7 @@ public class MovementScript : MonoBehaviour {
     //Move unit to location
     public void MoveToTile(List<TilePlaceholder> travelPath, UnitScript unit)
     {
-        List<Vector3> vectorPath = new List<Vector3>();
-        foreach (TilePlaceholder tile in travelPath)
-        {
-            vectorPath.Add(new Vector3(tile.x, tile.y, 0));
-        }
-
-        unit.Move(vectorPath, travelPath);
+        unit.Move(travelPath);
     }
 
     //traverse through dijkstra tree to target location

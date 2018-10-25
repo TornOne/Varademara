@@ -9,12 +9,8 @@ public class AllyScript : MonoBehaviour {
     void Start () {
         unit = gameObject.transform.GetComponent<UnitScript>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
+    //move player randomly
     public void PlayerTurn()
     {
         List<MovementScript.TilePlaceholder> possible_tiles = unit.move_calc.CalculateMovement(unit.tile, unit.mP);

@@ -21,13 +21,17 @@ public class UnitScript : MonoBehaviour {
     public MovementScript move_calc;
 
     public float moveAnimationSpeed;
+    private bool animationFinished = false;
 
     private Vector3 Start;
     private List<Vector3> End;
-    private float lerp;
+    private float moveLerp;
+    public float attackLerp;
 
     public MovementScript.TilePlaceholder tile;
     public List<MovementScript.TilePlaceholder> path;
+
+    
 
     // Calculate unit turn weight for turn order
     public int TurnWeight()
@@ -42,23 +46,33 @@ public class UnitScript : MonoBehaviour {
         if (hP <= 0) Destroy(gameObject);
     }
 
-    public void Move(List<Vector3> target, List<MovementScript.TilePlaceholder> targetTile)
+    public void Move(List<MovementScript.TilePlaceholder> targetTile)
     {
-        lerp = target.Count;
+        moveLerp = targetTile.Count;
         path = targetTile;
         tile.unit = null;
 
         path.Add(tile);
         tile = path[0];
         tile.unit = this;
+
+        animationFinished = true;
     }
 
     private void Update()
     {
-        if (lerp > 0)
+        if (moveLerp > 0)
         {
-            lerp -= Time.deltaTime * moveAnimationSpeed;
-            transform.position = Vector3.Lerp(path[(int)lerp + 1].Position(), path[(int)lerp].Position(), (1f - lerp % 1));
+            moveLerp -= Time.deltaTime * moveAnimationSpeed;
+            transform.position = Vector3.Lerp(path[(int)moveLerp + 1].Position(), path[(int)moveLerp].Position(), Mathf.Min((1f - moveLerp % 1) * 1.5f, 1f));
+        //} else if (attackLerp > 0){
+        //    attackLerp -= Time.deltaTime * moveAnimationSpeed;
+
+        } else if (animationFinished){
+            
+
+            TurnScript.instance.EndTurn();
+            animationFinished = false;
         }
     }
 

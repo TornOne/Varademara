@@ -83,11 +83,9 @@ MonoBehaviour:
   mDef: 0
   initiative: 5
   idle: 0
-  xPos: 0
-  yPos: 0
   attack_calc: {fileID: 114351164989882214}
   move_calc: {fileID: 114247649365136276}
-  moveAnimationSpeed: 5
+  moveAnimationSpeed: 3
 --- !u!212 &212275198415459222
 SpriteRenderer:
   m_ObjectHideFlags: 1

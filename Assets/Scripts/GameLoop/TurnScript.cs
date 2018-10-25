@@ -8,6 +8,7 @@ public class TurnScript : MonoBehaviour {
     public List<UnitScript> PCunits;
     public UnitScript activeUnit;
     public float gametime;
+    private bool turnPassover = true;
 
     public static TurnScript instance;
 
@@ -58,7 +59,7 @@ public class TurnScript : MonoBehaviour {
         foreach (UnitScript unit in temporary) {
             AddUnitOrdered(unit);
             unit.tile = tilemap.tiles[(int)unit.transform.position.x, (int)unit.transform.position.y];
-
+            tilemap.tiles[(int)unit.transform.position.x, (int)unit.transform.position.y].unit = unit;
             //add all non AI controlled units to a player list, this will be the target for enemy units
             if (unit.GetComponent<EnemyScript>() == null) PCunits.Add(unit);
         }
@@ -73,8 +74,10 @@ public class TurnScript : MonoBehaviour {
 
     // Turn order and movement testing
     void Update () {
-        if (gametime < Time.fixedTime - 2f)
+        //if (gametime < Time.fixedTime - 2f)
+        if (turnPassover)
         {
+            turnPassover = false;
             /*List<MovementScript.TilePlaceholder> possible_tiles = activeUnit.move_calc.CalculateMovement(tilemap, activeUnit.tile, activeUnit.mP);
             List<MovementScript.TilePlaceholder> path = activeUnit.move_calc.FindPathTo(tilemap, possible_tiles[Random.Range(0, possible_tiles.Count)]);
             activeUnit.move_calc.MoveToTile(path, activeUnit);*/
@@ -84,8 +87,15 @@ public class TurnScript : MonoBehaviour {
 
             Debug.Log("--------");
 
-            NextTurn();
-            gametime = Time.fixedTime;
+            //NextTurn();
+            //gametime = Time.fixedTime;
         }
 	}
+
+    public void EndTurn()
+    {
+        NextTurn();
+        turnPassover = true;
+    }
+
 }
