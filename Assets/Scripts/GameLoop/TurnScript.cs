@@ -5,6 +5,7 @@ using UnityEngine;
 public class TurnScript : MonoBehaviour {
 
     public List<UnitScript> units;
+    public List<UnitScript> PCunits;
     public UnitScript activeUnit;
     public float gametime;
 
@@ -39,7 +40,7 @@ public class TurnScript : MonoBehaviour {
     }
 
     //TODO: init actual tilemap
-    MovementScript.TileMapPlaceholder tilemap;
+    public MovementScript.TileMapPlaceholder tilemap;
 
     // Initialize turn order and find the current active unit
     void Start () {
@@ -57,6 +58,9 @@ public class TurnScript : MonoBehaviour {
         foreach (UnitScript unit in temporary) {
             AddUnitOrdered(unit);
             unit.tile = tilemap.tiles[(int)unit.transform.position.x, (int)unit.transform.position.y];
+
+            //add all non AI controlled units to a player list, this will be the target for enemy units
+            if (unit.GetComponent<EnemyScript>() == null) PCunits.Add(unit);
         }
         activeUnit = units[0];
 
@@ -69,15 +73,14 @@ public class TurnScript : MonoBehaviour {
 
     // Turn order and movement testing
     void Update () {
-        if (gametime < Time.fixedTime - 2)
+        if (gametime < Time.fixedTime - 2f)
         {
-            List<MovementScript.TilePlaceholder> possible_tiles = activeUnit.move_calc.CalculateMovement(tilemap, activeUnit.tile, activeUnit.mP);
-            //Debug.Log(possible_tiles.Count);
+            /*List<MovementScript.TilePlaceholder> possible_tiles = activeUnit.move_calc.CalculateMovement(tilemap, activeUnit.tile, activeUnit.mP);
             List<MovementScript.TilePlaceholder> path = activeUnit.move_calc.FindPathTo(tilemap, possible_tiles[Random.Range(0, possible_tiles.Count)]);
+            activeUnit.move_calc.MoveToTile(path, activeUnit);*/
 
-
-            activeUnit.move_calc.MoveToTile(path, activeUnit);
-
+            if (activeUnit.GetComponent<EnemyScript>() != null) activeUnit.GetComponent<EnemyScript>().AITurn();
+            else activeUnit.GetComponent<AllyScript>().PlayerTurn();
 
             Debug.Log("--------");
 

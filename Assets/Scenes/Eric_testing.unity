@@ -113,6 +113,22 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &174613763 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1711179377090480, guid: d01abbe04e49f9248b352bf2697b7463,
+    type: 2}
+  m_PrefabInternal: {fileID: 639879495}
+--- !u!114 &174613768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 174613763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4a15a8a18c1d4418ca281b7c0fe491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &273292725 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114826386228282178, guid: d01abbe04e49f9248b352bf2697b7463,
@@ -183,6 +199,11 @@ Prefab:
     - target: {fileID: 114826386228282178, guid: d01abbe04e49f9248b352bf2697b7463,
         type: 2}
       propertyPath: xPos
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114826386228282178, guid: d01abbe04e49f9248b352bf2697b7463,
+        type: 2}
+      propertyPath: mP
       value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -334,7 +355,7 @@ Prefab:
     - target: {fileID: 114826386228282178, guid: d01abbe04e49f9248b352bf2697b7463,
         type: 2}
       propertyPath: mP
-      value: 10
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 114826386228282178, guid: d01abbe04e49f9248b352bf2697b7463,
         type: 2}
@@ -356,12 +377,44 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 639879495}
   m_Script: {fileID: 11500000, guid: 78e729722afd5ef42b92ac9624dde886, type: 3}
+--- !u!1 &960723540 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1711179377090480, guid: d01abbe04e49f9248b352bf2697b7463,
+    type: 2}
+  m_PrefabInternal: {fileID: 385385572}
+--- !u!114 &960723545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 960723540}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87df66c69a4b6bd419beb87ae5f075cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1066791188 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114826386228282178, guid: d01abbe04e49f9248b352bf2697b7463,
     type: 2}
   m_PrefabInternal: {fileID: 1786010617}
   m_Script: {fileID: 11500000, guid: 78e729722afd5ef42b92ac9624dde886, type: 3}
+--- !u!1 &1116770491 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1711179377090480, guid: d01abbe04e49f9248b352bf2697b7463,
+    type: 2}
+  m_PrefabInternal: {fileID: 2035253156}
+--- !u!114 &1116770496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1116770491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4a15a8a18c1d4418ca281b7c0fe491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1786010617
 Prefab:
   m_ObjectHideFlags: 0
@@ -450,9 +503,30 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114826386228282178, guid: d01abbe04e49f9248b352bf2697b7463,
+        type: 2}
+      propertyPath: mP
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d01abbe04e49f9248b352bf2697b7463, type: 2}
   m_IsPrefabAsset: 0
+--- !u!1 &1867119284 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1711179377090480, guid: d01abbe04e49f9248b352bf2697b7463,
+    type: 2}
+  m_PrefabInternal: {fileID: 1786010617}
+--- !u!114 &1867119289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1867119284}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb4a15a8a18c1d4418ca281b7c0fe491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1940498788
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,6 +559,7 @@ MonoBehaviour:
   - {fileID: 690769441}
   - {fileID: 1066791188}
   - {fileID: 905757624}
+  PCunits: []
   activeUnit: {fileID: 0}
   gametime: -10
 --- !u!4 &1940498790
@@ -565,6 +640,11 @@ Prefab:
     - target: {fileID: 1711179377090480, guid: d01abbe04e49f9248b352bf2697b7463, type: 2}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114826386228282178, guid: d01abbe04e49f9248b352bf2697b7463,
+        type: 2}
+      propertyPath: mP
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d01abbe04e49f9248b352bf2697b7463, type: 2}

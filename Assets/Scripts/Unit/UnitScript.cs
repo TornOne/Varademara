@@ -46,9 +46,11 @@ public class UnitScript : MonoBehaviour {
     {
         lerp = target.Count;
         path = targetTile;
+        tile.unit = null;
 
         path.Add(tile);
         tile = path[0];
+        tile.unit = this;
     }
 
     private void Update()

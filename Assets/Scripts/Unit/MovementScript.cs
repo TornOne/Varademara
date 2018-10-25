@@ -20,6 +20,8 @@ public class MovementScript : MonoBehaviour {
     private TilePlaceholder gizmos_current_tile;
     private List<TilePlaceholder> gizmos_possible_tiles;
 
+    public static TileMapPlaceholder tileMap;
+
     //---PLACEHOLDERS
     //map tile placeholder
     public class TileMapPlaceholder
@@ -58,8 +60,9 @@ public class MovementScript : MonoBehaviour {
     {
         public int x;
         public int y;
-        public int difficulty;
+        public int difficulty = 1;
         public List<TilePlaceholder> neighbours;
+        public UnitScript unit;
 
         public TilePlaceholder(int X, int Y)
         {
@@ -70,6 +73,12 @@ public class MovementScript : MonoBehaviour {
         public Vector3 Position()
         {
             return new Vector3(x,y,0);
+        }
+
+        public float DistanceTo(TilePlaceholder target)
+        {
+            if (target.unit != null) return float.PositiveInfinity;
+            return difficulty;
         }
 
     }
@@ -94,15 +103,17 @@ public class MovementScript : MonoBehaviour {
         //TODO: tilemap tile weight? distance measure?
         public float DistanceTo(Node n)
         {
-            return 1;
+            if (tileMap == null) return 1;
+            return tileMap.tiles[x, y].DistanceTo(tileMap.tiles[n.x, n.y]);
         }
     }
 
 
     //run at init once BuildPathGraph(TileMapPlaceholder tileMap);
     //build graph from map tiles
-    public static void BuildPathGraph(TileMapPlaceholder tileMap) //hex column zig-zag
+    public static void BuildPathGraph(TileMapPlaceholder tileMapIn) //hex column zig-zag
     {
+        tileMap = tileMapIn;
         //initialize graph nodes
         graph = new Node[tileMap.xSize, tileMap.ySize];
         for (int x = 0; x < tileMap.xSize; x++){
@@ -121,7 +132,7 @@ public class MovementScript : MonoBehaviour {
     }
 
     //Calculates movement distances from current location and resturns all possible target tiles
-    public List<TilePlaceholder> CalculateMovement(TileMapPlaceholder tileMap, TilePlaceholder currentTile, int moveDist)
+    public List<TilePlaceholder> CalculateMovement(TilePlaceholder currentTile, int moveDist)
     {
         Dijkstra(graph, currentTile.x, currentTile.y, moveDist);
 
@@ -129,6 +140,7 @@ public class MovementScript : MonoBehaviour {
         foreach (Node node in graph)
         {
             if (dist[node] <= moveDist) possible_tiles.Add(tileMap.tiles[node.x, node.y]);
+            print(dist[node]);
         }
 
         gizmos_possible_tiles = possible_tiles;
@@ -138,7 +150,7 @@ public class MovementScript : MonoBehaviour {
     }
 
     //Find tile based path to target location
-    public List<TilePlaceholder> FindPathTo(TileMapPlaceholder tileMap, TilePlaceholder targetTile)
+    public List<TilePlaceholder> FindPathTo(TilePlaceholder targetTile)
     {
         Node targetNode = graph[targetTile.x, targetTile.y];
         //Debug.Log(targetNode);
@@ -237,7 +249,7 @@ public class MovementScript : MonoBehaviour {
     {
         if (gizmos_possible_tiles == null) return;
         if (gizmos_current_tile == null) return;
-        Gizmos.color = Color.blue;
+        Gizmos.color = new Color(0, 0, 1, 0.1f);
         foreach (TilePlaceholder tile in gizmos_possible_tiles) Gizmos.DrawLine(gizmos_current_tile.Position(), tile.Position());
     }
 
