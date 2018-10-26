@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TurnScript : MonoBehaviour {
 
-    public List<UnitScript> units;
-    public List<UnitScript> PCunits;
-    public UnitScript activeUnit;
+    public List<Unit> units;
+    public List<Unit> PCunits;
+    public Unit activeUnit;
     public float gametime;
     private bool turnPassover = true;
 
@@ -17,7 +17,7 @@ public class TurnScript : MonoBehaviour {
     {
         units.RemoveAt(0);
 
-        foreach (UnitScript u in units) u.idle++;
+        foreach (Unit u in units) u.idle++;
 
         AddUnitOrdered(activeUnit);
 
@@ -25,7 +25,7 @@ public class TurnScript : MonoBehaviour {
     }
 
     // Add unit to turn order based on its idle time and initiative
-    private void AddUnitOrdered(UnitScript unit)
+    private void AddUnitOrdered(Unit unit)
     {
         unit.idle = 1;
         int turnWeight = unit.TurnWeight();
@@ -54,9 +54,9 @@ public class TurnScript : MonoBehaviour {
         MovementScript.BuildPathGraph(tilemap);
 
 
-        List<UnitScript> temporary = new List<UnitScript>(units);
+        List<Unit> temporary = new List<Unit>(units);
         units.Clear();
-        foreach (UnitScript unit in temporary) {
+        foreach (Unit unit in temporary) {
             AddUnitOrdered(unit);
             unit.tile = tilemap.tiles[(int)unit.transform.position.x, (int)unit.transform.position.y];
             tilemap.tiles[(int)unit.transform.position.x, (int)unit.transform.position.y].unit = unit;

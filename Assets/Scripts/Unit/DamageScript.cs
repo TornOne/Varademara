@@ -8,7 +8,7 @@ public class DamageScript : MonoBehaviour {
     //  Physical damage + Physical defence
     //  Magical damage + Magical defence
     //  True damage
-	public int DamageCalc(int physDmg, int magiDmg, int trueDmg, UnitScript target)
+	public int DamageCalc(int physDmg, int magiDmg, int trueDmg, Unit target)
     {
         int pDmg = physDmg - target.pDef;
         int mDmg = magiDmg - target.mDef;
@@ -16,7 +16,7 @@ public class DamageScript : MonoBehaviour {
     }
 
     // Deal damage to target unit
-    public void Damage(int physDmg, int magiDmg, int trueDmg, UnitScript target)
+    public void Damage(int physDmg, int magiDmg, int trueDmg, Unit target)
     {
         target.Damage(DamageCalc(physDmg, magiDmg, trueDmg, target));
     }

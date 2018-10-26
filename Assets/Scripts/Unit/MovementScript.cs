@@ -62,7 +62,7 @@ public class MovementScript : MonoBehaviour {
         public int y;
         public int difficulty = 1;
         public List<TilePlaceholder> neighbours;
-        public UnitScript unit;
+        public Unit unit;
 
         public TilePlaceholder(int X, int Y)
         {
@@ -163,7 +163,7 @@ public class MovementScript : MonoBehaviour {
     }
 
     //Move unit to location
-    public void MoveToTile(List<TilePlaceholder> travelPath, UnitScript unit)
+    public void MoveToTile(List<TilePlaceholder> travelPath, Unit unit)
     {
         unit.Move(travelPath);
     }

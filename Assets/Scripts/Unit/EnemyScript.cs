@@ -5,10 +5,10 @@ using UnityEngine;
 public class EnemyScript : MonoBehaviour {
 
 
-    private UnitScript unit;
+    private Unit unit;
 	// Use this for initialization
 	void Start () {
-        unit = gameObject.transform.GetComponent<UnitScript>();
+        unit = gameObject.transform.GetComponent<Unit>();
     }
 
     //main enemy turn handler
@@ -21,14 +21,14 @@ public class EnemyScript : MonoBehaviour {
     //move enemy towareds the closest player character
     private void AIMove()
     {
-        List<MovementScript.TilePlaceholder> possible_tiles = unit.move_calc.CalculateMovement(unit.tile, unit.mP);
+        List<MovementScript.TilePlaceholder> possible_tiles = unit.move_calc.CalculateMovement(unit.tile, unit.speed);
 
 
-        UnitScript targetAlly = null;
+        Unit targetAlly = null;
         float targetDistance = float.PositiveInfinity;
 
         //find closest player character
-        foreach (UnitScript ally in TurnScript.instance.PCunits)
+        foreach (Unit ally in TurnScript.instance.PCunits)
         {
             if (Vector3.Distance(unit.tile.Position(), ally.tile.Position()) < targetDistance)
             {
@@ -62,8 +62,8 @@ public class EnemyScript : MonoBehaviour {
     private void AIPlayCard()
     {
         //find closest player character
-        UnitScript targetAlly = null;
-        foreach (UnitScript ally in TurnScript.instance.PCunits)
+        Unit targetAlly = null;
+        foreach (Unit ally in TurnScript.instance.PCunits)
         {
             //if they are close enough, attack
             print(Vector3.Distance(unit.tile.Position(), ally.tile.Position()));

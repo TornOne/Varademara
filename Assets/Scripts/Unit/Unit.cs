@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitScript : MonoBehaviour {
+public class Unit : MonoBehaviour {
 
-    public int hP;  //health points
-    public int aP;  //action points
-    public int mP;  //movement points
+    public int hp;  //health points
+    public int ap;  //action points
+    public int speed;  //movement points
 
     public int pDef;    //physical resistance
     public int mDef;    //magical resistance
@@ -42,8 +42,8 @@ public class UnitScript : MonoBehaviour {
     // Deal damage to this unit
     public void Damage(int dmg)
     {
-        hP -= dmg;
-        if (hP <= 0) Destroy(gameObject);
+        hp -= dmg;
+        if (hp <= 0) Destroy(gameObject);
     }
 
     public void Move(List<MovementScript.TilePlaceholder> targetTile)
