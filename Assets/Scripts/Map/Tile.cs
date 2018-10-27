@@ -18,7 +18,9 @@ public class Tile : MonoBehaviour {
 	}
 
 	public int DistanceTo(Tile other) {
-		return Map.map.Distance(x, y, other.x, other.y);
-	}
-	
+        if (other.isOccupied) return int.MaxValue;
+        return Map.map.Distance(x, y, other.x, other.y);
+        //return Map.map.Distance((int)transform.position.x, (int)transform.position.y, (int)other.transform.position.x, (int)other.transform.position.y);
+    }
+
 }

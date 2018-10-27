@@ -160,7 +160,7 @@ public class MovementScript : MonoBehaviour {
     public List<Tile> FindPathTo(Tile targetTile)
     {
         Node targetNode = graph[targetTile.x, targetTile.y];
-        Debug.Log(new Vector2(targetNode.x, targetNode.y));
+        //Debug.Log(new Vector2(targetNode.x, targetNode.y));
         List<Node> path = NodePathfind(targetNode);
         //print(path.Count);
         List<Tile> tilePath = new List<Tile>();
@@ -181,9 +181,10 @@ public class MovementScript : MonoBehaviour {
     private List<Node> NodePathfind(Node targetNode)
     {
         List<Node> path = new List<Node>();
+        path.Add(targetNode);
         while (true){
             targetNode = prev[targetNode];
-            if (targetNode == null) break;
+            if (targetNode == prev[targetNode]) break;
             path.Add(targetNode);
         }
         return path;
@@ -206,7 +207,7 @@ public class MovementScript : MonoBehaviour {
         //starting node
         Node source = graph[x, y];
         dist[source] = 0;
-        prev[source] = null;
+        prev[source] = source;
 
         //initialize infinity distance for each node
         foreach (Node vertex in graph){
@@ -232,7 +233,8 @@ public class MovementScript : MonoBehaviour {
                 float alt = dist[u] + u.DistanceTo(vertex);
                 if (alt < dist[vertex]) {
                     dist[vertex] = alt;
-                    prev[vertex] = u;
+
+                    if (alt <= moveDist) prev[vertex] = u;
 
                     Q.Remove(vertex);
                     for (int i = 0; i < Q.Count; i++) {

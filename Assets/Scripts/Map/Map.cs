@@ -11,6 +11,8 @@ public class Map : MonoBehaviour {
 	public Tile tile;
 	public Tile[][] tiles;
 
+    public Transform debugObject;
+
 	public Tile GetTile(int x, int y) {
 		return tiles[y][x];
 	}
@@ -32,8 +34,20 @@ public class Map : MonoBehaviour {
 		int row = Mathf.RoundToInt(2 * y3);
 		col += row / 2;
 
-		//Debug.Log("Column " + col + "; Row " + row);
-	}
+        debugObject.position = tiles[row][col].transform.position;
+        //Debug.Log("Column " + col + "; Row " + row);
+    }
+
+    public Tile GetMouseTile()
+    {
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        Vector3 cursorPos = ray.origin + -ray.origin.y / ray.direction.y * ray.direction;
+        float y3 = cursorPos.z * 0.57735f;
+        int col = Mathf.RoundToInt(cursorPos.x - y3);
+        int row = Mathf.RoundToInt(2 * y3);
+        col += row / 2;
+        return tiles[row][col];
+    }
 
 	public int Distance(int x1, int y1, int x2, int y2) {
 		int dy = Mathf.Abs(y2 - y1);

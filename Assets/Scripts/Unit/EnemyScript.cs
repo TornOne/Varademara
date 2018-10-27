@@ -37,12 +37,21 @@ public class EnemyScript : MonoBehaviour {
             }
         }
 
+        //print("Target position: "+new Vector2(targetAlly.tile.x, targetAlly.tile.y));
+
         //among the tiles that can move to, find the closest to the target player character
         Tile targetTile = null;
         targetDistance = float.PositiveInfinity;
-
+        //int targetDistance2 = int.MaxValue;
         foreach (Tile tile in possible_tiles)
         {
+            //print("Tile[x,y,dist]: " + new Vector3(tile.x, tile.y, targetAlly.tile.DistanceTo(tile)));
+            /*if (targetAlly.tile.DistanceTo(tile) < targetDistance2)
+            {
+                targetDistance2 = targetAlly.tile.DistanceTo(tile);
+                //print("Best chosen");
+                targetTile = tile;
+            }*/
             if (Vector3.Distance(tile.transform.position, targetAlly.tile.transform.position) < targetDistance)
             {
                 targetDistance = Vector3.Distance(tile.transform.position, targetAlly.tile.transform.position);
@@ -50,6 +59,8 @@ public class EnemyScript : MonoBehaviour {
                 targetTile = tile;
             }
         }
+
+        if (targetTile == null) return;
 
         //move to tile
         List<Tile> path = unit.move_calc.FindPathTo(targetTile);
