@@ -41,14 +41,14 @@ public class TurnScript : MonoBehaviour {
     }
 
     //TODO: init actual tilemap
-    public MovementScript.TileMapPlaceholder tilemap;
+    public Map tilemap;
 
     // Initialize turn order and find the current active unit
     void Start () {
         instance = this;
 
         // Turn order and movement testing
-        tilemap = new MovementScript.TileMapPlaceholder(20,20);
+        //tilemap = new Map(20,20);
 
         //built tile graph
         MovementScript.BuildPathGraph(tilemap);
@@ -58,8 +58,8 @@ public class TurnScript : MonoBehaviour {
         units.Clear();
         foreach (Unit unit in temporary) {
             AddUnitOrdered(unit);
-            unit.tile = tilemap.tiles[(int)unit.transform.position.x, (int)unit.transform.position.y];
-            tilemap.tiles[(int)unit.transform.position.x, (int)unit.transform.position.y].unit = unit;
+            unit.tile = tilemap.tiles[(int)unit.transform.position.y][ (int)unit.transform.position.x];
+            tilemap.tiles[(int)unit.transform.position.y][ (int)unit.transform.position.x].unit = unit;
             //add all non AI controlled units to a player list, this will be the target for enemy units
             if (unit.GetComponent<EnemyScript>() == null) PCunits.Add(unit);
         }

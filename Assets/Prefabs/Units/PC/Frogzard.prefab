@@ -36,13 +36,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1711179377090480}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.2588191, y: 0, z: 0, w: 0.9659258}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
 --- !u!114 &114247649365136276
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -76,9 +76,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e729722afd5ef42b92ac9624dde886, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hP: 10
-  aP: 3
-  mP: 5
+  hp: 0
+  ap: 0
+  speed: 0
   pDef: 3
   mDef: 0
   initiative: 5
@@ -87,6 +87,8 @@ MonoBehaviour:
   move_calc: {fileID: 114247649365136276}
   moveAnimationSpeed: 3
   attackLerp: 0
+  tile: {fileID: 0}
+  path: []
 --- !u!212 &212275198415459222
 SpriteRenderer:
   m_ObjectHideFlags: 1

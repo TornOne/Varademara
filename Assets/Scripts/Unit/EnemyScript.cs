@@ -15,13 +15,13 @@ public class EnemyScript : MonoBehaviour {
     public void AITurn()
     {
         AIMove();
-        AIPlayCard();
+        //AIPlayCard();
     }
 
     //move enemy towareds the closest player character
     private void AIMove()
     {
-        List<MovementScript.TilePlaceholder> possible_tiles = unit.move_calc.CalculateMovement(unit.tile, unit.speed);
+        List<Tile> possible_tiles = unit.move_calc.CalculateMovement(unit.tile, unit.speed);
 
 
         Unit targetAlly = null;
@@ -30,29 +30,29 @@ public class EnemyScript : MonoBehaviour {
         //find closest player character
         foreach (Unit ally in TurnScript.instance.PCunits)
         {
-            if (Vector3.Distance(unit.tile.Position(), ally.tile.Position()) < targetDistance)
+            if (Vector3.Distance(unit.tile.transform.position, ally.tile.transform.position) < targetDistance)
             {
-                targetDistance = Vector3.Distance(unit.tile.Position(), ally.transform.position);
+                targetDistance = Vector3.Distance(unit.tile.transform.position, ally.transform.position);
                 targetAlly = ally;
             }
         }
 
         //among the tiles that can move to, find the closest to the target player character
-        MovementScript.TilePlaceholder targetTile = null;
+        Tile targetTile = null;
         targetDistance = float.PositiveInfinity;
 
-        foreach (MovementScript.TilePlaceholder tile in possible_tiles)
+        foreach (Tile tile in possible_tiles)
         {
-            if (Vector3.Distance(tile.Position(), targetAlly.tile.Position()) < targetDistance)
+            if (Vector3.Distance(tile.transform.position, targetAlly.tile.transform.position) < targetDistance)
             {
-                targetDistance = Vector3.Distance(tile.Position(), targetAlly.tile.Position());
+                targetDistance = Vector3.Distance(tile.transform.position, targetAlly.tile.transform.position);
                 //print(targetDistance);
                 targetTile = tile;
             }
         }
 
         //move to tile
-        List<MovementScript.TilePlaceholder> path = unit.move_calc.FindPathTo(targetTile);
+        List<Tile> path = unit.move_calc.FindPathTo(targetTile);
 
 
         unit.move_calc.MoveToTile(path, unit);
@@ -66,8 +66,8 @@ public class EnemyScript : MonoBehaviour {
         foreach (Unit ally in TurnScript.instance.PCunits)
         {
             //if they are close enough, attack
-            print(Vector3.Distance(unit.tile.Position(), ally.tile.Position()));
-            if (Vector3.Distance(unit.tile.Position(), ally.tile.Position()) <= 2)
+            print(Vector3.Distance(unit.tile.transform.position, ally.tile.transform.position));
+            if (Vector3.Distance(unit.tile.transform.position, ally.tile.transform.position) <= 2)
             {
                 targetAlly = ally;
                 unit.attackLerp = 1;

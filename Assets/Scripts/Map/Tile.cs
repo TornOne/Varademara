@@ -8,7 +8,7 @@ public class Tile : MonoBehaviour {
 	public bool isWall = false;
 	public bool isImpassable = false;
 	public Unit unit;
-	public List<Tile> neighbors;
+	public List<Tile> neighbours;
 	//public List<StatusEffect> effects;
 
 	public bool isOccupied {

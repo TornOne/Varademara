@@ -28,8 +28,8 @@ public class Unit : MonoBehaviour {
     private float moveLerp;
     public float attackLerp;
 
-    public MovementScript.TilePlaceholder tile;
-    public List<MovementScript.TilePlaceholder> path;
+    public Tile tile;
+    public List<Tile> path;
 
     
 
@@ -46,7 +46,7 @@ public class Unit : MonoBehaviour {
         if (hp <= 0) Destroy(gameObject);
     }
 
-    public void Move(List<MovementScript.TilePlaceholder> targetTile)
+    public void Move(List<Tile> targetTile)
     {
         moveLerp = targetTile.Count;
         path = targetTile;
@@ -64,7 +64,7 @@ public class Unit : MonoBehaviour {
         if (moveLerp > 0)
         {
             moveLerp -= Time.deltaTime * moveAnimationSpeed;
-            transform.position = Vector3.Lerp(path[(int)moveLerp + 1].Position(), path[(int)moveLerp].Position(), Mathf.Min((1f - moveLerp % 1) * 1.5f, 1f));
+            transform.position = Vector3.Lerp(path[(int)moveLerp + 1].transform.position, path[(int)moveLerp].transform.position, Mathf.Min((1f - moveLerp % 1) * 1.5f, 1f));
         //} else if (attackLerp > 0){
         //    attackLerp -= Time.deltaTime * moveAnimationSpeed;
 
@@ -82,7 +82,7 @@ public class Unit : MonoBehaviour {
         Gizmos.color = Color.yellow;
         for (int i = 1; i < path.Count; i++)
         {
-            Gizmos.DrawLine(path[i-1].Position(), path[i].Position());
+            Gizmos.DrawLine(path[i-1].transform.position, path[i].transform.position);
         }
     }
 

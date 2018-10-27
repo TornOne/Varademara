@@ -17,11 +17,12 @@ public class MovementScript : MonoBehaviour {
     //---DIJKSTRA
 
 
-    private TilePlaceholder gizmos_current_tile;
-    private List<TilePlaceholder> gizmos_possible_tiles;
+    private Tile gizmos_current_tile;
+    private List<Tile> gizmos_possible_tiles;
 
-    public static TileMapPlaceholder tileMap;
+    public static Map tileMap;
 
+    /*
     //---PLACEHOLDERS
     //map tile placeholder
     public class TileMapPlaceholder
@@ -81,7 +82,7 @@ public class MovementScript : MonoBehaviour {
             return difficulty;
         }
 
-    }
+    }*/
     //---PLACEHOLDERS
 
 
@@ -104,42 +105,49 @@ public class MovementScript : MonoBehaviour {
         public float DistanceTo(Node n)
         {
             if (tileMap == null) return 1;
-            return tileMap.tiles[x, y].DistanceTo(tileMap.tiles[n.x, n.y]);
+
+            //TODO: bad assumption here
+            if (tileMap.tiles[n.y].Length <= n.x) return float.MaxValue;
+
+            return tileMap.tiles[y][x].DistanceTo(tileMap.tiles[n.y][n.x]);
         }
     }
 
 
     //run at init once BuildPathGraph(TileMapPlaceholder tileMap);
     //build graph from map tiles
-    public static void BuildPathGraph(TileMapPlaceholder tileMapIn) //hex column zig-zag
+    public static void BuildPathGraph(Map tileMapIn) //hex column zig-zag
     {
         tileMap = tileMapIn;
         //initialize graph nodes
-        graph = new Node[tileMap.xSize, tileMap.ySize];
-        for (int x = 0; x < tileMap.xSize; x++){
-            for (int y = 0; y < tileMap.ySize; y++){
+        graph = new Node[tileMap.width, tileMap.height];
+        for (int x = 0; x < tileMap.width; x++){
+            for (int y = 0; y < tileMap.height; y++){
                 graph[x, y] = new Node(x, y);
             }
         }
 
         //initialize graph relations
-        foreach (TilePlaceholder tile in tileMap.tiles)
+        foreach (Tile[] row in tileMap.tiles)
         {
-            List<Node> node_neighbours = new List<Node>();
-            foreach (TilePlaceholder neightbour in tile.neighbours) node_neighbours.Add(graph[neightbour.x, neightbour.y]);
-            graph[tile.x, tile.y].neighbours = node_neighbours;
+            foreach (Tile tile in row)
+            {
+                List<Node> node_neighbours = new List<Node>();
+                foreach (Tile neightbour in tile.neighbours) node_neighbours.Add(graph[neightbour.x, neightbour.y]);
+                graph[tile.x, tile.y].neighbours = node_neighbours;
+            }
         }
     }
 
     //Calculates movement distances from current location and resturns all possible target tiles
-    public List<TilePlaceholder> CalculateMovement(TilePlaceholder currentTile, int moveDist)
+    public List<Tile> CalculateMovement(Tile currentTile, int moveDist)
     {
         Dijkstra(graph, currentTile.x, currentTile.y, moveDist);
 
-        List<TilePlaceholder> possible_tiles = new List<TilePlaceholder>();
+        List<Tile> possible_tiles = new List<Tile>();
         foreach (Node node in graph)
         {
-            if (dist[node] <= moveDist) possible_tiles.Add(tileMap.tiles[node.x, node.y]);
+            if (dist[node] <= moveDist) possible_tiles.Add(tileMap.tiles[node.y][node.x]);
         }
 
         gizmos_possible_tiles = possible_tiles;
@@ -149,21 +157,22 @@ public class MovementScript : MonoBehaviour {
     }
 
     //Find tile based path to target location
-    public List<TilePlaceholder> FindPathTo(TilePlaceholder targetTile)
+    public List<Tile> FindPathTo(Tile targetTile)
     {
         Node targetNode = graph[targetTile.x, targetTile.y];
-        //Debug.Log(targetNode);
+        Debug.Log(new Vector2(targetNode.x, targetNode.y));
         List<Node> path = NodePathfind(targetNode);
-        List<TilePlaceholder> tilePath = new List<TilePlaceholder>();
+        //print(path.Count);
+        List<Tile> tilePath = new List<Tile>();
         foreach (Node node in path){
-            tilePath.Add(tileMap.tiles[node.x,node.y]);
+            tilePath.Add(tileMap.tiles[node.y][node.x]);
         }
         //tilePath.Reverse();
         return tilePath;
     }
 
     //Move unit to location
-    public void MoveToTile(List<TilePlaceholder> travelPath, Unit unit)
+    public void MoveToTile(List<Tile> travelPath, Unit unit)
     {
         unit.Move(travelPath);
     }
@@ -243,7 +252,7 @@ public class MovementScript : MonoBehaviour {
         if (gizmos_possible_tiles == null) return;
         if (gizmos_current_tile == null) return;
         Gizmos.color = new Color(0, 0, 1, 0.1f);
-        foreach (TilePlaceholder tile in gizmos_possible_tiles) Gizmos.DrawLine(gizmos_current_tile.Position(), tile.Position());
+        foreach (Tile tile in gizmos_possible_tiles) Gizmos.DrawLine(gizmos_current_tile.transform.position, tile.transform.position);
     }
 
 
