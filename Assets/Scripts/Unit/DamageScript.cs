@@ -18,6 +18,6 @@ public class DamageScript : MonoBehaviour {
     // Deal damage to target unit
     public void Damage(int physDmg, int magiDmg, int trueDmg, Unit target)
     {
-        target.Damage(DamageCalc(physDmg, magiDmg, trueDmg, target));
+        //target.Damage(DamageCalc(physDmg, magiDmg, trueDmg, target));
     }
 }

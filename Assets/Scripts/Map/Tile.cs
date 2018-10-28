@@ -6,21 +6,26 @@ public class Tile : MonoBehaviour {
 	public int x, y;
 	public int difficulty = 1;
 	public bool isWall = false;
-	public bool isImpassable = false;
+	public bool isHole = false;
 	public Unit unit;
-	public List<Tile> neighbours;
+	public List<Tile> neighbors;
 	//public List<StatusEffect> effects;
 
-	public bool isOccupied {
+	public bool isWalkable {
 		get {
-			return isWall || isImpassable || unit != null;
+			return !(isWall || isHole || unit != null);
+		}
+	}
+
+	public bool isFlyable {
+		get {
+			return !isWall && unit == null;
 		}
 	}
 
 	public int DistanceTo(Tile other) {
-        if (other.isOccupied) return int.MaxValue;
-        return Map.map.Distance(x, y, other.x, other.y);
-        //return Map.map.Distance((int)transform.position.x, (int)transform.position.y, (int)other.transform.position.x, (int)other.transform.position.y);
-    }
+		if (other.isWalkable) return int.MaxValue; //Remove please
+		return Map.map.Distance(x, y, other.x, other.y);
+	}
 
 }

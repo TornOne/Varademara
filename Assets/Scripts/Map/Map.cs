@@ -11,10 +11,13 @@ public class Map : MonoBehaviour {
 	public Tile tile;
 	public Tile[][] tiles;
 
-    public Transform debugObject;
-
 	public Tile GetTile(int x, int y) {
-		return tiles[y][x];
+		int w1 = width - 1;
+		if (y < height && y >= 0 && x >= 0 && (x < w1 || x == w1 && y % 2 == 0)) {
+			return tiles[y][x];
+		} else {
+			return null;
+		}
 	}
 
 	void Awake() {
@@ -26,34 +29,18 @@ public class Map : MonoBehaviour {
 		cam = Camera.main;
 	}
 
-	void Update() {
+	public Tile GetMouseTile() {
 		Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 		Vector3 cursorPos = ray.origin + -ray.origin.y / ray.direction.y * ray.direction;
 		float y3 = cursorPos.z * 0.57735f;
-		int col = Mathf.RoundToInt(cursorPos.x - y3);
 		int row = Mathf.RoundToInt(2 * y3);
-		col += row / 2;
-
-        debugObject.position = tiles[row][col].transform.position;
-        //Debug.Log("Column " + col + "; Row " + row);
-    }
-
-    public Tile GetMouseTile()
-    {
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
-        Vector3 cursorPos = ray.origin + -ray.origin.y / ray.direction.y * ray.direction;
-        float y3 = cursorPos.z * 0.57735f;
-        int col = Mathf.RoundToInt(cursorPos.x - y3);
-        int row = Mathf.RoundToInt(2 * y3);
-        col += row / 2;
-        return tiles[row][col];
-    }
+		int col = Mathf.RoundToInt(cursorPos.x - y3) + row / 2;
+		return GetTile(col, row);
+	}
 
 	public int Distance(int x1, int y1, int x2, int y2) {
 		int dy = Mathf.Abs(y2 - y1);
-        //return Mathf.Max(dy, Mathf.Abs(x2 - x1) + dy / 2 + ((y1 ^ y2) & (y1 ^ (x1 < x2 ? 1 : 0)) ^ 1));
-
-        return (int)Mathf.Pow(Mathf.Pow(x1 - x2,  2f) + Mathf.Pow(y1 - y2, 2f), 0.5f);
+		return Mathf.Max(dy, Mathf.Abs(x2 - x1) + dy / 2 + ((y1 ^ y2) & (y1 ^ (x1 < x2 ? 1 : 0)) & 1));
 	}
 
 	void GenerateMap() {
@@ -74,19 +61,19 @@ public class Map : MonoBehaviour {
 					Tile t2;
 					if (w != 0) { //Add left and right
 						t2 = row[w - 1];
-						t.neighbours.Add(t2);
-						t2.neighbours.Add(t);
+						t.neighbors.Add(t2);
+						t2.neighbors.Add(t);
 					}
 					if (h != 0) { //Add bottom and top...
 						if (w != 0) { //...left and right
 							t2 = tiles[h - 1][w - 1];
-							t.neighbours.Add(t2);
-							t2.neighbours.Add(t);
+							t.neighbors.Add(t2);
+							t2.neighbors.Add(t);
 						}
 						if (w != width - 1) { //...right and left
 							t2 = tiles[h - 1][w];
-							t.neighbours.Add(t2);
-							t2.neighbours.Add(t);
+							t.neighbors.Add(t2);
+							t2.neighbors.Add(t);
 						}
 					}
 					#endregion
@@ -106,15 +93,15 @@ public class Map : MonoBehaviour {
 					Tile t2;
 					if (w != 0) { //Add left and right
 						t2 = row[w - 1];
-						t.neighbours.Add(t2);
-						t2.neighbours.Add(t);
+						t.neighbors.Add(t2);
+						t2.neighbors.Add(t);
 					}
 					t2 = tiles[h - 1][w]; //Add bottom left and top right
-					t.neighbours.Add(t2); 
-					t2.neighbours.Add(t);
+					t.neighbors.Add(t2); 
+					t2.neighbors.Add(t);
 					t2 = tiles[h - 1][w + 1];
-					t.neighbours.Add(t2); //Add bottom right and top left
-					t2.neighbours.Add(t);
+					t.neighbors.Add(t2); //Add bottom right and top left
+					t2.neighbors.Add(t);
 					#endregion
 
 					row[w] = t;

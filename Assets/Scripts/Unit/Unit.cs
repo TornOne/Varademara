@@ -31,8 +31,35 @@ public class Unit : MonoBehaviour {
     public Tile tile;
     public List<Tile> path;
 
-    
 
+
+	public void Activate() {
+		
+	}
+
+	//TODO: Replace with Tile List (walk through all)
+	public void MoveTo(Tile targetTile) {
+		StartCoroutine(LerpMove(tile.transform.position, targetTile.transform.position, 1));
+		tile = targetTile;
+	}
+
+	IEnumerator LerpMove(Vector3 origin, Vector3 target, float duration) {
+		float startTime = Time.time;
+		float currentTime = startTime;
+		float endTime = startTime + duration;
+
+		while (currentTime < endTime) {
+			yield return null;
+			currentTime = Time.time;
+			transform.position = Vector3.Lerp(origin, target, currentTime - startTime);
+		}
+	}
+
+
+
+
+
+	/*
     // Calculate unit turn weight for turn order
     public int TurnWeight()
     {
@@ -85,5 +112,6 @@ public class Unit : MonoBehaviour {
             Gizmos.DrawLine(path[i-1].transform.position, path[i].transform.position);
         }
     }
+	*/
 
 }

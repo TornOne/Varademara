@@ -28,14 +28,14 @@ public class EnemyScript : MonoBehaviour {
         float targetDistance = float.PositiveInfinity;
 
         //find closest player character
-        foreach (Unit ally in TurnScript.instance.PCunits)
+        /*foreach (Unit ally in TurnScript.instance.PCunits)
         {
             if (Vector3.Distance(unit.tile.transform.position, ally.tile.transform.position) < targetDistance)
             {
                 targetDistance = Vector3.Distance(unit.tile.transform.position, ally.transform.position);
                 targetAlly = ally;
             }
-        }
+        }*/
 
         //print("Target position: "+new Vector2(targetAlly.tile.x, targetAlly.tile.y));
 
@@ -74,7 +74,7 @@ public class EnemyScript : MonoBehaviour {
     {
         //find closest player character
         Unit targetAlly = null;
-        foreach (Unit ally in TurnScript.instance.PCunits)
+        /*foreach (Unit ally in TurnScript.instance.PCunits)
         {
             //if they are close enough, attack
             print(Vector3.Distance(unit.tile.transform.position, ally.tile.transform.position));
@@ -85,6 +85,6 @@ public class EnemyScript : MonoBehaviour {
                 unit.attack_calc.Damage(2, 2, 0, ally);
                 break;
             }
-        }
+        }*/
     }
 }

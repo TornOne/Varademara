@@ -133,7 +133,7 @@ public class MovementScript : MonoBehaviour {
             foreach (Tile tile in row)
             {
                 List<Node> node_neighbours = new List<Node>();
-                foreach (Tile neightbour in tile.neighbours) node_neighbours.Add(graph[neightbour.x, neightbour.y]);
+                foreach (Tile neightbour in tile.neighbors) node_neighbours.Add(graph[neightbour.x, neightbour.y]);
                 graph[tile.x, tile.y].neighbours = node_neighbours;
             }
         }
@@ -174,7 +174,7 @@ public class MovementScript : MonoBehaviour {
     //Move unit to location
     public void MoveToTile(List<Tile> travelPath, Unit unit)
     {
-        unit.Move(travelPath);
+        //unit.Move(travelPath);
     }
 
     //traverse through dijkstra tree to target location
