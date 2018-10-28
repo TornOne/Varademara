@@ -21,7 +21,8 @@ public class TurnManager : MonoBehaviour {
 
 	void Start() {
 		StartCoroutine(DelayedStart(15));
-	}
+        MovementScript.BuildPathGraph();
+    }
 
 	IEnumerator DelayedStart(int frames) {
 		for (int i = 0; i < frames; i++) {
@@ -120,8 +121,8 @@ public class TurnManager : MonoBehaviour {
 			turnPassover = false;
 			/*List<MovementScript.TilePlaceholder> possible_tiles = activeUnit.move_calc.CalculateMovement(tilemap, activeUnit.tile, activeUnit.mP);
 			List<MovementScript.TilePlaceholder> path = activeUnit.move_calc.FindPathTo(tilemap, possible_tiles[Random.Range(0, possible_tiles.Count)]);
-			activeUnit.move_calc.MoveToTile(path, activeUnit);
-
+			activeUnit.move_calc.MoveToTile(path, activeUnit);*/
+            /*
 			if (activeUnit_.GetComponent<EnemyScript>() != null)
 				activeUnit_.GetComponent<EnemyScript>().AITurn();
 			else

@@ -18,9 +18,9 @@ public class MovementScript : MonoBehaviour {
 
 
     private Tile gizmos_current_tile;
-    private List<Tile> gizmos_possible_tiles;
+    public List<Tile> gizmos_possible_tiles;
 
-    public static Map tileMap;
+    //public static Map tileMap;
 
     /*
     //---PLACEHOLDERS
@@ -104,31 +104,31 @@ public class MovementScript : MonoBehaviour {
         //TODO: tilemap tile weight? distance measure?
         public float DistanceTo(Node n)
         {
-            if (tileMap == null) return 1;
+            if (Map.map == null) return 1;
 
             //TODO: bad assumption here
-            if (tileMap.tiles[n.y].Length <= n.x) return float.MaxValue;
+            if (Map.map.tiles[n.y].Length <= n.x) return float.MaxValue;
 
-            return tileMap.tiles[y][x].DistanceTo(tileMap.tiles[n.y][n.x]);
+            return Map.map.tiles[y][x].DistanceTo(Map.map.tiles[n.y][n.x]);
         }
     }
 
 
     //run at init once BuildPathGraph(TileMapPlaceholder tileMap);
     //build graph from map tiles
-    public static void BuildPathGraph(Map tileMapIn) //hex column zig-zag
+    public static void BuildPathGraph() //hex column zig-zag
     {
-        tileMap = tileMapIn;
+        Map.map = Map.map;
         //initialize graph nodes
-        graph = new Node[tileMap.width, tileMap.height];
-        for (int x = 0; x < tileMap.width; x++){
-            for (int y = 0; y < tileMap.height; y++){
+        graph = new Node[Map.map.width, Map.map.height];
+        for (int x = 0; x < Map.map.width; x++){
+            for (int y = 0; y < Map.map.height; y++){
                 graph[x, y] = new Node(x, y);
             }
         }
 
         //initialize graph relations
-        foreach (Tile[] row in tileMap.tiles)
+        foreach (Tile[] row in Map.map.tiles)
         {
             foreach (Tile tile in row)
             {
@@ -147,7 +147,7 @@ public class MovementScript : MonoBehaviour {
         List<Tile> possible_tiles = new List<Tile>();
         foreach (Node node in graph)
         {
-            if (dist[node] <= moveDist) possible_tiles.Add(tileMap.tiles[node.y][node.x]);
+            if (dist[node] <= moveDist) possible_tiles.Add(Map.map.tiles[node.y][node.x]);
         }
 
         gizmos_possible_tiles = possible_tiles;
@@ -165,7 +165,7 @@ public class MovementScript : MonoBehaviour {
         //print(path.Count);
         List<Tile> tilePath = new List<Tile>();
         foreach (Node node in path){
-            tilePath.Add(tileMap.tiles[node.y][node.x]);
+            tilePath.Add(Map.map.tiles[node.y][node.x]);
         }
         //tilePath.Reverse();
         return tilePath;

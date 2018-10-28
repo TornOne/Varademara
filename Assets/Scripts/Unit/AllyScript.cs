@@ -15,6 +15,7 @@ public class AllyScript : MonoBehaviour {
     //move player randomly
     public void PlayerTurn()
     {
+        print(unit.tile);
         possible_tiles = unit.move_calc.CalculateMovement(unit.tile, unit.speed);
         //print(possible_tiles.Count);
         //List<Tile> path = unit.move_calc.FindPathTo(possible_tiles[Random.Range(0, possible_tiles.Count)]);

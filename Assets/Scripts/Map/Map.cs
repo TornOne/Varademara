@@ -11,7 +11,10 @@ public class Map : MonoBehaviour {
 	public Tile tile;
 	public Tile[][] tiles;
 
-	public Tile GetTile(int x, int y) {
+    public Transform debugCube;
+
+
+    public Tile GetTile(int x, int y) {
 		int w1 = width - 1;
 		if (y < height && y >= 0 && x >= 0 && (x < w1 || x == w1 && y % 2 == 0)) {
 			return tiles[y][x];
@@ -29,6 +32,12 @@ public class Map : MonoBehaviour {
 		cam = Camera.main;
 	}
 
+    void Update()
+    {
+        //print(GetMouseTile());
+        //debugCube.position = GetMouseTile().transform.position;
+    }
+
 	public Tile GetMouseTile() {
 		Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 		Vector3 cursorPos = ray.origin + -ray.origin.y / ray.direction.y * ray.direction;
@@ -41,7 +50,8 @@ public class Map : MonoBehaviour {
 	public int Distance(int x1, int y1, int x2, int y2) {
 		int dy = Mathf.Abs(y2 - y1);
 		return Mathf.Max(dy, Mathf.Abs(x2 - x1) + dy / 2 + ((y1 ^ y2) & (y1 ^ (x1 < x2 ? 1 : 0)) & 1));
-	}
+        //return (int)Mathf.Pow(Mathf.Pow(x1-y1, 2)+ Mathf.Pow(x2-y2, 2), 0.5f);
+    }
 
 	void GenerateMap() {
 		tiles = new Tile[height][];

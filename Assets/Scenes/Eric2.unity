@@ -290,12 +290,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4a15a8a18c1d4418ca281b7c0fe491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &488942899 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114826386228282178, guid: d01abbe04e49f9248b352bf2697b7463,
-    type: 2}
-  m_PrefabInternal: {fileID: 488942894}
-  m_Script: {fileID: 11500000, guid: 78e729722afd5ef42b92ac9624dde886, type: 3}
 --- !u!1 &606533348
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,6 +525,11 @@ Prefab:
       propertyPath: debugObject
       value: 
       objectReference: {fileID: 606533352}
+    - target: {fileID: 114997665647915630, guid: 9c47b1cf9f66fc2448f10af01aa645cd,
+        type: 2}
+      propertyPath: debugCube
+      value: 
+      objectReference: {fileID: 606533352}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c47b1cf9f66fc2448f10af01aa645cd, type: 2}
   m_IsPrefabAsset: 0
@@ -566,7 +565,7 @@ MonoBehaviour:
   width: 10
   height: 10
   tile: {fileID: 114301008849773526, guid: 2824b025c0cb90f4db4b3cbd86d27967, type: 2}
-  debugObject: {fileID: 606533352}
+  debugCube: {fileID: 606533352}
 --- !u!4 &1378338087
 Transform:
   m_ObjectHideFlags: 0
@@ -676,12 +675,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4a15a8a18c1d4418ca281b7c0fe491, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1669570597 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114826386228282178, guid: d01abbe04e49f9248b352bf2697b7463,
-    type: 2}
-  m_PrefabInternal: {fileID: 1669570592}
-  m_Script: {fileID: 11500000, guid: 78e729722afd5ef42b92ac9624dde886, type: 3}
 --- !u!1 &1799947977
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,14 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edb1b3daf2d60144d9d51c6b8c35b1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  units:
-  - {fileID: 2088187763}
-  - {fileID: 488942899}
-  - {fileID: 1669570597}
-  PCunits: []
-  activeUnit: {fileID: 0}
-  gametime: 0
-  tilemap: {fileID: 1378338086}
+  activeUnit: {fileID: 2088187763}
 --- !u!4 &1799947979
 Transform:
   m_ObjectHideFlags: 0
@@ -780,7 +766,7 @@ Prefab:
     - target: {fileID: 114826386228282178, guid: d01abbe04e49f9248b352bf2697b7463,
         type: 2}
       propertyPath: speed
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 114826386228282178, guid: d01abbe04e49f9248b352bf2697b7463,
         type: 2}
@@ -791,6 +777,10 @@ Prefab:
         type: 2}
       propertyPath: ap
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1711179377090480, guid: d01abbe04e49f9248b352bf2697b7463, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d01abbe04e49f9248b352bf2697b7463, type: 2}

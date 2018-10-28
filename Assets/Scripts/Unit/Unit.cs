@@ -23,7 +23,7 @@ public class Unit : MonoBehaviour {
     public float moveAnimationSpeed;
     private bool animationFinished = false;
 
-    private Vector3 Start;
+    //private Vector3 Start_;
     private List<Vector3> End;
     private float moveLerp;
     public float attackLerp;
@@ -34,8 +34,13 @@ public class Unit : MonoBehaviour {
 
 
 	public void Activate() {
-		
-	}
+        if (transform.GetComponent<EnemyScript>() != null)
+            transform.GetComponent<EnemyScript>().AITurn();
+        else
+            transform.GetComponent<AllyScript>().PlayerTurn();
+        print("player Turn");
+        print(move_calc.gizmos_possible_tiles.Count);
+    }
 
 	//TODO: Replace with Tile List (walk through all)
 	public void MoveTo(Tile targetTile) {
@@ -56,10 +61,15 @@ public class Unit : MonoBehaviour {
 	}
 
 
+    void Start()
+    {
+        TurnManager.instance.AddNewUnit(this);
+        tile = Map.map.tiles[(int)transform.position.y][(int)transform.position.x];
+        Map.map.tiles[(int)transform.position.y][(int)transform.position.x].unit = this;
+    }
 
 
-
-	/*
+	
     // Calculate unit turn weight for turn order
     public int TurnWeight()
     {
@@ -85,7 +95,7 @@ public class Unit : MonoBehaviour {
 
         animationFinished = true;
     }
-
+    
     private void Update()
     {
         if (moveLerp > 0)
@@ -96,13 +106,14 @@ public class Unit : MonoBehaviour {
         //    attackLerp -= Time.deltaTime * moveAnimationSpeed;
 
         } else if (animationFinished){
-            
 
-            TurnScript.instance.EndTurn();
+
+            //TurnScript.instance.EndTurn();
+            TurnManager.instance.NextTurn();
             animationFinished = false;
         }
     }
-
+    
     void OnDrawGizmos()
     {
         if (path == null) return;
@@ -112,6 +123,6 @@ public class Unit : MonoBehaviour {
             Gizmos.DrawLine(path[i-1].transform.position, path[i].transform.position);
         }
     }
-	*/
+	
 
 }
