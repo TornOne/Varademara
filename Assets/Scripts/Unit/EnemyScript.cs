@@ -21,7 +21,7 @@ public class EnemyScript : MonoBehaviour {
     //move enemy towareds the closest player character
     private void AIMove()
     {
-        List<Tile> possible_tiles = unit.move_calc.CalculateMovement(unit.tile, unit.speed);
+        List<Tile> possible_tiles = unit.move_calc.CalculateMovement(unit.tile, 10);
 
 
         Unit targetAlly = null;
