@@ -47,22 +47,28 @@ public abstract class Unit : MonoBehaviour {
 	public abstract void Activate();
 
 	//TODO: Replace with Tile List (walk through all)
-	public void MoveTo(Tile targetTile) {
-		StartCoroutine(LerpMove(tile.transform.position, targetTile.transform.position, 0.2f));
+	public void Move(List<Tile> path) {
+		StartCoroutine(LerpMove(path, 0.2f));
 		tile.unit = null;
-		tile = targetTile;
+		tile = path[path.Count - 1];
 		tile.unit = this;
 	}
 
-	IEnumerator LerpMove(Vector3 origin, Vector3 target, float duration) {
-		float startTime = Time.time;
-		float currentTime = startTime;
-		float endTime = startTime + duration;
+	IEnumerator LerpMove(List<Tile> path, float duration) {
+		Vector3 origin;
+		Vector3 target = path[0].transform.position;
+		for (int i = 1; i < path.Count; i++) {
+			float startTime = Time.time;
+			float currentTime = startTime;
+			float endTime = startTime + duration;
+			origin = target;
+			target = path[i].transform.position;
 
-		while (currentTime < endTime) {
-			yield return null;
-			currentTime = Time.time;
-			transform.position = Vector3.Lerp(origin, target, (currentTime - startTime) / duration);
+			while (currentTime < endTime) {
+				yield return null;
+				currentTime = Time.time;
+				transform.position = Vector3.Lerp(origin, target, (currentTime - startTime) / duration);
+			}
 		}
 	}
 

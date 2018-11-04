@@ -29,7 +29,7 @@ public class AllyScript : MonoBehaviour {
         {
             if (Input.GetMouseButtonUp(0))
             {
-                List<Tile> path = unit.move_calc.FindPathTo(Map.map.GetMouseTile());
+                List<Tile> path = unit.move_calc.FindPathTo(Map.instance.GetMouseTile());
                 if (path.Count <= 0) return;
 
                 unit.move_calc.MoveToTile(path, unit);

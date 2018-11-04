@@ -26,12 +26,12 @@ public class TurnManager : MonoBehaviour {
 	public Unit frogzard, enemyZard; //TODO: Temporary!
 	void Start() {
 		{ //TODO: TEMPORARY, move to spawn controller or sth.
-			Tile myTile = Map.map.GetTile(8, 4);
+			Tile myTile = Map.instance.GetTile(8, 4);
 			Unit myUnit = Instantiate(frogzard, myTile.transform.position, Quaternion.Euler(30, 0, 0));
 			myTile.unit = myUnit;
 			myUnit.tile = myTile;
 			for (int i = 2; i < 7; i += 2) {
-				Tile enemyTile = Map.map.GetTile(1, i);
+				Tile enemyTile = Map.instance.GetTile(1, i);
 				Unit enemyUnit = Instantiate(enemyZard, enemyTile.transform.position, Quaternion.Euler(30, 0, 0));
 				enemyUnit.tile = enemyTile;
 				enemyTile.unit = enemyUnit;

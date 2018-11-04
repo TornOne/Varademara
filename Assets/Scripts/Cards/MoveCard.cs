@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class MoveCard : Card {
 	public override bool Activate(Tile tile, Unit caster) {
-		if (caster.tile.DistanceTo(tile) == 1) {
-			caster.MoveTo(tile);
+		Dictionary<Tile, int> tiles = caster.tile.BuildWalkMap(3);
+
+		if (tiles.ContainsKey(tile)) {
+			caster.Move(Map.instance.PathTo(tile));
 			return true;
 		}
 		return false;

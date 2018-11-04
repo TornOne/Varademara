@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : Unit {
 	public override void Activate() {
-		//TODO: Add AI
+		//TODO: Add AI (current thing is some weird hack, don't look at it)
 		HashSet<Unit>.Enumerator friendlies = TurnManager.instance.friendlies.GetEnumerator();
 		friendlies.MoveNext();
 		Unit target = friendlies.Current;
@@ -19,7 +19,7 @@ public class EnemyAI : Unit {
 					nearestTile = adjacentTile;
 				}
 			}
-			MoveTo(nearestTile);
+			Move(new List<Tile>() { tile, nearestTile });
 		}
 
 		TurnManager.instance.NextTurn();
