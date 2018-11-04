@@ -2,8 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour {
-	public int hp;  //health points
+public abstract class Unit : MonoBehaviour {
+	[SerializeField]
+	int hp;  //health points
+	public int HP { //HACK: This entire property
+		get {
+			return hp;
+		} set {
+			hp = value;
+			if (value <= 0) {
+				TurnManager.instance.RemoveUnit(this);
+				Destroy(gameObject);
+			}
+		}
+	}
+
 	public int ap;  //action points
 	public int initiative;  //turn order influencer
 
@@ -24,21 +37,21 @@ public class Unit : MonoBehaviour {
 	private float moveLerp;
 	public float attackLerp;
 
-	public Tile tile;
+	public Tile tile; //Useful
 	public List<Tile> path;
 
 	void Start() {
 		TurnManager.instance.AddNewUnit(this);
 	}
 
-	public void Activate() {
-		
-	}
+	public abstract void Activate();
 
 	//TODO: Replace with Tile List (walk through all)
 	public void MoveTo(Tile targetTile) {
-		StartCoroutine(LerpMove(tile.transform.position, targetTile.transform.position, 1));
+		StartCoroutine(LerpMove(tile.transform.position, targetTile.transform.position, 0.2f));
+		tile.unit = null;
 		tile = targetTile;
+		tile.unit = this;
 	}
 
 	IEnumerator LerpMove(Vector3 origin, Vector3 target, float duration) {
@@ -49,7 +62,7 @@ public class Unit : MonoBehaviour {
 		while (currentTime < endTime) {
 			yield return null;
 			currentTime = Time.time;
-			transform.position = Vector3.Lerp(origin, target, currentTime - startTime);
+			transform.position = Vector3.Lerp(origin, target, (currentTime - startTime) / duration);
 		}
 	}
 

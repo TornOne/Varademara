@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class MoveCard : Card {
 	public override bool Activate(Tile tile, Unit caster) {
-		caster.MoveTo(tile);
-		return true;
+		if (caster.tile.DistanceTo(tile) == 1) {
+			caster.MoveTo(tile);
+			return true;
+		}
+		return false;
 	}
 }

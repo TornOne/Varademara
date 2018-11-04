@@ -1,17 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement; //TODO: TEMPORARY
 
 public class TurnManager : MonoBehaviour {
 	public static TurnManager instance;
 
 	public SortedSet<Unit> thisTurn = new SortedSet<Unit>(new TurnComparer());
 	public SortedSet<Unit> nextTurn = new SortedSet<Unit>(new TurnComparer());
+	public HashSet<Unit> friendlies = new HashSet<Unit>();
+	public HashSet<Unit> enemies = new HashSet<Unit>();
 	public Unit activeUnit;
 
 	class TurnComparer : IComparer<Unit> {
 		public int Compare(Unit x, Unit y) {
-			return x.initiative - y.initiative; //TODO: Might be backwards
+			int diff = x.initiative - y.initiative;
+			return diff == 0 ? x.GetInstanceID() - y.GetInstanceID() : diff;
 		}
 	}
 
@@ -19,7 +23,20 @@ public class TurnManager : MonoBehaviour {
 		instance = this;
 	}
 
+	public Unit frogzard, enemyZard; //TODO: Temporary!
 	void Start() {
+		{ //TODO: TEMPORARY, move to spawn controller or sth.
+			Tile myTile = Map.map.GetTile(8, 4);
+			Unit myUnit = Instantiate(frogzard, myTile.transform.position, Quaternion.Euler(30, 0, 0));
+			myTile.unit = myUnit;
+			myUnit.tile = myTile;
+			for (int i = 2; i < 7; i += 2) {
+				Tile enemyTile = Map.map.GetTile(1, i);
+				Unit enemyUnit = Instantiate(enemyZard, enemyTile.transform.position, Quaternion.Euler(30, 0, 0));
+				enemyUnit.tile = enemyTile;
+				enemyTile.unit = enemyUnit;
+			}
+		}
 		StartCoroutine(DelayedStart(15));
 	}
 
@@ -44,7 +61,7 @@ public class TurnManager : MonoBehaviour {
 		activeUnit.Activate();
 	}
 
-	//Add or update unit
+	//Add or update unit, needs to be called after initiative change
 	public void AddNewUnit(Unit unit) {
 		if (nextTurn.Contains(unit)) {
 			nextTurn.Remove(unit);
@@ -55,6 +72,40 @@ public class TurnManager : MonoBehaviour {
 			}
 			thisTurn.Add(unit);
 		}
+
+		if (unit is PlayerController) {
+			friendlies.Add(unit);
+		} else {
+			enemies.Add(unit);
+		}
+	}
+
+	public void RemoveUnit(Unit unit) {
+		if (nextTurn.Contains(unit)) {
+			nextTurn.Remove(unit);
+		} else if (thisTurn.Contains(unit)) {
+			thisTurn.Remove(unit);
+		}
+
+		if (unit is PlayerController) {
+			friendlies.Remove(unit);
+		} else {
+			enemies.Remove(unit);
+		}
+
+		//TODO: Temporary
+		if (friendlies.Count == 0) {
+			SceneManager.LoadScene("You Lose");
+		}
+		if (enemies.Count == 0) {
+			SceneManager.LoadScene("You Win");
+		}
+	}
+
+	//TODO: TEMPORARY
+	IEnumerator DelayedLoad(string sceneName) {
+		yield return new WaitForSeconds(5);
+		SceneManager.LoadScene(sceneName);
 	}
 
 	// increment turn idle time and send first unit to its new turn order spot

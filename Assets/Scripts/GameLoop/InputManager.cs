@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InputManager : MonoBehaviour {
 	public static InputManager instance;
@@ -9,6 +10,7 @@ public class InputManager : MonoBehaviour {
 	Card selectedCard;
 	Map map;
 	TurnManager turnManager;
+	EventSystem eventSystem;
 
 	void Awake() {
 		instance = this;
@@ -17,6 +19,7 @@ public class InputManager : MonoBehaviour {
 	void Start() {
 		map = Map.map;
 		turnManager = TurnManager.instance;
+		eventSystem = EventSystem.current;
 	}
 
 	public void SelectCard(Card card) {
@@ -35,9 +38,16 @@ public class InputManager : MonoBehaviour {
 		Tile tile = map.GetMouseTile();
 		//TODO: Highlight tile
 
-		if (Input.GetMouseButtonDown(0)) {
+		if (Input.GetMouseButtonDown(0) && !eventSystem.IsPointerOverGameObject()) {
+			if (selectedCard == null && tile != null && tile.unit != null) {
+				//TODO: Show unit info on tile
+				return;
+			}
+
 			if (tile != null) {
-				selectedCard.Activate(tile, turnManager.activeUnit);
+				if (selectedCard.Activate(tile, turnManager.activeUnit)) {
+					turnManager.NextTurn(); //TODO: Next turn should begin when explicitly ending turn instead
+				}
 			}
 			DeselectCard();
 		}

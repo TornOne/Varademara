@@ -11,20 +11,19 @@ public class Tile : MonoBehaviour {
 	public List<Tile> neighbors;
 	//public List<StatusEffect> effects;
 
-	public bool isWalkable {
+	public bool IsWalkable {
 		get {
 			return !(isWall || isHole || unit != null);
 		}
 	}
 
-	public bool isFlyable {
+	public bool IsFlyable {
 		get {
 			return !isWall && unit == null;
 		}
 	}
 
 	public int DistanceTo(Tile other) {
-		if (other.isWalkable) return int.MaxValue; //Remove please
 		return Map.map.Distance(x, y, other.x, other.y);
 	}
 
