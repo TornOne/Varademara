@@ -52,6 +52,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068444b4a98bc3c45874de8b926de3a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  x: 0
+  y: 0
+  difficulty: 1
+  isWall: 0
+  isHole: 0
+  unit: {fileID: 0}
+  neighbors: []
 --- !u!212 &212136759911446442
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -86,7 +93,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: b2e9ae92c0526e94284d0a0572ec8a42, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
