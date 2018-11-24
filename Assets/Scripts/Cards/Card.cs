@@ -2,10 +2,12 @@
 
 public abstract class Card : MonoBehaviour {
 	InputManager inputManager;
+	public Canvas canvas;
 	public bool deleteOnUse = false;
 	public int apCost;
 
 	void Start() {
+		canvas = GetComponent<Canvas>();
 		inputManager = InputManager.instance;
 	}
 
@@ -14,7 +16,7 @@ public abstract class Card : MonoBehaviour {
 			return false;
 		} else if (Activate(tile, caster)) {
 			caster.ap -= apCost;
-			Discard(caster);
+			caster.cardManager.Discard(this);
 			return true;
 		} else {
 			return false;
@@ -26,13 +28,5 @@ public abstract class Card : MonoBehaviour {
 
 	public void MouseDown() {
 		inputManager.SelectCard(this);
-	}
-
-	public void Discard(Unit caster) {
-		if (deleteOnUse) {
-			//TODO: Remove from hand and delete
-		} else {
-			//TODO: Transfer the card to the discard pile
-		}
 	}
 }
