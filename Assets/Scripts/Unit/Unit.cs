@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(CardManager))]
 public abstract class Unit : MonoBehaviour {
 	[SerializeField]
-	int hp;  //health points
+	int hp;
 	public int HP { //HACK: This entire property
 		get {
 			return hp;
@@ -17,24 +18,31 @@ public abstract class Unit : MonoBehaviour {
 		}
 	}
 
-	public int ap;			//action points
-	public int initiative;	//turn order influencer
-	public int pAtt;		//physical damage
-	public int mAtt;		//magical damage
-	public int pDef;		//physical resistance
-	public int mDef;		//magical resistance
-	public int balance;		//damage modifier
+	public int maxAP;
+	public int ap;
+	public int initiative;
+	public int pAtt;
+	public int mAtt;
+	public int pDef;
+	public int mDef;
+	public int balance;
 
 	public DamageScript attack_calc;
 	public MovementScript move_calc;
 
 	public Tile tile;
+	public CardManager cardManager;
 
 	void Start() {
 		TurnManager.instance.AddNewUnit(this);
 	}
 
-	public abstract void Activate();
+	public void StartTurn() {
+		ap = maxAP;
+		Activate();
+	}
+
+	protected abstract void Activate();
 
 	public void Move(List<Tile> path) {
 		StartCoroutine(LerpMove(path, 0.2f));

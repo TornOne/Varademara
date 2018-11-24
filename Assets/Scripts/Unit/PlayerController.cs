@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : Unit {
-	public override void Activate() {
+	protected override void Activate() {
 		//TODO: More stuff
 	}
 }

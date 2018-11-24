@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveCard : Card {
-	public override bool Activate(Tile tile, Unit caster) {
+	protected override bool Activate(Tile tile, Unit caster) {
 		Dictionary<Tile, int> tiles = caster.tile.BuildWalkMap(3);
 
 		if (tiles.ContainsKey(tile)) {

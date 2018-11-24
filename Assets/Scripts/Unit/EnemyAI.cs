@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyAI : Unit {
-	public override void Activate() {
+	protected override void Activate() {
 		//TODO: Add AI (current thing is some weird hack, don't look at it)
 		HashSet<Unit>.Enumerator friendlies = TurnManager.instance.friendlies.GetEnumerator();
 		friendlies.MoveNext();

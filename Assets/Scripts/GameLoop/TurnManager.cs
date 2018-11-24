@@ -22,24 +22,11 @@ public class TurnManager : MonoBehaviour {
 		instance = this;
 	}
 
-	public Unit frogzard, enemyZard; //TODO: Temporary!
 	void Start() {
-		{ //TODO: TEMPORARY, move to spawn controller or sth.
-			Tile myTile = Map.instance.GetTile(8, 4);
-			Unit myUnit = Instantiate(frogzard, myTile.transform.position, Quaternion.Euler(45, 0, 0));
-			myTile.unit = myUnit;
-			myUnit.tile = myTile;
-			for (int i = 2; i < 7; i += 2) {
-				Tile enemyTile = Map.instance.GetTile(1, i);
-				Unit enemyUnit = Instantiate(enemyZard, enemyTile.transform.position, Quaternion.Euler(45, 0, 0));
-				enemyUnit.tile = enemyTile;
-				enemyTile.unit = enemyUnit;
-			}
-		} // End temporary
 		StartCoroutine(DelayedStart(15));
 	}
 
-	//Some stuff needs more time to get ready
+	//Some stuff needs more frames to get ready
 	IEnumerator DelayedStart(int frames) {
 		for (int i = 0; i < frames; i++) {
 			yield return null;
@@ -58,7 +45,7 @@ public class TurnManager : MonoBehaviour {
 		activeUnit = thisTurn.Max;
 		thisTurn.Remove(activeUnit);
 		nextTurn.Add(activeUnit);
-		activeUnit.Activate();
+		activeUnit.StartTurn();
 	}
 
 	//Add or update unit, needs to be called after initiative change

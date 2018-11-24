@@ -43,9 +43,7 @@ public class InputManager : MonoBehaviour {
 			}
 
 			if (tile != null) {
-				if (selectedCard.Activate(tile, turnManager.activeUnit)) {
-					turnManager.NextTurn(); //TODO: Next turn should begin when explicitly ending turn instead
-				}
+				selectedCard.Use(tile, turnManager.activeUnit);
 			}
 			DeselectCard();
 		}
