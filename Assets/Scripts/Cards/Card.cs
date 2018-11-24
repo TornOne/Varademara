@@ -29,4 +29,6 @@ public abstract class Card : MonoBehaviour {
 	public void MouseDown() {
 		inputManager.SelectCard(this);
 	}
+
+	internal abstract int CardValue(Tile tile, EnemyAI caster, Object target, ref Object extra);
 }
