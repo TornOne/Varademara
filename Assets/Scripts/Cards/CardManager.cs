@@ -4,10 +4,18 @@ using UnityEngine;
 //TODO: Needs to be hooked up to the UI
 public class CardManager : MonoBehaviour {
 	public int handSize;
-	public List<Card> hand = new List<Card>();
+	public List<Card> hand = new List<Card>(); //End of the list is the right side of the hand
 	public List<Card> deck = new List<Card>(); //End of the list is the top of the deck
 	public List<Card> discard = new List<Card>(); //End of the list is the top of the discard pile
 	public Unit owner;
+
+	HandManager handManager;
+	DiscardPile discardPile;
+
+	void Start() {
+		handManager = HandManager.instance;
+		discardPile = DiscardPile.instance;
+	}
 
 	//Shuffle the deck
 	public void Shuffle() {
@@ -21,8 +29,13 @@ public class CardManager : MonoBehaviour {
 
 	//Shuffle the discard into the deck
 	public void Reshuffle() {
+		//Data
 		deck.AddRange(discard);
+		discard.Clear();
 		Shuffle();
+
+		//UI
+		discardPile.RemoveCard();
 	}
 
 	public void FillHand() {
@@ -32,10 +45,26 @@ public class CardManager : MonoBehaviour {
 	}
 
 	public void DrawCard() {
+		//Data
 		if (deck.Count == 0) {
 			Reshuffle();
 		}
 		hand.Add(Pop());
+
+		//UI
+		UpdateHandUI();
+	}
+
+	public void Discard(Card card) {
+		//Data
+		if (!card.deleteOnUse) {
+			discard.Add(card);
+		}
+		hand.Remove(card);
+
+		//UI
+		UpdateDiscardUI();
+		UpdateHandUI();
 	}
 
 	public Card Peek() {
@@ -47,5 +76,13 @@ public class CardManager : MonoBehaviour {
 		Card card = deck[i];
 		deck.RemoveAt(i);
 		return card;
+	}
+
+	void UpdateDiscardUI() {
+		discardPile.ReplaceCard(discard[discard.Count - 1]);
+	}
+
+	void UpdateHandUI() {
+		handManager.ReplaceCards(hand);
 	}
 }

@@ -40,11 +40,6 @@ public class TurnManager : MonoBehaviour {
 
 	//TODO: Currently doesn't support animations
 	void UpdateTurnBar() {
-		foreach (Unit unit in thisTurn.Keys) {
-			Debug.Log(unit.name);
-		}
-		Debug.Log("EMPTY");
-
 		int count = 0;
 		Action<IList<Unit>> addImages = (IList<Unit> units) => {
 			foreach (Unit unit in units) {
