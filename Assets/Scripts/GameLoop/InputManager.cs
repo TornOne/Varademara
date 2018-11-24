@@ -37,9 +37,12 @@ public class InputManager : MonoBehaviour {
 		//TODO: Highlight tile
 
 		if (Input.GetMouseButtonDown(0) && !eventSystem.IsPointerOverGameObject()) {
-			if (selectedCard == null && tile != null && tile.unit != null) {
-				//TODO: Show unit info on tile
-				return;
+			if (selectedCard == null) {
+				if (tile != null && tile.unit != null) {
+					//TODO: Show unit info on tile
+					return;
+				}
+				return; //No card selected, nothing to do
 			}
 
 			if (tile != null) {
