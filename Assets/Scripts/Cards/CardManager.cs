@@ -3,6 +3,7 @@ using UnityEngine;
 
 //TODO: Needs to be hooked up to the UI
 public class CardManager : MonoBehaviour {
+	public int handSize;
 	public List<Card> hand = new List<Card>();
 	public List<Card> deck = new List<Card>(); //End of the list is the top of the deck
 	public List<Card> discard = new List<Card>(); //End of the list is the top of the discard pile
@@ -24,7 +25,16 @@ public class CardManager : MonoBehaviour {
 		Shuffle();
 	}
 
+	public void FillHand() {
+		while (hand.Count < handSize) {
+			DrawCard();
+		}
+	}
+
 	public void DrawCard() {
+		if (deck.Count == 0) {
+			Reshuffle();
+		}
 		hand.Add(Pop());
 	}
 

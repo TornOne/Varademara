@@ -17,9 +17,15 @@ public abstract class Unit : MonoBehaviour {
 			}
 		}
 	}
-
 	public int maxAP;
 	public int ap;
+	public int HandSize {
+		get {
+			return cardManager.handSize;
+		} set {
+			cardManager.handSize = value;
+		}
+	}
 	public int initiative;
 	public int pAtt;
 	public int mAtt;
@@ -40,6 +46,7 @@ public abstract class Unit : MonoBehaviour {
 
 	public void StartTurn() {
 		ap = maxAP;
+		cardManager.FillHand();
 		Activate();
 	}
 
