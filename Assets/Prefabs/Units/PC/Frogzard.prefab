@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4023607390246438}
   - component: {fileID: 212538911033030940}
   - component: {fileID: 114371729380244026}
+  - component: {fileID: 114128333050158062}
   m_Layer: 0
   m_Name: Frogzard
   m_TagString: Untagged
@@ -41,6 +42,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 30, y: 0, z: 0}
+--- !u!114 &114128333050158062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1232424266777632}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b83a3416ed842246b4cf6620d16eb23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hand: []
+  deck: []
+  discard: []
+  owner: {fileID: 0}
 --- !u!114 &114371729380244026
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -53,6 +69,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 5
+  maxAP: 1
   ap: 1
   initiative: 50
   pAtt: 0
@@ -63,6 +80,8 @@ MonoBehaviour:
   attack_calc: {fileID: 0}
   move_calc: {fileID: 0}
   tile: {fileID: 0}
+  cardManager: {fileID: 114128333050158062}
+  avatar: {fileID: 21300000, guid: 5fb6a60e7143abb45a4a75555b49020e, type: 3}
 --- !u!212 &212538911033030940
 SpriteRenderer:
   m_ObjectHideFlags: 1

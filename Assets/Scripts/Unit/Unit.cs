@@ -27,11 +27,12 @@ public abstract class Unit : MonoBehaviour {
 	public int mDef;
 	public int balance;
 
-	public DamageScript attack_calc;
-	public MovementScript move_calc;
+	public DamageScript attack_calc; //TODO: ?
+	public MovementScript move_calc; //TODO: ?
 
 	public Tile tile;
 	public CardManager cardManager;
+	public Sprite avatar;
 
 	void Start() {
 		TurnManager.instance.AddNewUnit(this);
