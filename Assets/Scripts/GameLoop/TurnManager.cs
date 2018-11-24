@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,10 +14,11 @@ public class TurnManager : MonoBehaviour {
 	public HashSet<Unit> enemies = new HashSet<Unit>();
 	public Unit activeUnit;
 
+	//Technically backwards, but higher initiative needs to be first
 	class TurnComparer : IComparer<Unit> {
 		public int Compare(Unit x, Unit y) {
-			int diff = x.initiative - y.initiative;
-			return diff == 0 ? x.GetInstanceID() - y.GetInstanceID() : diff;
+			int diff = y.initiative - x.initiative;
+			return diff == 0 ? y.GetInstanceID() - x.GetInstanceID() : diff;
 		}
 	}
 
@@ -36,25 +38,39 @@ public class TurnManager : MonoBehaviour {
 		NextTurn();
 	}
 
-	//TODO: Currently very inefficient turn order bar, and doesn't support animations
+	//TODO: Currently doesn't support animations
 	void UpdateTurnBar() {
-		int count = 0;
-		while (true) {
-			foreach (Unit unit in thisTurn.Keys) {
-				turnBarImages[count].sprite = unit.avatar;
-				count++;
-				if (count >= 15) {
-					return;
-				}
-			}
-			foreach (Unit unit in nextTurn.Keys) {
-				turnBarImages[count].sprite = unit.avatar;
-				count++;
-				if (count >= 15) {
-					return;
-				}
-			}
+		foreach (Unit unit in thisTurn.Keys) {
+			Debug.Log(unit.name);
 		}
+		Debug.Log("EMPTY");
+
+		int count = 0;
+		Action<IList<Unit>> addImages = (IList<Unit> units) => {
+			foreach (Unit unit in units) {
+				//Players face to the left, enemies face to the right
+				if (unit is PlayerController) {
+					turnBarImages[count].transform.localScale = Vector3.one;
+				} else {
+					turnBarImages[count].transform.localScale = new Vector3(-1, 1, 1);
+				}
+				turnBarImages[count].sprite = unit.avatar;
+				count++;
+				if (count >= 15) {
+					return;
+				}
+			}
+		};
+
+		while (count < 15) {
+			addImages(thisTurn.Keys);
+			if (count >= 15) {
+				return;
+			}
+			addImages(nextTurn.Keys);
+		}
+
+		
 	}
 
 	public void NextTurn() {
@@ -65,8 +81,8 @@ public class TurnManager : MonoBehaviour {
 			nextTurn = temp;
 		}
 		//Move the unit to the next turn and activate it
-		activeUnit = thisTurn.Keys[thisTurn.Count - 1];
-		thisTurn.RemoveAt(thisTurn.Count - 1);
+		activeUnit = thisTurn.Keys[0];
+		thisTurn.RemoveAt(0);
 		nextTurn.Add(activeUnit, activeUnit);
 		UpdateTurnBar();
 		activeUnit.StartTurn();
