@@ -51,7 +51,7 @@ public abstract class Unit : MonoBehaviour {
 
 	public void StartTurn() {
 		ap = maxAP;
-		cardManager.FillHand();
+		cardManager.StartTurn();
 		Activate();
 	}
 

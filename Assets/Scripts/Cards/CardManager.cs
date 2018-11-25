@@ -40,6 +40,12 @@ public class CardManager : MonoBehaviour {
 		discardPile.RemoveCard();
 	}
 
+	public void StartTurn() {
+		FillHand();
+		UpdateDiscardUI();
+		UpdateHandUI();
+	}
+
 	public void FillHand() {
 		while (hand.Count < handSize) {
 			DrawCard();
@@ -83,7 +89,11 @@ public class CardManager : MonoBehaviour {
 	}
 
 	void UpdateDiscardUI() {
-		discardPile.ReplaceCard(discard[discard.Count - 1]);
+		if (discard.Count > 0) {
+			discardPile.ReplaceCard(discard[discard.Count - 1]);
+		} else {
+			discardPile.RemoveCard();
+		}
 	}
 
 	void UpdateHandUI() {
