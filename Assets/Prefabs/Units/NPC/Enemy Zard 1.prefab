@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114939335033120508}
   - component: {fileID: 114900262426286372}
   m_Layer: 0
-  m_Name: Enemy Zard
+  m_Name: Enemy Zard 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -55,14 +55,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handSize: 0
   hand:
-  - {fileID: 114640272784829546, guid: 47dfe0c5c760b8548b2bc56e2fe7f620, type: 2}
-  - {fileID: 114241258360355312, guid: 3a90adcea8ba26a4e9e390ee34dad79e, type: 2}
-  - {fileID: 114640272784829546, guid: e9d349941fc75074787a0353b519cfe7, type: 2}
+  - {fileID: 114241258360355312, guid: d1859fb65f2f6bb43acc7c467d12c5f5, type: 2}
+  - {fileID: 114241258360355312, guid: d1859fb65f2f6bb43acc7c467d12c5f5, type: 2}
+  - {fileID: 114640272784829546, guid: 1414d803dff641f4a8e69197ea3e2dd6, type: 2}
   - {fileID: 114842126500371114, guid: f93b70c746fa6d64ba19899c66f344c4, type: 2}
   deck: []
   discard: []
   owner: {fileID: 0}
-  drawAudio: {fileID: 0}
 --- !u!114 &114939335033120508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -126,7 +125,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5fb6a60e7143abb45a4a75555b49020e, type: 3}
-  m_Color: {r: 1, g: 0.32999998, b: 0.32999998, a: 1}
+  m_Color: {r: 0.32941175, g: 0.6723335, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0

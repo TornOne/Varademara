@@ -12,7 +12,7 @@ public class AudioClipGroup : ScriptableObject {
 	public float PitchMin = 1f;
 	[Range(0,2)]
 	public float PitchMax = 1f;
-	public float Cooldown = 0.1f;
+	public float Cooldown = 0.01f;
 	public AudioClip[] AudioClips;
 
 	private float timestamp;

@@ -9,12 +9,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e6b34218ccbb1549a2b57e135e78c0c, type: 3}
-  m_Name: explosionAudioGroup
+  m_Name: pixieAudioGroup
   m_EditorClassIdentifier: 
-  VolumeMin: 1
-  VolumeMax: 1
-  PitchMin: 1
-  PitchMax: 1
+  VolumeMin: 0.826
+  VolumeMax: 1.365
+  PitchMin: 0.436
+  PitchMax: 1.695
   Cooldown: 0.1
   AudioClips:
-  - {fileID: 8300000, guid: 16a59e277411d38419d3713d4ee3f650, type: 3}
+  - {fileID: 8300000, guid: d0fd78f15f97d88408b89b3d0a5a75fb, type: 3}
+  - {fileID: 8300000, guid: a7a422c7bf03bbd4cae6da2c479820fd, type: 3}
+  - {fileID: 8300000, guid: aa7738e10671c5848bb0372bef0e2060, type: 3}

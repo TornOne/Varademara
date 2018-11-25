@@ -9,10 +9,13 @@ public class AttackCard : Card
     public int dmgValue = 1;
     public int castRange = 1;
 
+    public AudioClipGroup attackAudio;
+
     protected override bool Activate(Tile tile, Unit caster)
     {
         if (caster.tile.DistanceTo(tile) == castRange && tile.unit != null)
         {
+            if (attackAudio != null) attackAudio.Play();
             tile.unit.HP-= dmgValue;
             return true;
         }

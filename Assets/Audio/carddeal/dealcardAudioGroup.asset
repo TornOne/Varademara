@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6b34218ccbb1549a2b57e135e78c0c, type: 3}
+  m_Name: dealcardAudioGroup
+  m_EditorClassIdentifier: 
+  VolumeMin: 0.844
+  VolumeMax: 1.173
+  PitchMin: 0.661
+  PitchMax: 1.261
+  Cooldown: 0.1
+  AudioClips:
+  - {fileID: 8300000, guid: 8e0b9752ec4699441b451903a9721f4e, type: 3}
+  - {fileID: 8300000, guid: 878bdba8217c44e44a26200e335f70b2, type: 3}
+  - {fileID: 8300000, guid: d4a6a85e8dd0a6241aba7a7195976921, type: 3}
+  - {fileID: 8300000, guid: 443b1510fae2abe48962a2c3aa0037d2, type: 3}
+  - {fileID: 8300000, guid: 76172697b7a142c4388dc45fac073442, type: 3}

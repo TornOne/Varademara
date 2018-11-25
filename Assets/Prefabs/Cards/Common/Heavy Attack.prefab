@@ -188,6 +188,7 @@ MonoBehaviour:
   apCost: 2
   dmgValue: 5
   castRange: 1
+  attackAudio: {fileID: 11400000, guid: 0420c0cff7d40e54ba18c458af5c9961, type: 2}
 --- !u!114 &114908549660248546
 MonoBehaviour:
   m_ObjectHideFlags: 1

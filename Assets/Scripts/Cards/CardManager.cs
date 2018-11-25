@@ -12,7 +12,9 @@ public class CardManager : MonoBehaviour {
 	HandManager handManager;
 	DiscardPile discardPile;
 
-	void Start() {
+    public AudioClipGroup drawAudio;
+
+    void Start() {
 		handManager = HandManager.instance;
 		discardPile = DiscardPile.instance;
 	}
@@ -51,8 +53,10 @@ public class CardManager : MonoBehaviour {
 		}
 		hand.Add(Pop());
 
-		//UI
-		UpdateHandUI();
+        if (drawAudio != null) drawAudio.Play();
+
+        //UI
+        UpdateHandUI();
 	}
 
 	public void Discard(Card card) {
