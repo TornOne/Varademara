@@ -4,8 +4,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(CardManager))]
 public abstract class Unit : MonoBehaviour {
-	[SerializeField]
     public int maxHP;
+	[SerializeField]
 	int hp;
 	public int HP { //HACK: This entire property
 		get {
