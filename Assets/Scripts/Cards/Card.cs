@@ -25,11 +25,6 @@ public abstract class Card : MonoBehaviour {
 		}
 	}
 
-	//TODO: existing Discard() method requires Canvas and UI elements in CardManager:65, AI doesn't have a UI
-	//problems in:
-	// //UI
-	// UpdateDiscardUI();
-	// UpdateHandUI();
 	public bool UseNoUI(Tile tile, Unit caster) {
 		if (caster.ap < apCost) {
 			return false;
