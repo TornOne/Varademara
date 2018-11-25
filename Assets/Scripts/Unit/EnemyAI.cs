@@ -81,7 +81,7 @@ public class EnemyAI : Unit {
             if (cardManager.hand[i] is DrawCard)
             {
                 //Card draw
-                cardValues[i] = cardValueToTarget(cardManager.hand[i], null);
+                cardValues[i] = cardValueToTarget(cardManager.hand[i], this);
             }
         }
 

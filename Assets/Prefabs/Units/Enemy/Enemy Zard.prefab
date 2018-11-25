@@ -53,13 +53,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b83a3416ed842246b4cf6620d16eb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handSize: 0
-  hand:
+  handSize: 3
+  hand: []
+  deck:
   - {fileID: 114640272784829546, guid: 47dfe0c5c760b8548b2bc56e2fe7f620, type: 2}
   - {fileID: 114241258360355312, guid: 3a90adcea8ba26a4e9e390ee34dad79e, type: 2}
   - {fileID: 114640272784829546, guid: e9d349941fc75074787a0353b519cfe7, type: 2}
   - {fileID: 114842126500371114, guid: f93b70c746fa6d64ba19899c66f344c4, type: 2}
-  deck: []
+  - {fileID: 114241258360355312, guid: 3a90adcea8ba26a4e9e390ee34dad79e, type: 2}
   discard: []
   owner: {fileID: 0}
   drawAudio: {fileID: 0}
@@ -76,8 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 10
   hp: 2
-  maxAP: 1
-  ap: 1
+  maxAP: 2
+  ap: 2
   initiative: 40
   pAtt: 0
   mAtt: 0

@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e6b34218ccbb1549a2b57e135e78c0c, type: 3}
   m_Name: metalclankAudioGroup
   m_EditorClassIdentifier: 
-  VolumeMin: 0.557
-  VolumeMax: 1.417
+  VolumeMin: 0.157
+  VolumeMax: 0.722
   PitchMin: 0.262
   PitchMax: 1.6
   Cooldown: 0.1
