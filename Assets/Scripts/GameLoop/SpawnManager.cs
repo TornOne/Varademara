@@ -7,8 +7,12 @@ public class SpawnManager : MonoBehaviour {
 
 	void Start() {
 		//TODO: Add a proper wave system with enemy counter, delays, and whatever else
-		Tile myTile = Map.instance.GetTile(8, 4);
+		Tile myTile = Map.instance.GetTile(11, 4);
 		Unit myUnit = Instantiate(frogzard, myTile.transform.position, Quaternion.Euler(45, 0, 0));
+		myTile.unit = myUnit;
+		myUnit.tile = myTile;
+		myTile = Map.instance.GetTile(11, 7);
+		myUnit = Instantiate(frogzard, myTile.transform.position, Quaternion.Euler(45, 0, 0));
 		myTile.unit = myUnit;
 		myUnit.tile = myTile;
 		for (int i = 2; i < 7; i += 2) {

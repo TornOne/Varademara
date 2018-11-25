@@ -46,6 +46,9 @@ public class InputManager : MonoBehaviour {
 			}
 
 			if (tile != null) {
+				//Try to use card
+				//Find the reference to the real card in the hand
+				selectedCard = turnManager.activeUnit.cardManager.hand[selectedCard.canvas.sortingOrder];
 				selectedCard.Use(tile, turnManager.activeUnit);
 			}
 			DeselectCard();
