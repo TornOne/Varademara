@@ -17,10 +17,9 @@ public abstract class Unit : MonoBehaviour {
 
                 TurnManager.instance.RemoveUnit(this);
 				Destroy(gameObject);
-			} else if (value > maxHP)
-            {
-                hp = maxHP;
-            }
+			} else if (value > maxHP) {
+				hp = maxHP;
+			}
 		}
 	}
 	public int maxAP;
