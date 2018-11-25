@@ -16,6 +16,7 @@ public class CardManager : MonoBehaviour {
     public AudioClipGroup drawAudio;
 
     void Start() {
+		owner = GetComponent<Unit>();
 		handManager = HandManager.instance;
 		discardPile = DiscardPile.instance;
 		turnManager = TurnManager.instance;
@@ -84,6 +85,8 @@ public class CardManager : MonoBehaviour {
 		hand.Remove(card);
 
 		//UI
+		Debug.Log(turnManager.activeUnit == owner);
+		Debug.Log(owner is PlayerController);
 		if (turnManager.activeUnit == owner && owner is PlayerController) {
 			UpdateDiscardUI();
 			UpdateHandUI();

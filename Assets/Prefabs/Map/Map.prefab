@@ -86,6 +86,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitHighlight: {r: 0, g: 0, b: 0, a: 0}
   emptyTileHighlight: {r: 0, g: 0, b: 0, a: 0}
+  sprite: {fileID: 0}
 --- !u!114 &114282340086578252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,9 +111,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbcbebdef89c3714db590fb08fcecb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frogzard: {fileID: 114371729380244026, guid: c363f170497e20e4ea860edf16e81f64, type: 2}
-  enemyZard: {fileID: 114939335033120508, guid: 795765d84d4e93841a1e47a1611c6c73,
+  knightRider: {fileID: 114371729380244026, guid: c363f170497e20e4ea860edf16e81f64,
     type: 2}
+  demonFairy: {fileID: 114371729380244026, guid: c363f170497e20e4ea860edf16e81f64,
+    type: 2}
+  Ogre: {fileID: 114371729380244026, guid: c363f170497e20e4ea860edf16e81f64, type: 2}
+  pikeman: {fileID: 114939335033120508, guid: 795765d84d4e93841a1e47a1611c6c73, type: 2}
+  swordman: {fileID: 114939335033120508, guid: 795765d84d4e93841a1e47a1611c6c73, type: 2}
+  monk: {fileID: 114939335033120508, guid: 795765d84d4e93841a1e47a1611c6c73, type: 2}
+  griffin: {fileID: 114939335033120508, guid: 795765d84d4e93841a1e47a1611c6c73, type: 2}
 --- !u!114 &114648653496416926
 MonoBehaviour:
   m_ObjectHideFlags: 1
