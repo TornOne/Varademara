@@ -150,7 +150,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4383683919792420, guid: 81d2c628f4ce5af4583bc28478b15168, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114282340086578252, guid: 81d2c628f4ce5af4583bc28478b15168,
         type: 2}
@@ -247,7 +247,7 @@ Prefab:
     - target: {fileID: 224696123781012088, guid: 9506333b87c47a6488378d6ace2c590e,
         type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224696123781012088, guid: 9506333b87c47a6488378d6ace2c590e,
         type: 2}
@@ -298,10 +298,6 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1116448878578958, guid: 9506333b87c47a6488378d6ace2c590e, type: 2}
-      propertyPath: m_Name
-      value: Sidebar
       objectReference: {fileID: 0}
     - target: {fileID: 224139837678515014, guid: 9506333b87c47a6488378d6ace2c590e,
         type: 2}
@@ -851,7 +847,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1726488052
 Prefab:
