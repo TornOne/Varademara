@@ -21,7 +21,7 @@ public class AttackCard : Card
 
     public override int CardValue(Tile tile, EnemyAI caster, Object target, ref Object extra)
     {
-        if (tile.DistanceTo(((Unit)target).tile) == castRange && (Unit)target != null)
+        if (tile.DistanceTo(((Unit)target).tile) <= castRange && (Unit)target != null)
         {
             //TODO: proper damage calculation against targets armor
             return dmgValue;
