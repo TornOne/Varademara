@@ -74,4 +74,21 @@ public abstract class Unit : MonoBehaviour {
 		}
 	}
 
+	public int CalculatePhysicalDamage(int baseDmg, Unit other) {
+		return CalculateDamage(baseDmg, pAtt, other.pDef);
+	}
+
+	public int CalculateMagicDamage(int baseDmg, Unit other) {
+		return CalculateDamage(baseDmg, mAtt, other.mDef);
+	}
+
+	public int CalculateTrueDamage(int baseDmg) {
+		float b = Mathf.Clamp(balance, 1, 99);
+		return (int) (baseDmg * (0.5f + Mathf.Pow(Random.value, balance >= 50 ? (0.02f * (100 - b)) : (50f / b))));
+	}
+
+	public int CalculateDamage(int baseDmg, int att, int def) {
+		float b = Mathf.Clamp(balance, 1, 99);
+		return (int) (baseDmg * (att + 100) * (0.5f + Mathf.Pow(Random.value, balance >= 50 ? (0.02f * (100 - b)) : (50f / b))) / (def + 100));
+	}
 }
