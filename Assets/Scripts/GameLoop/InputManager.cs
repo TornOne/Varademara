@@ -34,6 +34,14 @@ public class InputManager : MonoBehaviour {
 		selectedCard = null;
 	}
 
+	public void DiscardClicked() {
+		if (selectedCard != null) {
+			CardManager cardManager = turnManager.activeUnit.cardManager;
+			selectedCard = cardManager.hand[selectedCard.canvas.sortingOrder];
+			cardManager.Discard(selectedCard);
+		}
+	}
+
 	void Update() {
 		Tile tile = map.GetMouseTile();
 		//TODO: Highlight tile

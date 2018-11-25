@@ -71,7 +71,7 @@ public abstract class Unit : MonoBehaviour {
 		tile.unit = null;
         tile.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
         tile = path[path.Count - 1];
-        tile.GetComponent<SpriteRenderer>().color = new Color(1, 1, 0);
+        tile.GetComponent<SpriteRenderer>().color = new Color(1, 1, 0); //TODO: Move into LerpMove
         tile.unit = this;
 	}
 
