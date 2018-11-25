@@ -41,7 +41,7 @@ public class MoveCard : Card {
         }
         
         extra = errors.OrderBy(kvp => kvp.Value).First().Key;
-        Debug.Log(errors[(Tile)extra]);
+        //Debug.Log(errors[(Tile)extra]);
 
 
         return errors[(Tile)extra];

@@ -62,7 +62,8 @@ public class EnemyAI : Unit {
         int[] cardValues = new int[cardManager.hand.Count];
         for (int i = 0; i < cardManager.hand.Count; i++)
         {
-            cardValues[i] = int.MaxValue;
+            //cardValues[i] = int.MaxValue;
+            if (cardManager.hand[i] == null) continue;
             if (cardManager.hand[i].apCost > ap) continue;
 
             if (cardManager.hand[i] is AttackCard)
@@ -77,10 +78,12 @@ public class EnemyAI : Unit {
             }*/
         }
 
-        int playCardIdx = cardValues.ToList().IndexOf(cardValues.Min());
+        Debug.Log("Attacking");
+
+        int playCardIdx = cardValues.ToList().IndexOf(cardValues.Max());
         if (cardValues[playCardIdx] == int.MaxValue) return false;
 
-
+        Debug.Log("Attacked");
         //ap -= cardManager.hand[playCardIdx].apCost;
 
         cardManager.hand[playCardIdx].UseNoUI(aggroTarget.tile, this);
@@ -96,6 +99,7 @@ public class EnemyAI : Unit {
         for (int i = 0; i < cardManager.hand.Count; i++)
         {
             cardValues[i] = int.MaxValue;
+            if (cardManager.hand[i] == null) continue;
             if (cardManager.hand[i].apCost > ap) continue;
 
             if (cardManager.hand[i] is MoveCard)

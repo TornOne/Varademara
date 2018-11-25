@@ -81,12 +81,10 @@ MonoBehaviour:
   pDef: 0
   mDef: 0
   balance: 0
-  attack_calc: {fileID: 0}
-  move_calc: {fileID: 0}
   tile: {fileID: 0}
   cardManager: {fileID: 114900262426286372}
   avatar: {fileID: 21300000, guid: 5fb6a60e7143abb45a4a75555b49020e, type: 3}
-  optimalDistane: 0
+  optimalDistane: 1
 --- !u!212 &212911737765107092
 SpriteRenderer:
   m_ObjectHideFlags: 1
