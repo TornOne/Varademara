@@ -39,7 +39,7 @@ public class InputManager : MonoBehaviour {
 		if (Input.GetMouseButtonDown(0) && !eventSystem.IsPointerOverGameObject()) {
 			if (selectedCard == null) {
 				if (tile != null && tile.unit != null) {
-					//TODO: Show unit info on tile
+                    GameObject.Find("Sidebar").GetComponent<SidebarInformation>().fillSidebar(tile.unit);
 					return;
 				}
 				return; //No card selected, nothing to do
