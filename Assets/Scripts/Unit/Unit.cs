@@ -13,7 +13,9 @@ public abstract class Unit : MonoBehaviour {
 		} set {
 			hp = value;
 			if (value <= 0) {
-				TurnManager.instance.RemoveUnit(this);
+                deathAudio.Play();
+
+                TurnManager.instance.RemoveUnit(this);
 				Destroy(gameObject);
 			} else if (value > maxHP)
             {
@@ -41,7 +43,10 @@ public abstract class Unit : MonoBehaviour {
 	public CardManager cardManager;
 	public Sprite avatar;
 
-	void Start() {
+    public AudioClipGroup deathAudio;
+    public AudioClipGroup walkAudio;
+
+    void Start() {
 		TurnManager.instance.AddNewUnit(this);
 	}
 
@@ -75,7 +80,9 @@ public abstract class Unit : MonoBehaviour {
 				currentTime = Time.time;
                 float t = Mathf.Clamp(((currentTime - startTime) / duration * 1.4f)-0.2f, 0, 1);
 				transform.position = Vector3.Lerp(origin, target, t);
-			}
+
+                walkAudio.Play();
+            }
 		}
 	}
 
