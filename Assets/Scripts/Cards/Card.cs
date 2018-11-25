@@ -3,10 +3,12 @@
 public abstract class Card : MonoBehaviour {
 	InputManager inputManager;
 	public Canvas canvas;
+	public RectTransform rectTransform;
 	public bool deleteOnUse = false;
 	public int apCost;
 
 	void Awake() {
+		rectTransform = GetComponent<RectTransform>();
 		canvas = GetComponent<Canvas>();
 		inputManager = InputManager.instance;
 	}

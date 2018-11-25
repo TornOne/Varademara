@@ -13,7 +13,8 @@ public class HandManager : MonoBehaviour {
 
 	public void AddCards(List<Card> cards) {
 		for (int i = 0; i < cards.Count; i++) {
-			Card card = Instantiate(cards[i], new Vector3(0.5f * (1 - cards.Count) + i, 0), Quaternion.identity, transform);
+			Card card = Instantiate(cards[i], transform);
+			card.rectTransform.anchoredPosition3D = new Vector3(0.5f * (1 - cards.Count) + i, 0);
 			card.canvas.sortingOrder = i;
 			cardObjects.Add(card);
 		}

@@ -53,9 +53,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b83a3416ed842246b4cf6620d16eb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handSize: 0
+  handSize: 3
   hand: []
-  deck: []
+  deck:
+  - {fileID: 114640272784829546, guid: 1414d803dff641f4a8e69197ea3e2dd6, type: 2}
+  - {fileID: 114211240665417122, guid: 11473b6d936c1fe49a306a68a8eed18d, type: 2}
+  - {fileID: 114241258360355312, guid: d1859fb65f2f6bb43acc7c467d12c5f5, type: 2}
+  - {fileID: 114640272784829546, guid: 1414d803dff641f4a8e69197ea3e2dd6, type: 2}
+  - {fileID: 114211240665417122, guid: 11473b6d936c1fe49a306a68a8eed18d, type: 2}
+  - {fileID: 114241258360355312, guid: d1859fb65f2f6bb43acc7c467d12c5f5, type: 2}
+  - {fileID: 114640272784829546, guid: 1414d803dff641f4a8e69197ea3e2dd6, type: 2}
+  - {fileID: 114211240665417122, guid: 11473b6d936c1fe49a306a68a8eed18d, type: 2}
+  - {fileID: 114241258360355312, guid: d1859fb65f2f6bb43acc7c467d12c5f5, type: 2}
+  - {fileID: 114640272784829546, guid: 1414d803dff641f4a8e69197ea3e2dd6, type: 2}
   discard: []
   owner: {fileID: 0}
 --- !u!114 &114371729380244026
@@ -69,17 +79,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940e7ef8474e4694d9e6a94e710c33de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 5
-  maxAP: 1
-  ap: 1
+  hp: 100
+  maxAP: 3
+  ap: 3
   initiative: 50
   pAtt: 0
   mAtt: 0
   pDef: 0
   mDef: 0
-  balance: 0
-  attack_calc: {fileID: 0}
-  move_calc: {fileID: 0}
+  balance: 50
   tile: {fileID: 0}
   cardManager: {fileID: 114128333050158062}
   avatar: {fileID: 21300000, guid: 5fb6a60e7143abb45a4a75555b49020e, type: 3}

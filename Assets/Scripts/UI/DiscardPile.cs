@@ -15,7 +15,8 @@ public class DiscardPile : MonoBehaviour {
 	}
 
 	public void AddCard(Card card) {
-		topCard = Instantiate(card, transform.position, Quaternion.identity, cam.transform);
+		topCard = Instantiate(card, cam.transform);
+		topCard.transform.position = transform.position;
 		topCard.enabled = false;
 	}
 
