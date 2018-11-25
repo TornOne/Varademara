@@ -13,7 +13,9 @@ public class EnemyAI : Unit {
     public int optimalDistane;
 
     protected override void Activate() {
-		//TODO: Add AI (current thing is some weird hack, don't look at it)
+        //TODO: Add AI (current thing is some weird hack, don't look at it)
+
+        this.ap = this.maxAP;
 
         //TODO: implement aggro system instead of next friendly
 		HashSet<Unit>.Enumerator friendlies = TurnManager.instance.friendlies.GetEnumerator();
@@ -21,10 +23,17 @@ public class EnemyAI : Unit {
 
 		aggroTarget = friendlies.Current;
 
-        cardManager.hand.Add(new MoveCard());//TODO: ai needs cards
+        //cardManager.hand.Add(new MoveCard());//TODO: ai needs cards
 
-        while (ap > 0) {
+        while (this.ap > 0) {
+
             if (!calculateHandValuesMove()) break;
+        }
+
+        while (this.ap > 0)
+        {
+
+            if (!calculateHandValuesAction()) break;
         }
 
         /*
@@ -46,23 +55,37 @@ public class EnemyAI : Unit {
         TurnManager.instance.NextTurn();
 	}
 
-    private void calculateHandValuesAction()
+    private bool calculateHandValuesAction()
     {
-        List<int> cardValues = new List<int>(cardManager.hand.Count);
+
+
+        int[] cardValues = new int[cardManager.hand.Count];
         for (int i = 0; i < cardManager.hand.Count; i++)
         {
+            cardValues[i] = int.MaxValue;
+            if (cardManager.hand[i].apCost > ap) continue;
+
             if (cardManager.hand[i] is AttackCard)
             {
                 //Attack/debuff cards
                 cardValues[i] = cardValueToTarget(cardManager.hand[i], aggroTarget);
             }
-            if (cardManager.hand[i] is DefendCard)
+            /*if (cardManager.hand[i] is DefendCard)
             {
                 //Buff/heal cards
                 cardValues[i] = cardValueToTarget(cardManager.hand[i], aggroTarget);
-            }
-
+            }*/
         }
+
+        int playCardIdx = cardValues.ToList().IndexOf(cardValues.Min());
+        if (cardValues[playCardIdx] == int.MaxValue) return false;
+
+
+        //ap -= cardManager.hand[playCardIdx].apCost;
+
+        cardManager.hand[playCardIdx].UseNoUI(aggroTarget.tile, this);
+
+        return true;
     }
 
     private bool calculateHandValuesMove()
@@ -73,29 +96,31 @@ public class EnemyAI : Unit {
         for (int i = 0; i < cardManager.hand.Count; i++)
         {
             cardValues[i] = int.MaxValue;
+            if (cardManager.hand[i].apCost > ap) continue;
+
             if (cardManager.hand[i] is MoveCard)
             {
-                if (cardManager.hand[i].apCost <= ap)
-                {
-                    cardValues[i] = cardValueToMove(cardManager.hand[i], ref cardTargets[i], aggroTarget.tile);
-                }
+                cardValues[i] = cardValueToMove(cardManager.hand[i], ref cardTargets[i], aggroTarget.tile);
             }
         }
         int playCardIdx = cardValues.ToList().IndexOf(cardValues.Min());
         if (cardValues[playCardIdx] == int.MaxValue) return false;
 
-        ap -= 1;//TODO: ap calculation
+        MoveCard chosenCard = (MoveCard)cardManager.hand[playCardIdx];
+        ap -= chosenCard.apCost;
 
-
-        Move(new List<Tile>() { tile, cardTargets[playCardIdx] });
+        Dictionary<Tile, int> tiles = tile.BuildWalkMap(chosenCard.moveValue);
+        this.Move(Map.instance.PathTo(cardTargets[playCardIdx]));
 
         return true;
     }
 
     private int cardValueToTarget(Card card, Unit target)
     {
-
-        return 0;
+        Object empty = new Object();
+        int ret = card.CardValue(tile, this, (Object)target, ref empty);
+        //cardTarget = (Tile)passValue;
+        return ret;
     }
 
     private int cardValueToMove(Card card, ref Tile cardTarget, Tile targetTile)

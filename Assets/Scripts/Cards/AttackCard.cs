@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class AttackCard : Card
 {
+    //TODO: different damage types for attack cards
+    public int dmgValue = 1;
+
     protected override bool Activate(Tile tile, Unit caster)
     {
         if (caster.tile.DistanceTo(tile) == 1 && tile.unit != null)
@@ -16,6 +19,11 @@ public class AttackCard : Card
 
     internal override int CardValue(Tile tile, EnemyAI caster, Object target, ref Object extra)
     {
+        if (tile.DistanceTo(((Unit)target).tile) == 1 && (Unit)target != null)
+        {
+            //TODO: proper damage calculation against targets armor
+            return dmgValue;
+        }
         return 0;
     }
 }

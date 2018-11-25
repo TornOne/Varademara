@@ -20,25 +20,30 @@ public class MoveCard : Card {
 
     internal override int CardValue(Tile tile, EnemyAI caster, Object target, ref Object extra)
     {
+
         int currentDistance = tile.DistanceTo((Tile)target);
 
-        if (caster.optimalDistane == currentDistance) return 0;
+        if (caster.optimalDistane == currentDistance) return int.MaxValue;
 
         Dictionary<Tile, int> tiles = tile.BuildWalkMap(moveValue);
         Dictionary<Tile, int> errors = new Dictionary<Tile, int>();
 
         foreach (KeyValuePair <Tile,int> potentialTile in tiles)
         {
-            errors[potentialTile.Key] = Mathf.Abs(caster.optimalDistane - tile.DistanceTo(potentialTile.Key));
+            errors[potentialTile.Key] = Mathf.Abs(caster.optimalDistane - potentialTile.Key.DistanceTo((Tile)target));
 
-            if (caster.optimalDistane == tile.DistanceTo(potentialTile.Key))
+            if (caster.optimalDistane == (potentialTile.Key.DistanceTo((Tile)target)))
             {
                 extra = potentialTile.Key;
+
                 return errors[potentialTile.Key];
             }
         }
-        extra = errors.OrderBy(kvp => kvp.Value).First().Key;
         
+        extra = errors.OrderBy(kvp => kvp.Value).First().Key;
+        Debug.Log(errors[(Tile)extra]);
+
+
         return errors[(Tile)extra];
     }
 }
