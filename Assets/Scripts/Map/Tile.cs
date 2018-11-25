@@ -10,9 +10,25 @@ public class Tile : MonoBehaviour {
 	public bool isHole = false;
 	public Unit unit;
 	public List<Tile> neighbors;
-	//public List<StatusEffect> effects;
+    //public List<StatusEffect> effects;
 
-	public bool IsWalkable {
+    public SpriteRenderer sprite;
+    public Color baseColor;
+
+    public void SetMovableHighlight(Color value)
+    {
+        if (value == null)
+        {
+            sprite.color = baseColor;
+        }
+        else
+        {
+            baseColor = sprite.color;
+            sprite.color = value;
+        }
+    }
+
+    public bool IsWalkable {
 		get {
 			return !(isWall || isHole || unit != null);
 		}

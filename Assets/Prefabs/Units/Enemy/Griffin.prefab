@@ -249,7 +249,7 @@ MonoBehaviour:
   avatar: {fileID: 21300000, guid: eebd9ec68d34b8a4c85ff8660c198e2c, type: 3}
   deathAudio: {fileID: 0}
   walkAudio: {fileID: 0}
-  unitColor: {r: 0, g: 0, b: 0, a: 0}
+  unitColor: {r: 0.50980395, g: 0, b: 0, a: 1}
   optimalDistane: 0
 --- !u!114 &114745690891155208
 MonoBehaviour:
@@ -263,8 +263,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handSize: 4
-  hand: []
-  deck: []
+  hand:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  deck:
+  - {fileID: 114842126500371114, guid: f93b70c746fa6d64ba19899c66f344c4, type: 2}
+  - {fileID: 114640272784829546, guid: e9d349941fc75074787a0353b519cfe7, type: 2}
+  - {fileID: 114640272784829546, guid: 47dfe0c5c760b8548b2bc56e2fe7f620, type: 2}
+  - {fileID: 114241258360355312, guid: 42a5fe9fa7208ad4f86b0c985ce03153, type: 2}
+  - {fileID: 114241258360355312, guid: 06a02b90cb8afd2409571fd050575f5c, type: 2}
+  - {fileID: 114640272784829546, guid: 47dfe0c5c760b8548b2bc56e2fe7f620, type: 2}
   discard: []
   owner: {fileID: 0}
   drawAudio: {fileID: 0}

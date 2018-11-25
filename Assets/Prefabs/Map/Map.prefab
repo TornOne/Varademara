@@ -52,13 +52,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1525404945520262}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 7.111822, y: -2.2690027, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4383683919792420}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4383683919792420
 Transform:
   m_ObjectHideFlags: 1
@@ -84,9 +84,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dfada452fad2c340a6e58bf54ed5029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitHighlight: {r: 0, g: 0, b: 0, a: 0}
-  emptyTileHighlight: {r: 0, g: 0, b: 0, a: 0}
-  sprite: {fileID: 0}
+  unitHighlight: {r: 0, g: 0.979579, b: 1, a: 1}
+  emptyTileHighlight: {r: 0, g: 0.3679245, b: 0.3642073, a: 1}
+  sprite: {fileID: 212605221444205940}
 --- !u!114 &114282340086578252
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sidebar: {fileID: 0}
-  tileHighlighter: {fileID: 0}
+  tileHighlighter: {fileID: 114044514914702744}
 --- !u!114 &114587453144887352
 MonoBehaviour:
   m_ObjectHideFlags: 1

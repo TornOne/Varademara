@@ -52,7 +52,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4356850484869370}
   - component: {fileID: 114414026885317194}
-  - component: {fileID: 114484537230030264}
+  - component: {fileID: 114819559990632748}
   m_Layer: 0
   m_Name: Monk
   m_TagString: Untagged
@@ -143,12 +143,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handSize: 0
-  hand: []
-  deck: []
+  hand:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  deck:
+  - {fileID: 114640272784829546, guid: 48aa01f3de0947a4c9a0071f6bd8dac1, type: 2}
+  - {fileID: 114640272784829546, guid: 48aa01f3de0947a4c9a0071f6bd8dac1, type: 2}
+  - {fileID: 114842126500371114, guid: f93b70c746fa6d64ba19899c66f344c4, type: 2}
+  - {fileID: 114241258360355312, guid: 3a90adcea8ba26a4e9e390ee34dad79e, type: 2}
+  - {fileID: 114241258360355312, guid: 3a90adcea8ba26a4e9e390ee34dad79e, type: 2}
+  - {fileID: 114241258360355312, guid: 3a90adcea8ba26a4e9e390ee34dad79e, type: 2}
   discard: []
   owner: {fileID: 0}
   drawAudio: {fileID: 0}
---- !u!114 &114484537230030264
+--- !u!114 &114819559990632748
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,27 +165,28 @@ MonoBehaviour:
   m_GameObject: {fileID: 1444415596062536}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 940e7ef8474e4694d9e6a94e710c33de, type: 3}
+  m_Script: {fileID: 11500000, guid: cfc50ae72c3a5d9469d82d8d1dbf0fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 30
-  hp: 30
-  maxAP: 4
-  ap: 4
-  initiative: 55
-  pAtt: 3
-  mAtt: 40
-  pDef: 3
-  mDef: 40
-  balance: 65
+  maxHP: 20
+  hp: 20
+  maxAP: 2
+  ap: 2
+  initiative: 30
+  pAtt: 0
+  mAtt: 0
+  pDef: 0
+  mDef: 0
+  balance: 0
   title: Monk
   isAnimating: 0
   tile: {fileID: 0}
   cardManager: {fileID: 114414026885317194}
-  avatar: {fileID: 21300004, guid: 40b27d717cc5b5342abbb511677fe7d6, type: 3}
+  avatar: {fileID: 0}
   deathAudio: {fileID: 0}
   walkAudio: {fileID: 0}
-  unitColor: {r: 0, g: 0, b: 0, a: 0}
+  unitColor: {r: 0.50980395, g: 0, b: 0, a: 1}
+  optimalDistane: 4
 --- !u!212 &212199690719018472
 SpriteRenderer:
   m_ObjectHideFlags: 1
