@@ -11,7 +11,6 @@ public class DrawCard : Card
 
     protected override bool Activate(Tile tile, Unit caster)
     {
-        Debug.Log("GREED");
         if (discardHand) caster.cardManager.FillHand();
 
         if (fillHand) caster.cardManager.FillHand();

@@ -53,13 +53,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b83a3416ed842246b4cf6620d16eb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handSize: 0
-  hand:
+  handSize: 3
+  hand: []
+  deck:
   - {fileID: 114640272784829546, guid: 47dfe0c5c760b8548b2bc56e2fe7f620, type: 2}
   - {fileID: 114241258360355312, guid: 3a90adcea8ba26a4e9e390ee34dad79e, type: 2}
   - {fileID: 114640272784829546, guid: e9d349941fc75074787a0353b519cfe7, type: 2}
   - {fileID: 114842126500371114, guid: f93b70c746fa6d64ba19899c66f344c4, type: 2}
-  deck: []
+  - {fileID: 114241258360355312, guid: 3a90adcea8ba26a4e9e390ee34dad79e, type: 2}
   discard: []
   owner: {fileID: 0}
   drawAudio: {fileID: 0}
@@ -89,6 +90,7 @@ MonoBehaviour:
   avatar: {fileID: 21300000, guid: 5fb6a60e7143abb45a4a75555b49020e, type: 3}
   deathAudio: {fileID: 11400000, guid: 8ff44eac82d86234292e540839e7fb45, type: 2}
   walkAudio: {fileID: 11400000, guid: d7311f2f321f72b40bf3b94d0a4cbe62, type: 2}
+  unitColor: {r: 0.509434, g: 0, b: 0, a: 1}
   optimalDistane: 1
 --- !u!212 &212911737765107092
 SpriteRenderer:

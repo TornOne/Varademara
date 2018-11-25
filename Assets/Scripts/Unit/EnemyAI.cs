@@ -15,7 +15,6 @@ public class EnemyAI : Unit {
     protected override void Activate() {
         //TODO: Add AI (current thing is some weird hack, don't look at it)
 
-        this.ap = this.maxAP;
 
         //TODO: implement aggro system instead of next friendly
 		HashSet<Unit>.Enumerator friendlies = TurnManager.instance.friendlies.GetEnumerator();
@@ -81,7 +80,7 @@ public class EnemyAI : Unit {
             if (cardManager.hand[i] is DrawCard)
             {
                 //Card draw
-                cardValues[i] = cardValueToTarget(cardManager.hand[i], null);
+                cardValues[i] = cardValueToTarget(cardManager.hand[i], this);
             }
         }
 
