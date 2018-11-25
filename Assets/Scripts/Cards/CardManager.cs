@@ -11,12 +11,14 @@ public class CardManager : MonoBehaviour {
 
 	HandManager handManager;
 	DiscardPile discardPile;
+	TurnManager turnManager;
 
     public AudioClipGroup drawAudio;
 
     void Start() {
 		handManager = HandManager.instance;
 		discardPile = DiscardPile.instance;
+		turnManager = TurnManager.instance;
 	}
 
 	//Shuffle the deck
@@ -37,13 +39,20 @@ public class CardManager : MonoBehaviour {
 		Shuffle();
 
 		//UI
-		discardPile.RemoveCard();
+		if (turnManager.activeUnit == owner && owner is PlayerController) {
+			discardPile.RemoveCard();
+		}
 	}
 
 	public void StartTurn() {
 		FillHand();
 		UpdateDiscardUI();
 		UpdateHandUI();
+	}
+
+	public void EndTurn() {
+		discardPile.RemoveCard();
+		handManager.ReplaceCards(new List<Card>());
 	}
 
 	public void FillHand() {
@@ -61,8 +70,10 @@ public class CardManager : MonoBehaviour {
 
         if (drawAudio != null) drawAudio.Play();
 
-        //UI
-        UpdateHandUI();
+		//UI
+		if (turnManager.activeUnit == owner && owner is PlayerController) {
+			UpdateHandUI();
+		}
 	}
 
 	public void Discard(Card card) {
@@ -73,8 +84,10 @@ public class CardManager : MonoBehaviour {
 		hand.Remove(card);
 
 		//UI
-		UpdateDiscardUI();
-		UpdateHandUI();
+		if (turnManager.activeUnit == owner && owner is PlayerController) {
+			UpdateDiscardUI();
+			UpdateHandUI();
+		}
 	}
 
 	public Card Peek() {

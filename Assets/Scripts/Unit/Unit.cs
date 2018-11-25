@@ -50,7 +50,7 @@ public abstract class Unit : MonoBehaviour {
 
     void Start() {
 		TurnManager.instance.AddNewUnit(this);
-        this.tile.GetComponent<SpriteRenderer>().color = this.unitColor;
+        tile.GetComponent<SpriteRenderer>().color = unitColor;
     }
 
 	public void StartTurn() {
@@ -58,6 +58,10 @@ public abstract class Unit : MonoBehaviour {
 		ap = maxAP;
 		cardManager.StartTurn();
 		Activate();
+	}
+
+	public void EndTurn() {
+		cardManager.EndTurn();
 	}
 
 	protected abstract void Activate();
