@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
+  rectTransform: {fileID: 0}
   deleteOnUse: 0
   apCost: 1
   moveValue: 4
@@ -185,7 +186,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: MOVE
+  m_Text: Run
 --- !u!114 &114897498410320264
 MonoBehaviour:
   m_ObjectHideFlags: 1
