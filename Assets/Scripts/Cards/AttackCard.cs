@@ -7,10 +7,11 @@ public class AttackCard : Card
 {
     //TODO: different damage types for attack cards
     public int dmgValue = 1;
+    public int castRange = 1;
 
     protected override bool Activate(Tile tile, Unit caster)
     {
-        if (caster.tile.DistanceTo(tile) == 1 && tile.unit != null)
+        if (caster.tile.DistanceTo(tile) == castRange && tile.unit != null)
         {
             tile.unit.HP--;
             return true;
@@ -20,7 +21,7 @@ public class AttackCard : Card
 
     public override int CardValue(Tile tile, EnemyAI caster, Object target, ref Object extra)
     {
-        if (tile.DistanceTo(((Unit)target).tile) == 1 && (Unit)target != null)
+        if (tile.DistanceTo(((Unit)target).tile) == castRange && (Unit)target != null)
         {
             //TODO: proper damage calculation against targets armor
             return dmgValue;
