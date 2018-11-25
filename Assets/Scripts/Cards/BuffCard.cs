@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class BuffCard : Card
 {
-    //TODO: different damage types for attack cards
     public int healValue = 1;
     public int castRange = 1;
     
@@ -23,7 +22,7 @@ public class BuffCard : Card
     {
         if (tile.DistanceTo(((Unit)target).tile) == castRange && (Unit)target != null)
         {
-            //TODO: proper damage calculation against targets armor
+            //TODO: proper heal/buff calculations
             return healValue;
         }
         return 0;

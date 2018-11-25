@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class DrawCard : Card
 {
-    //TODO: different damage types for attack cards
     public int drawCount = 1;
     public bool fillHand = false;
     public bool discardHand = false;
