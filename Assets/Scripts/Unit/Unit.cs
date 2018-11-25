@@ -54,7 +54,7 @@ public abstract class Unit : MonoBehaviour {
 	protected abstract void Activate();
 
 	public void Move(List<Tile> path) {
-		StartCoroutine(LerpMove(path, 0.2f));
+		StartCoroutine(LerpMove(path, 0.3f));
 		tile.unit = null;
 		tile = path[path.Count - 1];
 		tile.unit = this;
@@ -73,7 +73,8 @@ public abstract class Unit : MonoBehaviour {
 			while (currentTime < endTime) {
 				yield return null;
 				currentTime = Time.time;
-				transform.position = Vector3.Lerp(origin, target, (currentTime - startTime) / duration);
+                float t = Mathf.Clamp(((currentTime - startTime) / duration * 1.4f)-0.2f, 0, 1);
+				transform.position = Vector3.Lerp(origin, target, t);
 			}
 		}
 	}
