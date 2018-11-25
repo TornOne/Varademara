@@ -25,6 +25,8 @@ public class EnemyAI : Unit {
 
         //cardManager.hand.Add(new MoveCard());//TODO: ai needs cards
 
+
+
         while (this.ap > 0) {
 
             if (!calculateHandValuesMove()) break;
@@ -78,15 +80,13 @@ public class EnemyAI : Unit {
             }*/
         }
 
-        Debug.Log("Attacking");
 
         int playCardIdx = cardValues.ToList().IndexOf(cardValues.Max());
-        if (cardValues[playCardIdx] == int.MaxValue) return false;
+        if (cardValues[playCardIdx] == 0) return false;
 
-        Debug.Log("Attacked");
         //ap -= cardManager.hand[playCardIdx].apCost;
 
-        cardManager.hand[playCardIdx].UseNoUI(aggroTarget.tile, this);
+        cardManager.hand[playCardIdx].Use(aggroTarget.tile, this);
 
         return true;
     }
@@ -136,6 +136,11 @@ public class EnemyAI : Unit {
     }
 
     private void getAggroTarget()
+    {
+
+    }
+
+    private void FindMaxAttackRange()
     {
 
     }

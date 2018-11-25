@@ -42,7 +42,7 @@ public class MoveCard : Card {
         
         extra = errors.OrderBy(kvp => kvp.Value).First().Key;
         //Debug.Log(errors[(Tile)extra]);
-
+        if (errors[(Tile)extra] == currentDistance) return int.MaxValue;
 
         return errors[(Tile)extra];
     }
