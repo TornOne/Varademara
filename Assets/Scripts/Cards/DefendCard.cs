@@ -8,9 +8,4 @@ public class DefendCard : Card
     {
         return true;
     }
-
-    internal override int CardValue(Tile tile, EnemyAI caster, Object target, ref Object extra)
-    {
-        return 0;
-    }
 }

@@ -18,7 +18,7 @@ public class MoveCard : Card {
 	}
 
 
-    internal override int CardValue(Tile tile, EnemyAI caster, Object target, ref Object extra)
+    public override int CardValue(Tile tile, EnemyAI caster, Object target, ref Object extra)
     {
         int currentDistance = tile.DistanceTo((Tile)target);
 
