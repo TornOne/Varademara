@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHP: 10
+  hp: 100
   maxAP: 3
   ap: 3
   initiative: 50
@@ -91,6 +92,8 @@ MonoBehaviour:
   tile: {fileID: 0}
   cardManager: {fileID: 114128333050158062}
   avatar: {fileID: 21300000, guid: 5fb6a60e7143abb45a4a75555b49020e, type: 3}
+  deathAudio: {fileID: 11400000, guid: 8ff44eac82d86234292e540839e7fb45, type: 2}
+  walkAudio: {fileID: 11400000, guid: d7311f2f321f72b40bf3b94d0a4cbe62, type: 2}
 --- !u!212 &212538911033030940
 SpriteRenderer:
   m_ObjectHideFlags: 1

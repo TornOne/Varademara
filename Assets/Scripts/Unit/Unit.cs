@@ -13,7 +13,7 @@ public abstract class Unit : MonoBehaviour {
 		} set {
 			hp = value;
 			if (value <= 0) {
-                deathAudio.Play();
+                if (deathAudio!= null) deathAudio.Play();
 
                 TurnManager.instance.RemoveUnit(this);
 				Destroy(gameObject);
@@ -81,7 +81,7 @@ public abstract class Unit : MonoBehaviour {
                 float t = Mathf.Clamp(((currentTime - startTime) / duration * 1.4f)-0.2f, 0, 1);
 				transform.position = Vector3.Lerp(origin, target, t);
 
-                walkAudio.Play();
+                if (walkAudio != null) walkAudio.Play();
             }
 		}
 	}
