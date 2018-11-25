@@ -14,7 +14,7 @@ public abstract class Unit : MonoBehaviour {
 			hp = value;
 			if (value <= 0) {
                 if (deathAudio!= null) deathAudio.Play();
-
+                tile.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
                 TurnManager.instance.RemoveUnit(this);
 				Destroy(gameObject);
 			} else if (value > maxHP) {
@@ -61,7 +61,8 @@ public abstract class Unit : MonoBehaviour {
 	}
 
 	public void EndTurn() {
-		cardManager.EndTurn();
+        tile.GetComponent<SpriteRenderer>().color = unitColor;
+        cardManager.EndTurn();
 	}
 
 	protected abstract void Activate();

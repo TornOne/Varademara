@@ -47,3 +47,9 @@ TagManager:
   - name: Ogre
     uniqueID: 2230143079
     locked: 0
+  - name: KnightRider
+    uniqueID: 150313899
+    locked: 0
+  - name: Pikeman
+    uniqueID: 4047599655
+    locked: 0
