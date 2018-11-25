@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class AttackCard : Card
+public class BuffCard : Card
 {
     //TODO: different damage types for attack cards
-    public int dmgValue = 1;
+    public int healValue = 1;
     public int castRange = 1;
+    
 
     protected override bool Activate(Tile tile, Unit caster)
     {
         if (caster.tile.DistanceTo(tile) == castRange && tile.unit != null)
         {
-            tile.unit.HP-= dmgValue;
+            tile.unit.HP+= healValue;
             return true;
         }
         return false;
@@ -24,7 +24,7 @@ public class AttackCard : Card
         if (tile.DistanceTo(((Unit)target).tile) == castRange && (Unit)target != null)
         {
             //TODO: proper damage calculation against targets armor
-            return dmgValue;
+            return healValue;
         }
         return 0;
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(CardManager))]
 public abstract class Unit : MonoBehaviour {
 	[SerializeField]
+    public int maxHP;
 	int hp;
 	public int HP { //HACK: This entire property
 		get {
@@ -14,7 +15,10 @@ public abstract class Unit : MonoBehaviour {
 			if (value <= 0) {
 				TurnManager.instance.RemoveUnit(this);
 				Destroy(gameObject);
-			}
+			} else if (value > maxHP)
+            {
+                hp = maxHP;
+            }
 		}
 	}
 	public int maxAP;

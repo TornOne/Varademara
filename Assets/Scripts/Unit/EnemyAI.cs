@@ -78,6 +78,11 @@ public class EnemyAI : Unit {
                 //Buff/heal cards
                 cardValues[i] = cardValueToTarget(cardManager.hand[i], aggroTarget);
             }*/
+            if (cardManager.hand[i] is DrawCard)
+            {
+                //Card draw
+                cardValues[i] = cardValueToTarget(cardManager.hand[i], null);
+            }
         }
 
 
