@@ -111,10 +111,7 @@ public class EnemyAI : Unit {
         if (cardValues[playCardIdx] == int.MaxValue) return false;
 
         MoveCard chosenCard = (MoveCard)cardManager.hand[playCardIdx];
-        ap -= chosenCard.apCost;
-
-        Dictionary<Tile, int> tiles = tile.BuildWalkMap(chosenCard.moveValue);
-        this.Move(Map.instance.PathTo(cardTargets[playCardIdx]));
+        cardManager.hand[playCardIdx].Use(cardTargets[playCardIdx], this);
 
         return true;
     }
