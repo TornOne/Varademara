@@ -15,7 +15,6 @@ public class EnemyAI : Unit {
     protected override void Activate() {
         //TODO: Add AI (current thing is some weird hack, don't look at it)
 
-        this.ap = this.maxAP;
 
         //TODO: implement aggro system instead of next friendly
 		HashSet<Unit>.Enumerator friendlies = TurnManager.instance.friendlies.GetEnumerator();

@@ -75,8 +75,10 @@ public class TurnManager : MonoBehaviour {
 			thisTurn = nextTurn;
 			nextTurn = temp;
 		}
-		//Move the unit to the next turn and activate it
-		activeUnit = thisTurn.Keys[0];
+
+        if (activeUnit != null) activeUnit.tile.GetComponent<SpriteRenderer>().color = activeUnit.unitColor;
+        //Move the unit to the next turn and activate it
+        activeUnit = thisTurn.Keys[0];
 		thisTurn.RemoveAt(0);
 		nextTurn.Add(activeUnit, activeUnit);
 		UpdateTurnBar();

@@ -45,11 +45,15 @@ public abstract class Unit : MonoBehaviour {
     public AudioClipGroup deathAudio;
     public AudioClipGroup walkAudio;
 
+    public Color unitColor;
+
     void Start() {
 		TurnManager.instance.AddNewUnit(this);
-	}
+        this.tile.GetComponent<SpriteRenderer>().color = this.unitColor;
+    }
 
 	public void StartTurn() {
+        tile.GetComponent<SpriteRenderer>().color = new Color(1,1,0);
 		ap = maxAP;
 		cardManager.StartTurn();
 		Activate();
@@ -60,8 +64,10 @@ public abstract class Unit : MonoBehaviour {
 	public void Move(List<Tile> path) {
 		StartCoroutine(LerpMove(path, 0.3f));
 		tile.unit = null;
-		tile = path[path.Count - 1];
-		tile.unit = this;
+        tile.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
+        tile = path[path.Count - 1];
+        tile.GetComponent<SpriteRenderer>().color = new Color(1, 1, 0);
+        tile.unit = this;
 	}
 
 	IEnumerator LerpMove(List<Tile> path, float duration) {

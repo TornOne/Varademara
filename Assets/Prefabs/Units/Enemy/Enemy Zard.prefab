@@ -77,8 +77,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 10
   hp: 2
-  maxAP: 2
-  ap: 2
+  maxAP: 1
+  ap: 1
   initiative: 40
   pAtt: 0
   mAtt: 0
@@ -90,6 +90,7 @@ MonoBehaviour:
   avatar: {fileID: 21300000, guid: 5fb6a60e7143abb45a4a75555b49020e, type: 3}
   deathAudio: {fileID: 11400000, guid: 8ff44eac82d86234292e540839e7fb45, type: 2}
   walkAudio: {fileID: 11400000, guid: d7311f2f321f72b40bf3b94d0a4cbe62, type: 2}
+  unitColor: {r: 0.509434, g: 0, b: 0, a: 1}
   optimalDistane: 1
 --- !u!212 &212911737765107092
 SpriteRenderer:
