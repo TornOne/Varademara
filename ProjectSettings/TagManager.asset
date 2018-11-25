@@ -41,3 +41,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Griffin
+    uniqueID: 1292460819
+    locked: 0
+  - name: Ogre
+    uniqueID: 2230143079
+    locked: 0
