@@ -157,6 +157,48 @@ Prefab:
       propertyPath: sidebar
       value: 
       objectReference: {fileID: 1913186264}
+    - target: {fileID: 114587453144887352, guid: 81d2c628f4ce5af4583bc28478b15168,
+        type: 2}
+      propertyPath: griffin
+      value: 
+      objectReference: {fileID: 114418105764847822, guid: 24afdb629bfaf7e4196b6d2b292e3c72,
+        type: 2}
+    - target: {fileID: 114587453144887352, guid: 81d2c628f4ce5af4583bc28478b15168,
+        type: 2}
+      propertyPath: monk
+      value: 
+      objectReference: {fileID: 114484537230030264, guid: ab80bc2ae1189294681304015bc39540,
+        type: 2}
+    - target: {fileID: 114587453144887352, guid: 81d2c628f4ce5af4583bc28478b15168,
+        type: 2}
+      propertyPath: pikeman
+      value: 
+      objectReference: {fileID: 114242279215855284, guid: b1798b42af64e5947ad7c75d7550d0ac,
+        type: 2}
+    - target: {fileID: 114587453144887352, guid: 81d2c628f4ce5af4583bc28478b15168,
+        type: 2}
+      propertyPath: swordman
+      value: 
+      objectReference: {fileID: 114298668530455306, guid: 9eb11288239189f408f20f849db10b2a,
+        type: 2}
+    - target: {fileID: 114587453144887352, guid: 81d2c628f4ce5af4583bc28478b15168,
+        type: 2}
+      propertyPath: knightRider
+      value: 
+      objectReference: {fileID: 114828705121053650, guid: c6711461c8a7ad34cbb0d6b10c718fe2,
+        type: 2}
+    - target: {fileID: 114587453144887352, guid: 81d2c628f4ce5af4583bc28478b15168,
+        type: 2}
+      propertyPath: Ogre
+      value: 
+      objectReference: {fileID: 114543711274876000, guid: 49b77baa44cd0eb49a3ff2a8ac12b931,
+        type: 2}
+    - target: {fileID: 114587453144887352, guid: 81d2c628f4ce5af4583bc28478b15168,
+        type: 2}
+      propertyPath: demonFairy
+      value: 
+      objectReference: {fileID: 114588487704148054, guid: fdb2d6c1c12765d4c81505eed0d8cc2e,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 81d2c628f4ce5af4583bc28478b15168, type: 2}
   m_IsPrefabAsset: 0

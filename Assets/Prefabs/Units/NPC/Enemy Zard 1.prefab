@@ -62,6 +62,7 @@ MonoBehaviour:
   deck: []
   discard: []
   owner: {fileID: 0}
+  drawAudio: {fileID: 0}
 --- !u!114 &114939335033120508
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -83,11 +84,14 @@ MonoBehaviour:
   pDef: 0
   mDef: 0
   balance: 0
+  title: Frogzard
+  isAnimating: 0
   tile: {fileID: 0}
   cardManager: {fileID: 114900262426286372}
   avatar: {fileID: 21300000, guid: 5fb6a60e7143abb45a4a75555b49020e, type: 3}
   deathAudio: {fileID: 11400000, guid: 8ff44eac82d86234292e540839e7fb45, type: 2}
   walkAudio: {fileID: 11400000, guid: d7311f2f321f72b40bf3b94d0a4cbe62, type: 2}
+  unitColor: {r: 0, g: 0, b: 0, a: 0}
   optimalDistane: 1
 --- !u!212 &212911737765107092
 SpriteRenderer:

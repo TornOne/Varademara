@@ -53,3 +53,9 @@ TagManager:
   - name: Pikeman
     uniqueID: 4047599655
     locked: 0
+  - name: DemonFairy
+    uniqueID: 4018695349
+    locked: 0
+  - name: Monk
+    uniqueID: 3159897207
+    locked: 0

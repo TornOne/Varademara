@@ -37,6 +37,7 @@ public abstract class Unit : MonoBehaviour {
 	public int pDef;
 	public int mDef;
 	public int balance;
+    public string title;
 
 	public bool isAnimating = false;
 	public Tile tile;
