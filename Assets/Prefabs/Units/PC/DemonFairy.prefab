@@ -234,10 +234,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handSize: 4
   hand: []
-  deck: []
+  deck:
+  - {fileID: 114241258360355312, guid: 3a90adcea8ba26a4e9e390ee34dad79e, type: 2}
+  - {fileID: 114241258360355312, guid: 42a5fe9fa7208ad4f86b0c985ce03153, type: 2}
+  - {fileID: 114241258360355312, guid: 06a02b90cb8afd2409571fd050575f5c, type: 2}
+  - {fileID: 114640272784829546, guid: 48aa01f3de0947a4c9a0071f6bd8dac1, type: 2}
+  - {fileID: 114842126500371114, guid: f93b70c746fa6d64ba19899c66f344c4, type: 2}
+  - {fileID: 114842126500371114, guid: 278eb16147511ff4fb135f58b5db092f, type: 2}
   discard: []
   owner: {fileID: 0}
-  drawAudio: {fileID: 0}
+  drawAudio: {fileID: 11400000, guid: f163f07d3577356459136eb96daba9ce, type: 2}
 --- !u!114 &114588487704148054
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -264,9 +270,9 @@ MonoBehaviour:
   tile: {fileID: 0}
   cardManager: {fileID: 114479904227999200}
   avatar: {fileID: 21300010, guid: 7f30911c9e1c2504c868941cf7e61181, type: 3}
-  deathAudio: {fileID: 0}
-  walkAudio: {fileID: 0}
-  unitColor: {r: 0, g: 0, b: 0, a: 0}
+  deathAudio: {fileID: 11400000, guid: f9cb2f625a28578428b5765378250966, type: 2}
+  walkAudio: {fileID: 11400000, guid: d7311f2f321f72b40bf3b94d0a4cbe62, type: 2}
+  unitColor: {r: 0.05490196, g: 0.5019608, b: 0, a: 1}
 --- !u!212 &212144838776883936
 SpriteRenderer:
   m_ObjectHideFlags: 1

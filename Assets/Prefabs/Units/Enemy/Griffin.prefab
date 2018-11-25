@@ -247,8 +247,8 @@ MonoBehaviour:
   tile: {fileID: 0}
   cardManager: {fileID: 114745690891155208}
   avatar: {fileID: 21300000, guid: eebd9ec68d34b8a4c85ff8660c198e2c, type: 3}
-  deathAudio: {fileID: 0}
-  walkAudio: {fileID: 0}
+  deathAudio: {fileID: 11400000, guid: 0420c0cff7d40e54ba18c458af5c9961, type: 2}
+  walkAudio: {fileID: 11400000, guid: d7311f2f321f72b40bf3b94d0a4cbe62, type: 2}
   unitColor: {r: 0.50980395, g: 0, b: 0, a: 1}
   optimalDistane: 0
 --- !u!114 &114745690891155208
@@ -263,11 +263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   handSize: 4
-  hand:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  hand: []
   deck:
   - {fileID: 114842126500371114, guid: f93b70c746fa6d64ba19899c66f344c4, type: 2}
   - {fileID: 114640272784829546, guid: e9d349941fc75074787a0353b519cfe7, type: 2}

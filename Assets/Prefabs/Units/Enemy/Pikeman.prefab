@@ -215,10 +215,10 @@ MonoBehaviour:
   title: Pikeman
   isAnimating: 0
   tile: {fileID: 0}
-  cardManager: {fileID: 0}
+  cardManager: {fileID: 114906531003983078}
   avatar: {fileID: 0}
-  deathAudio: {fileID: 0}
-  walkAudio: {fileID: 0}
+  deathAudio: {fileID: 11400000, guid: 8ff44eac82d86234292e540839e7fb45, type: 2}
+  walkAudio: {fileID: 11400000, guid: d7311f2f321f72b40bf3b94d0a4cbe62, type: 2}
   unitColor: {r: 0.50980395, g: 0, b: 0, a: 1}
   optimalDistane: 0
 --- !u!114 &114906531003983078
@@ -232,11 +232,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b83a3416ed842246b4cf6620d16eb23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handSize: 0
-  hand:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  handSize: 3
+  hand: []
   deck:
   - {fileID: 114241258360355312, guid: 3a90adcea8ba26a4e9e390ee34dad79e, type: 2}
   - {fileID: 114241258360355312, guid: 06a02b90cb8afd2409571fd050575f5c, type: 2}
