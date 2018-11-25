@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class AttackCard : Card
 {
     //TODO: different damage types for attack cards
@@ -17,7 +18,7 @@ public class AttackCard : Card
         return false;
     }
 
-    internal override int CardValue(Tile tile, EnemyAI caster, Object target, ref Object extra)
+    public override int CardValue(Tile tile, EnemyAI caster, Object target, ref Object extra)
     {
         if (tile.DistanceTo(((Unit)target).tile) == 1 && (Unit)target != null)
         {
