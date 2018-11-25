@@ -434,6 +434,8 @@ MonoBehaviour:
   - {fileID: 1312867264}
   - {fileID: 1626242183}
   - {fileID: 935765566}
+  avatar: {fileID: 1771356836}
+  title: {fileID: 0}
 --- !u!1 &310476709
 GameObject:
   m_ObjectHideFlags: 0

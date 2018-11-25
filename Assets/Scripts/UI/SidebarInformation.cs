@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class SidebarInformation : MonoBehaviour {
     public Text[] textFields;
     public Image avatar;
-    public Text title; //TODO Unit names?
+    public Text title; //TODO Units needs names?
 
     public void fillSidebar(Unit unit){
         textFields[0].text = "" + unit.ap;
