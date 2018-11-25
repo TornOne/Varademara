@@ -38,6 +38,7 @@ public abstract class Unit : MonoBehaviour {
 	public int mDef;
 	public int balance;
 
+	public bool isAnimating = false;
 	public Tile tile;
 	public CardManager cardManager;
 	public Sprite avatar;
@@ -58,13 +59,15 @@ public abstract class Unit : MonoBehaviour {
 	protected abstract void Activate();
 
 	public void Move(List<Tile> path) {
-		StartCoroutine(LerpMove(path, 0.3f));
+		StartCoroutine(LerpMove(path, 0.2f));
 		tile.unit = null;
 		tile = path[path.Count - 1];
 		tile.unit = this;
 	}
 
 	IEnumerator LerpMove(List<Tile> path, float duration) {
+		isAnimating = true;
+
 		Vector3 origin;
 		Vector3 target = path[0].transform.position;
 		for (int i = 1; i < path.Count; i++) {
@@ -77,12 +80,13 @@ public abstract class Unit : MonoBehaviour {
 			while (currentTime < endTime) {
 				yield return null;
 				currentTime = Time.time;
-                float t = Mathf.Clamp(((currentTime - startTime) / duration * 1.4f)-0.2f, 0, 1);
-				transform.position = Vector3.Lerp(origin, target, t);
+				transform.position = Vector3.Lerp(origin, target, (currentTime - startTime) / duration);
 
                 if (walkAudio != null) walkAudio.Play();
             }
 		}
+
+		isAnimating = false;
 	}
 
 	public int CalculatePhysicalDamage(int baseDmg, Unit other) {

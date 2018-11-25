@@ -55,6 +55,7 @@ public class InputManager : MonoBehaviour {
 			}
 			DeselectCard();
 		}
+
 		if (Input.GetKeyDown(KeyCode.Escape)) {
 			SceneManager.LoadScene("StartMenu");
 		}
