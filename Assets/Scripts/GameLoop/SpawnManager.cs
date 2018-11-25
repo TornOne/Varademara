@@ -20,11 +20,31 @@ public class SpawnManager : MonoBehaviour {
 		myUnit = Instantiate(Ogre, myTile.transform.position, Quaternion.Euler(45, 0, 0));
 		myTile.unit = myUnit;
 		myUnit.tile = myTile;
-		for (int i = 2; i < 7; i += 2) {
+		/*for (int i = 2; i < 7; i += 2) {
 			Tile enemyTile = Map.instance.GetTile(1, i);
 			Unit enemyUnit = Instantiate(pikeman, enemyTile.transform.position, Quaternion.Euler(45, 0, 0));
 			enemyUnit.tile = enemyTile;
 			enemyTile.unit = enemyUnit;
-		}
-	}
+		}*/
+
+        Tile enemyTile = Map.instance.GetTile(1, 4);
+        Unit enemyUnit = Instantiate(pikeman, enemyTile.transform.position, Quaternion.Euler(45, 0, 0));
+        enemyUnit.tile = enemyTile;
+        enemyTile.unit = enemyUnit;
+
+        enemyTile = Map.instance.GetTile(1, 7);
+        enemyUnit = Instantiate(swordman, enemyTile.transform.position, Quaternion.Euler(45, 0, 0));
+        enemyUnit.tile = enemyTile;
+        enemyTile.unit = enemyUnit;
+
+        enemyTile = Map.instance.GetTile(1, 11);
+        enemyUnit = Instantiate(monk, enemyTile.transform.position, Quaternion.Euler(45, 0, 0));
+        enemyUnit.tile = enemyTile;
+        enemyTile.unit = enemyUnit;
+
+        enemyTile = Map.instance.GetTile(1, 1);
+        enemyUnit = Instantiate(griffin, enemyTile.transform.position, Quaternion.Euler(45, 0, 0));
+        enemyUnit.tile = enemyTile;
+        enemyTile.unit = enemyUnit;
+    }
 }
