@@ -12,6 +12,8 @@ public class InputManager : MonoBehaviour {
 	TurnManager turnManager;
 	EventSystem eventSystem;
 
+    public TileHighlighter tileHighlighter;
+
 	void Awake() {
 		instance = this;
 	}
@@ -34,11 +36,23 @@ public class InputManager : MonoBehaviour {
 		selectedCard = null;
 	}
 
+	public void DiscardClicked() {
+		if (selectedCard != null) {
+			CardManager cardManager = turnManager.activeUnit.cardManager;
+			selectedCard = cardManager.hand[selectedCard.canvas.sortingOrder];
+			cardManager.Discard(selectedCard);
+		}
+	}
+
 	void Update() {
 		Tile tile = map.GetMouseTile();
-		//TODO: Highlight tile
+        //TODO: Highlight tile
 
-		if (Input.GetMouseButtonDown(0) && !eventSystem.IsPointerOverGameObject()) {
+
+        tileHighlighter.setPos(tile);
+
+
+        if (Input.GetMouseButtonDown(0) && !eventSystem.IsPointerOverGameObject()) {
 			if (selectedCard == null) {
 				if (tile != null && tile.unit != null) {
 					sidebar.FillSidebar(tile.unit);

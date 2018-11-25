@@ -69,7 +69,7 @@ public class TurnManager : MonoBehaviour {
 	}
 
 	public void NextTurn() {
-		activeUnit.EndTurn();
+        if (activeUnit != null) activeUnit.EndTurn();
 
 		//If the current turn has ended, start the next turn
 		if (thisTurn.Count == 0) {
@@ -78,7 +78,6 @@ public class TurnManager : MonoBehaviour {
 			nextTurn = temp;
 		}
 
-        if (activeUnit != null) activeUnit.tile.GetComponent<SpriteRenderer>().color = activeUnit.unitColor;
         //Move the unit to the next turn and activate it
         activeUnit = thisTurn.Keys[0];
 		thisTurn.RemoveAt(0);

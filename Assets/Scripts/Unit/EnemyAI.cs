@@ -25,18 +25,6 @@ public class EnemyAI : Unit {
         //cardManager.hand.Add(new MoveCard());//TODO: ai needs cards
 
 
-
-        while (this.ap > 0) {
-
-            if (!calculateHandValuesMove()) break;
-        }
-
-        while (this.ap > 0)
-        {
-
-            if (!calculateHandValuesAction()) break;
-        }
-
         /*
 		if (tile.DistanceTo(target.tile) == 1) {
 			target.HP--;
@@ -51,10 +39,29 @@ public class EnemyAI : Unit {
 			Move(new List<Tile>() { tile, nearestTile });
 		}
         */
+        StartCoroutine("AIStateMachine");
+
+    }
+
+    IEnumerator AIStateMachine()
+    {
+
+        while (this.ap > 0)
+        {
+            if (!calculateHandValuesMove()) break;
+            while (isAnimating) yield return null;
+        }
+
+        while (this.ap > 0)
+        {
+            if (!calculateHandValuesAction()) break;
+            while (isAnimating) yield return null;
+        }
 
 
         TurnManager.instance.NextTurn();
-	}
+        yield return null;
+    }
 
     private bool calculateHandValuesAction()
     {
