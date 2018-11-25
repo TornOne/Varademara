@@ -160,7 +160,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: DEFEND
+  m_Text: Defend
 --- !u!114 &114890992326661602
 MonoBehaviour:
   m_ObjectHideFlags: 1
