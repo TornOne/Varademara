@@ -7,8 +7,15 @@ public class SidebarInformation : MonoBehaviour {
     public Text[] textFields;
     public Image avatar;
     public Text title; //TODO Units needs names?
+    private Unit lastUnit;
+
+    private void Update()
+    {
+        FillSidebar(lastUnit); //TODO needs better version
+    }
 
     public void FillSidebar(Unit unit){
+        lastUnit = unit;
         textFields[0].text = "" + unit.ap;
         textFields[1].text = "" + unit.HP;
         textFields[2].text = "" + unit.mAtt;
