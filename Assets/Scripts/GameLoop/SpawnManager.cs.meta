@@ -3,7 +3,19 @@ guid: fbcbebdef89c3714db590fb08fcecb5b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - knightRider: {fileID: 114828705121053650, guid: c6711461c8a7ad34cbb0d6b10c718fe2,
+      type: 2}
+  - demonFairy: {fileID: 114588487704148054, guid: fdb2d6c1c12765d4c81505eed0d8cc2e,
+      type: 2}
+  - Ogre: {fileID: 114972539905170634, guid: 49b77baa44cd0eb49a3ff2a8ac12b931, type: 2}
+  - pikeman: {fileID: 114670126050955622, guid: b1798b42af64e5947ad7c75d7550d0ac,
+      type: 2}
+  - swordman: {fileID: 114223550623739026, guid: 9eb11288239189f408f20f849db10b2a,
+      type: 2}
+  - monk: {fileID: 114819559990632748, guid: ab80bc2ae1189294681304015bc39540, type: 2}
+  - griffin: {fileID: 114418105764847822, guid: 24afdb629bfaf7e4196b6d2b292e3c72,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
