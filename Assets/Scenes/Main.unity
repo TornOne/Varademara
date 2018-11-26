@@ -743,6 +743,11 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114621552273058116, guid: 9506333b87c47a6488378d6ace2c590e,
+        type: 2}
+      propertyPath: title
+      value: 
+      objectReference: {fileID: 1077923784}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9506333b87c47a6488378d6ace2c590e, type: 2}
   m_IsPrefabAsset: 0
@@ -813,6 +818,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1077923784 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114484337038521092, guid: 9506333b87c47a6488378d6ace2c590e,
+    type: 2}
+  m_PrefabInternal: {fileID: 319082259}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &1726488052
 Prefab:
   m_ObjectHideFlags: 0
