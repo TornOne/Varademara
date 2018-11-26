@@ -83,7 +83,8 @@ public class TurnManager : MonoBehaviour {
 		thisTurn.RemoveAt(0);
 		nextTurn.Add(activeUnit, activeUnit);
 		UpdateTurnBar();
-		activeUnit.StartTurn();
+        InputManager.instance.sidebar.FillSidebar(activeUnit);
+        activeUnit.StartTurn();
 	}
 
 	//Add or update unit, needs to be called after initiative change
