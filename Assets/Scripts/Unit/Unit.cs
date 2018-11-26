@@ -71,10 +71,8 @@ public abstract class Unit : MonoBehaviour {
 	public void Move(List<Tile> path) {
 		StartCoroutine(LerpMove(path, 0.2f));
 		tile.unit = null;
-        //tile.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
-        tile = path[path.Count - 1];
-        //tile.GetComponent<SpriteRenderer>().color = new Color(1, 1, 0); //TODO: Move into LerpMove
-        tile.unit = this;
+		tile = path[path.Count - 1];
+		tile.unit = this;
 	}
 
 	IEnumerator LerpMove(List<Tile> path, float duration) {
@@ -91,16 +89,14 @@ public abstract class Unit : MonoBehaviour {
 
             path[i].GetComponent<SpriteRenderer>().color = new Color(1, 1, 0);
             path[i - 1].GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
-            while (currentTime < endTime) {
+			while (currentTime < endTime) {
 				yield return null;
 				currentTime = Time.time;
 				transform.position = Vector3.Lerp(origin, target, (currentTime - startTime) / duration);
 
-                if (walkAudio != null) walkAudio.Play();
-            }
-
-            //path[i-1].GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
-
+				if (walkAudio != null)
+					walkAudio.Play();
+			}
         }
 
 		isAnimating = false;
