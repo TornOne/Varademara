@@ -25,5 +25,6 @@ public class SidebarInformation : MonoBehaviour {
         textFields[6].text = "" + unit.balance+"%";
         textFields[7].text = "" + unit.HandSize;
         avatar.sprite = unit.avatar;
+        title.text = unit.title;
     }
 }
