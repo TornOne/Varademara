@@ -12,7 +12,7 @@ public class BuffCard : Card
 
     protected override bool Activate(Tile tile, Unit caster)
     {
-        if (caster.tile.DistanceTo(tile) == castRange && tile.unit != null)
+        if (caster.tile.DistanceTo(tile) <= castRange && tile.unit != null)
         {
             tile.unit.HP += healValue;
             tile.unit.initiative += initiativeValue;

@@ -13,7 +13,7 @@ public class AttackCard : Card
 
     protected override bool Activate(Tile tile, Unit caster)
     {
-        if (caster.tile.DistanceTo(tile) == castRange && tile.unit != null)
+        if (caster.tile.DistanceTo(tile) <= castRange && tile.unit != null)
         {
             if (attackAudio != null) attackAudio.Play();
             tile.unit.HP-= dmgValue;
