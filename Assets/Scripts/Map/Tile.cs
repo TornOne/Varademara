@@ -13,17 +13,23 @@ public class Tile : MonoBehaviour {
     //public List<StatusEffect> effects;
 
     public SpriteRenderer sprite;
-    public Color baseColor;
+    public Color baseColor = new Color(0,0,0);
 
     public void SetMovableHighlight(Color value)
     {
-        if (value == null)
+        if (value.a == 0)
         {
-            sprite.color = baseColor;
+            if (unit != null)
+            {
+                Color unitColor = unit.GetMyColor();
+                if (unitColor.a == 0) sprite.color = baseColor;
+                else sprite.color = unitColor;
+            }
+            else sprite.color = baseColor;
         }
         else
         {
-            baseColor = sprite.color;
+            //baseColor = sprite.color;
             sprite.color = value;
         }
     }

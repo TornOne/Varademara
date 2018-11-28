@@ -8,7 +8,11 @@ public class BuffCard : Card
     public int initiativeValue = 1;
   
     public int castRange = 1;
-    
+
+    protected override bool PreActivate(Unit caster, bool select)
+    {
+        return true;
+    }
 
     protected override bool Activate(Tile tile, Unit caster)
     {

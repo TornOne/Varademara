@@ -11,6 +11,30 @@ public class AttackCard : Card
 
     public AudioClipGroup attackAudio;
 
+    protected override bool PreActivate(Unit caster, bool select)
+    {
+        Color highlightColor;
+        if (select)
+        {
+            tiles = caster.tile.BuildFlightMap(castRange);
+            highlightColor = new Color(0.8f, 0, 0);
+            foreach (KeyValuePair<Tile, int> tile in tiles)
+            {
+                tile.Key.SetMovableHighlight(highlightColor);
+            }
+
+        }
+        else
+        {
+            highlightColor = new Color();
+            foreach (KeyValuePair<Tile, int> tile in tiles)
+            {
+                tile.Key.SetMovableHighlight(highlightColor);
+            }
+        }
+        return true;
+    }
+
     protected override bool Activate(Tile tile, Unit caster)
     {
         if (caster.tile.DistanceTo(tile) <= castRange && tile.unit != null)

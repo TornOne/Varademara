@@ -9,6 +9,11 @@ public class DrawCard : Card
     public bool fillHand = false;
     public bool discardHand = false;
 
+    protected override bool PreActivate(Unit caster, bool select)
+    {
+        return true;
+    }
+
     protected override bool Activate(Tile tile, Unit caster)
     {
         if (discardHand) caster.cardManager.FillHand();
