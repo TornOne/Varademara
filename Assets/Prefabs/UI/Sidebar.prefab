@@ -832,7 +832,7 @@ MonoBehaviour:
   - {fileID: 114050989433147270}
   - {fileID: 114243775882190972}
   avatar: {fileID: 114499362450569506}
-  title: {fileID: 0}
+  title: {fileID: 114484337038521092}
 --- !u!114 &114643067838342680
 MonoBehaviour:
   m_ObjectHideFlags: 1
