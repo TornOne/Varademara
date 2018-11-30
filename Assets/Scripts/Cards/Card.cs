@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using System.Linq;
 
 [SelectionBase]
 public abstract class Card : MonoBehaviour {
@@ -8,7 +11,9 @@ public abstract class Card : MonoBehaviour {
 	public bool deleteOnUse = false;
 	public int apCost;
 
-	void Awake() {
+    protected Dictionary<Tile, int> tiles;
+
+    void Awake() {
 		rectTransform = GetComponent<RectTransform>();
 		canvas = GetComponent<Canvas>();
 		inputManager = InputManager.instance;
@@ -26,8 +31,27 @@ public abstract class Card : MonoBehaviour {
 		}
 	}
 
-	//Must return whether the activation succeded or not
-	protected abstract bool Activate(Tile tile, Unit caster);
+    public bool Select(Unit caster, bool select)
+    {
+        if (caster.ap < apCost)
+        {
+            return false;
+        }
+        else if (PreActivate(caster, select))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    //Cards that should do precalculations before activating
+    protected abstract bool PreActivate(Unit caster, bool select);
+
+    //Must return whether the activation succeded or not
+    protected abstract bool Activate(Tile tile, Unit caster);
 
 	public void MouseDown() {
 		inputManager.SelectCard(this);

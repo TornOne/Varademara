@@ -29,11 +29,15 @@ public class InputManager : MonoBehaviour {
 			DeselectCard();
 		}
 		selectedCard = card;
-		//TODO: Highlight the card or something
-	}
+
+        selectedCard = turnManager.activeUnit.cardManager.hand[selectedCard.canvas.sortingOrder];
+        selectedCard.Select(turnManager.activeUnit, true);
+        //TODO: Highlight the card or something
+    }
 
 	public void DeselectCard() {
-		selectedCard = null;
+        selectedCard.Select(turnManager.activeUnit, false);
+        selectedCard = null;
 	}
 
 	public void DiscardClicked() {
@@ -61,12 +65,16 @@ public class InputManager : MonoBehaviour {
 				return; //No card selected, nothing to do
 			}
 
-			if (tile != null) {
-				//Try to use card
-				//Find the reference to the real card in the hand
-				selectedCard = turnManager.activeUnit.cardManager.hand[selectedCard.canvas.sortingOrder];
-				selectedCard.Use(tile, turnManager.activeUnit);
+			if (tile != null && selectedCard != null) {
+                //Try to use card
+                //Find the reference to the real card in the hand
+
+                //selectedCard = turnManager.activeUnit.cardManager.hand[selectedCard.canvas.sortingOrder];
+                selectedCard.Select(turnManager.activeUnit, false); // double call for fix
+                selectedCard.Use(tile, turnManager.activeUnit);
 			}
+
+
 			DeselectCard();
 		}
 

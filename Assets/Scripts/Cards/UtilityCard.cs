@@ -10,5 +10,8 @@ public class UtilityCard : Card
         return false;
     }
 
-
+    protected override bool PreActivate(Unit caster, bool select)
+    {
+        return true;
+    }
 }

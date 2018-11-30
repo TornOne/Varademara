@@ -53,32 +53,46 @@ public abstract class Unit : MonoBehaviour {
 
 	[HideInInspector]
     public Color unitColor;
+    public Color unitHighlightColor;
+    private Color poscolor;
 
     void Start() {
 		TurnManager.instance.AddNewUnit(this);
-        tile.GetComponent<SpriteRenderer>().color = unitColor;
+        //tile.GetComponent<SpriteRenderer>().color = unitColor;
+        tile.SetMovableHighlight(unitColor);
+        poscolor = unitColor;
     }
 
 	public void StartTurn() {
-        tile.GetComponent<SpriteRenderer>().color = new Color(1,1,0);
-		ap = maxAP;
+        //tile.GetComponent<SpriteRenderer>().color = new Color(1,1,0);
+        tile.SetMovableHighlight(new Color(1, 1, 0));
+        poscolor = new Color(1, 1, 0);
+        ap = maxAP;
 		cardManager.StartTurn();
 		Activate();
 	}
 
 	public void EndTurn() {
-        tile.GetComponent<SpriteRenderer>().color = unitColor;
+        //tile.GetComponent<SpriteRenderer>().color = unitColor;
+        tile.SetMovableHighlight(unitColor);
+        poscolor = unitColor;
         cardManager.EndTurn();
 	}
 
 	protected abstract void Activate();
 
 	public void Move(List<Tile> path) {
-		StartCoroutine(LerpMove(path, 0.2f));
+        poscolor = new Color();
+        StartCoroutine(LerpMove(path, 0.2f));
 		tile.unit = null;
 		tile = path[path.Count - 1];
 		tile.unit = this;
 	}
+
+    public Color GetMyColor()
+    {
+        return poscolor;
+    }
 
 	IEnumerator LerpMove(List<Tile> path, float duration) {
 		isAnimating = true;
@@ -92,9 +106,14 @@ public abstract class Unit : MonoBehaviour {
 			origin = target;
 			target = path[i].transform.position;
 
-            path[i].GetComponent<SpriteRenderer>().color = new Color(1, 1, 0);
-            path[i - 1].GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
-			while (currentTime < endTime) {
+            //path[i].GetComponent<SpriteRenderer>().color = new Color(1, 1, 0);
+            path[i].SetMovableHighlight(new Color(1, 1, 0));
+            //path[i - 1].GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
+            //poscolor = new Color();
+            path[i - 1].SetMovableHighlight(new Color());
+
+
+            while (currentTime < endTime) {
 				yield return null;
 				currentTime = Time.time;
 				transform.position = Vector3.Lerp(origin, target, (currentTime - startTime) / duration);
@@ -102,6 +121,8 @@ public abstract class Unit : MonoBehaviour {
 				if (walkAudio != null)
 					walkAudio.Play();
 			}
+
+
         }
 
 		isAnimating = false;

@@ -7,9 +7,37 @@ public class MoveCard : Card {
 
     public int moveValue = 3;
 
-	protected override bool Activate(Tile tile, Unit caster) {
-		Dictionary<Tile, int> tiles = caster.tile.BuildWalkMap(moveValue);
+    //public Color highlightColor = new Color(0.7f,0.7f,0); //Doesnt init
+    //protected Dictionary<Tile, int> tiles;
+    //protected int value = 0;
 
+    protected override bool PreActivate(Unit caster, bool select)
+    {
+        Color highlightColor;
+        if (select)
+        {
+            tiles = caster.tile.BuildWalkMap(moveValue);
+            highlightColor = new Color(0, 0.8f, 0.8f);
+            foreach (KeyValuePair<Tile, int> tile in tiles)
+            {
+                tile.Key.SetMovableHighlight(highlightColor);
+            }
+
+        }
+        else
+        {
+            highlightColor = new Color();
+            foreach (KeyValuePair<Tile, int> tile in tiles)
+            {
+                tile.Key.SetMovableHighlight(highlightColor);
+            }
+        }
+        return true;
+    }
+
+    protected override bool Activate(Tile tile, Unit caster) {
+        //Dictionary<Tile, int> tiles = caster.tile.BuildWalkMap(moveValue);
+        
 		if (tiles.ContainsKey(tile)) {
 			caster.Move(Map.instance.PathTo(tile));
 			return true;
@@ -25,7 +53,8 @@ public class MoveCard : Card {
 
         if (caster.optimalDistane == currentDistance) return int.MaxValue;
 
-        Dictionary<Tile, int> tiles = tile.BuildWalkMap(moveValue);
+        //Dictionary<Tile, int> 
+        tiles = tile.BuildWalkMap(moveValue);
         Dictionary<Tile, int> errors = new Dictionary<Tile, int>();
 
         foreach (KeyValuePair <Tile,int> potentialTile in tiles)
