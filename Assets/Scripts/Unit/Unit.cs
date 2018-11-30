@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(CardManager))]
 public abstract class Unit : MonoBehaviour {
+	[Header("Unit Attributes")]
     public int maxHP;
 	[SerializeField]
 	int hp;
@@ -39,14 +40,18 @@ public abstract class Unit : MonoBehaviour {
 	public int balance;
     public string title;
 
+	[HideInInspector]
 	public bool isAnimating = false;
+	[HideInInspector]
 	public Tile tile;
+	[Header("Component links")]
 	public CardManager cardManager;
 	public Sprite avatar;
 
     public AudioClipGroup deathAudio;
     public AudioClipGroup walkAudio;
 
+	[HideInInspector]
     public Color unitColor;
 
     void Start() {

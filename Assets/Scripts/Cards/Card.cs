@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+[SelectionBase]
 public abstract class Card : MonoBehaviour {
 	InputManager inputManager;
 	public Canvas canvas;
