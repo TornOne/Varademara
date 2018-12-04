@@ -112,7 +112,7 @@ public class CardManager : MonoBehaviour {
 		}
 	}
 
-	void UpdateHandUI() {
+	public void UpdateHandUI() {
 		handManager.ReplaceCards(hand);
 	}
 }
