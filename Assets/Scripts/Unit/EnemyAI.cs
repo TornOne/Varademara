@@ -46,15 +46,15 @@ public class EnemyAI : Unit {
     IEnumerator AIStateMachine()
     {
 
-        while (this.ap > 0)
+        while (ap > 0)
         {
-            if (!calculateHandValuesMove()) break;
+            if (!CalculateHandValuesMove()) break;
             while (isAnimating) yield return null;
         }
 
-        while (this.ap > 0)
+        while (ap > 0)
         {
-            if (!calculateHandValuesAction()) break;
+            if (!CalculateHandValuesAction()) break;
             while (isAnimating) yield return null;
         }
 
@@ -63,7 +63,7 @@ public class EnemyAI : Unit {
         yield return null;
     }
 
-    private bool calculateHandValuesAction()
+    private bool CalculateHandValuesAction()
     {
 
 
@@ -77,7 +77,7 @@ public class EnemyAI : Unit {
             if (cardManager.hand[i] is AttackCard)
             {
                 //Attack/debuff cards
-                cardValues[i] = cardValueToTarget(cardManager.hand[i], aggroTarget);
+                cardValues[i] = CardValueToTarget(cardManager.hand[i], aggroTarget);
             }
             /*if (cardManager.hand[i] is DefendCard)
             {
@@ -87,7 +87,7 @@ public class EnemyAI : Unit {
             if (cardManager.hand[i] is DrawCard)
             {
                 //Card draw
-                cardValues[i] = cardValueToTarget(cardManager.hand[i], this);
+                cardValues[i] = CardValueToTarget(cardManager.hand[i], this);
             }
         }
 
@@ -102,7 +102,7 @@ public class EnemyAI : Unit {
         return true;
     }
 
-    private bool calculateHandValuesMove()
+    private bool CalculateHandValuesMove()
     {
 
         int[] cardValues = new int[cardManager.hand.Count];
@@ -115,7 +115,7 @@ public class EnemyAI : Unit {
 
             if (cardManager.hand[i] is MoveCard)
             {
-                cardValues[i] = cardValueToMove(cardManager.hand[i], ref cardTargets[i], aggroTarget.tile);
+                cardValues[i] = CardValueToMove(cardManager.hand[i], ref cardTargets[i], aggroTarget.tile);
             }
         }
         int playCardIdx = cardValues.ToList().IndexOf(cardValues.Min());
@@ -127,23 +127,23 @@ public class EnemyAI : Unit {
         return true;
     }
 
-    private int cardValueToTarget(Card card, Unit target)
+    private int CardValueToTarget(Card card, Unit target)
     {
         Object empty = new Object();
-        int ret = card.CardValue(tile, this, (Object)target, ref empty);
+        int ret = card.CardValue(tile, this, target, ref empty);
         //cardTarget = (Tile)passValue;
         return ret;
     }
 
-    private int cardValueToMove(Card card, ref Tile cardTarget, Tile targetTile)
+    private int CardValueToMove(Card card, ref Tile cardTarget, Tile targetTile)
     {
-        Object passValue = (Object)cardTarget;
-        int ret = card.CardValue(tile, this, (Object)targetTile, ref passValue);
+        Object passValue = cardTarget;
+        int ret = card.CardValue(tile, this, targetTile, ref passValue);
         cardTarget = (Tile)passValue;
         return ret;
     }
 
-    private void getAggroTarget()
+    private void GetAggroTarget()
     {
 
     }

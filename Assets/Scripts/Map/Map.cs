@@ -109,8 +109,7 @@ public class Map : MonoBehaviour {
 					continue;
 				}
 				//Replace other tile distance values with the new shortest
-				int prevDistance;
-				bool exists = distanceMap.TryGetValue(tile, out prevDistance);
+				bool exists = distanceMap.TryGetValue(tile, out int prevDistance);
 				if (!exists) {
 					backtrackMap[tile] = current;
 					distanceMap[tile] = newDistance;

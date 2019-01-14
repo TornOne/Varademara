@@ -7,12 +7,11 @@ public class InputManager : MonoBehaviour {
 	public static InputManager instance;
 
 	public SidebarInformation sidebar;
+	public TileHighlighter tileHighlighter;
 	Card selectedCard;
 	Map map;
 	TurnManager turnManager;
 	EventSystem eventSystem;
-
-    public TileHighlighter tileHighlighter;
 
 	void Awake() {
 		instance = this;
@@ -30,14 +29,14 @@ public class InputManager : MonoBehaviour {
 		}
 		selectedCard = card;
 
-        selectedCard = turnManager.activeUnit.cardManager.hand[selectedCard.canvas.sortingOrder];
-        selectedCard.Select(turnManager.activeUnit, true);
-        //TODO: Highlight the card or something
-    }
+		selectedCard = turnManager.activeUnit.cardManager.hand[selectedCard.canvas.sortingOrder];
+		selectedCard.Select(turnManager.activeUnit, true);
+		//TODO: Highlight the card or something
+	}
 
 	public void DeselectCard() {
-        selectedCard.Select(turnManager.activeUnit, false);
-        selectedCard = null;
+		selectedCard.Select(turnManager.activeUnit, false);
+		selectedCard = null;
 	}
 
 	public void DiscardClicked() {
@@ -50,13 +49,9 @@ public class InputManager : MonoBehaviour {
 
 	void Update() {
 		Tile tile = map.GetMouseTile();
-        //TODO: Highlight tile
+		tileHighlighter.SetPos(tile);
 
-
-        tileHighlighter.setPos(tile);
-
-
-        if (Input.GetMouseButtonDown(0) && !eventSystem.IsPointerOverGameObject()) {
+		if (Input.GetMouseButtonDown(0) && !eventSystem.IsPointerOverGameObject()) {
 			if (selectedCard == null) {
 				if (tile != null && tile.unit != null) {
 					sidebar.FillSidebar(tile.unit);
@@ -66,14 +61,13 @@ public class InputManager : MonoBehaviour {
 			}
 
 			if (tile != null && selectedCard != null) {
-                //Try to use card
-                //Find the reference to the real card in the hand
+				//Try to use card
+				//Find the reference to the real card in the hand
 
-                //selectedCard = turnManager.activeUnit.cardManager.hand[selectedCard.canvas.sortingOrder];
-                selectedCard.Select(turnManager.activeUnit, false); // double call for fix
-                selectedCard.Use(tile, turnManager.activeUnit);
+				//selectedCard = turnManager.activeUnit.cardManager.hand[selectedCard.canvas.sortingOrder];
+				selectedCard.Select(turnManager.activeUnit, false); // double call for fix
+				selectedCard.Use(tile, turnManager.activeUnit);
 			}
-
 
 			DeselectCard();
 		}

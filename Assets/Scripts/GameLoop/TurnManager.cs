@@ -27,7 +27,7 @@ public class TurnManager : MonoBehaviour {
 	}
 
 	void Start() {
-		StartCoroutine(DelayedStart(15));
+		StartCoroutine(DelayedStart(5));
 	}
 
 	//Some stuff needs more frames to get ready
@@ -41,7 +41,7 @@ public class TurnManager : MonoBehaviour {
 	//TODO: Currently doesn't support animations
 	void UpdateTurnBar() {
 		int count = 0;
-		Action<IList<Unit>> addImages = (IList<Unit> units) => {
+		void AddImages(IList<Unit> units) {
 			foreach (Unit unit in units) {
 				//Players face to the left, enemies face to the right
 				if (unit is PlayerController) {
@@ -55,21 +55,19 @@ public class TurnManager : MonoBehaviour {
 					return;
 				}
 			}
-		};
+		}
 
 		while (count < 15) {
-			addImages(thisTurn.Keys);
+			AddImages(thisTurn.Keys);
 			if (count >= 15) {
 				return;
 			}
-			addImages(nextTurn.Keys);
+			AddImages(nextTurn.Keys);
 		}
-
-		
 	}
 
 	public void NextTurn() {
-        if (activeUnit != null) activeUnit.EndTurn();
+		activeUnit.EndTurn();
 
 		//If the current turn has ended, start the next turn
 		if (thisTurn.Count == 0) {
@@ -78,13 +76,13 @@ public class TurnManager : MonoBehaviour {
 			nextTurn = temp;
 		}
 
-        //Move the unit to the next turn and activate it
-        activeUnit = thisTurn.Keys[0];
+		//Move the unit to the next turn and activate it
+		activeUnit = thisTurn.Keys[0];
 		thisTurn.RemoveAt(0);
 		nextTurn.Add(activeUnit, activeUnit);
 		UpdateTurnBar();
-        InputManager.instance.sidebar.FillSidebar(activeUnit);
-        activeUnit.StartTurn();
+		InputManager.instance.sidebar.FillSidebar(activeUnit);
+		activeUnit.StartTurn();
 	}
 
 	//Add or update unit, needs to be called after initiative change
@@ -119,6 +117,9 @@ public class TurnManager : MonoBehaviour {
 			friendlies.Remove(unit);
 		} else {
 			enemies.Remove(unit);
+			if (enemies.Count == 0) {
+				SpawnManager.instance.SpawnNextWave();
+			}
 		}
 	}
 

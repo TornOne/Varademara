@@ -5,18 +5,20 @@ using UnityEngine;
 [RequireComponent(typeof(CardManager))]
 public abstract class Unit : MonoBehaviour {
 	[Header("Unit Attributes")]
-    public int maxHP;
+	public int maxHP;
 	[SerializeField]
 	int hp;
-	public int HP { //HACK: This entire property
+	public int HP {
 		get {
 			return hp;
-		} set {
+		}
+		set {
 			hp = value;
 			if (value <= 0) {
-                if (deathAudio!= null) deathAudio.Play();
-                tile.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
-                TurnManager.instance.RemoveUnit(this);
+				if (deathAudio != null)
+					deathAudio.Play();
+				tile.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
+				TurnManager.instance.RemoveUnit(this);
 				Destroy(gameObject);
 			} else if (value > maxHP) {
 				hp = maxHP;
@@ -28,7 +30,8 @@ public abstract class Unit : MonoBehaviour {
 	public int HandSize {
 		get {
 			return cardManager.handSize;
-		} set {
+		}
+		set {
 			cardManager.handSize = value;
 		}
 	}
@@ -38,7 +41,7 @@ public abstract class Unit : MonoBehaviour {
 	public int pDef;
 	public int mDef;
 	public int balance;
-    public string title;
+	public string title;
 
 	[HideInInspector]
 	public bool isAnimating = false;
@@ -48,51 +51,37 @@ public abstract class Unit : MonoBehaviour {
 	public CardManager cardManager;
 	public Sprite avatar;
 
-    public AudioClipGroup deathAudio;
-    public AudioClipGroup walkAudio;
+	public AudioClipGroup deathAudio;
+	public AudioClipGroup walkAudio;
 
 	[HideInInspector]
-    public Color unitColor;
-    public Color unitHighlightColor;
-    private Color poscolor;
+	public Color unitColor;
 
-    void Start() {
+	void Start() {
 		TurnManager.instance.AddNewUnit(this);
-        //tile.GetComponent<SpriteRenderer>().color = unitColor;
-        tile.SetMovableHighlight(unitColor);
-        poscolor = unitColor;
-    }
+		tile.sprite.color = unitColor;
+	}
 
 	public void StartTurn() {
-        //tile.GetComponent<SpriteRenderer>().color = new Color(1,1,0);
-        tile.SetMovableHighlight(new Color(1, 1, 0));
-        poscolor = new Color(1, 1, 0);
-        ap = maxAP;
+		tile.sprite.color = Color.yellow;
+		ap = maxAP;
 		cardManager.StartTurn();
 		Activate();
 	}
 
 	public void EndTurn() {
-        //tile.GetComponent<SpriteRenderer>().color = unitColor;
-        tile.SetMovableHighlight(unitColor);
-        poscolor = unitColor;
-        cardManager.EndTurn();
+		tile.sprite.color = unitColor;
+		cardManager.EndTurn();
 	}
 
 	protected abstract void Activate();
 
 	public void Move(List<Tile> path) {
-        poscolor = new Color();
-        StartCoroutine(LerpMove(path, 0.2f));
+		StartCoroutine(LerpMove(path, 0.2f));
 		tile.unit = null;
 		tile = path[path.Count - 1];
 		tile.unit = this;
 	}
-
-    public Color GetMyColor()
-    {
-        return poscolor;
-    }
 
 	IEnumerator LerpMove(List<Tile> path, float duration) {
 		isAnimating = true;
@@ -106,14 +95,10 @@ public abstract class Unit : MonoBehaviour {
 			origin = target;
 			target = path[i].transform.position;
 
-            //path[i].GetComponent<SpriteRenderer>().color = new Color(1, 1, 0);
-            path[i].SetMovableHighlight(new Color(1, 1, 0));
-            //path[i - 1].GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
-            //poscolor = new Color();
-            path[i - 1].SetMovableHighlight(new Color());
+			path[i].sprite.color = Color.yellow;
+			path[i - 1].sprite.color = Color.black;
 
-
-            while (currentTime < endTime) {
+			while (currentTime < endTime) {
 				yield return null;
 				currentTime = Time.time;
 				transform.position = Vector3.Lerp(origin, target, (currentTime - startTime) / duration);
@@ -121,9 +106,7 @@ public abstract class Unit : MonoBehaviour {
 				if (walkAudio != null)
 					walkAudio.Play();
 			}
-
-
-        }
+		}
 
 		isAnimating = false;
 	}

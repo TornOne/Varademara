@@ -1,17 +1,15 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class TileHighlighter : MonoBehaviour {
-    public Color unitHighlight;
-    public Color emptyTileHighlight;
-    public SpriteRenderer sprite;
-	
-    public void setPos(Tile tile)
-    {
-        if (tile == null) return;
-        transform.position = tile.transform.position;
-        if (tile.unit != null) sprite.color = unitHighlight;
-        else sprite.color = emptyTileHighlight;
-    }
+	public SpriteRenderer sprite;
+
+	public void SetPos(Tile tile) {
+		if (tile == null) {
+			return;
+		}
+		transform.position = tile.transform.position;
+		Color c = tile.sprite.color;
+		//Adjusts automatically to be distinct from the underlying color
+		sprite.color = new Color(1 - c.r, 1 - c.g, 1 - c.b);
+	}
 }

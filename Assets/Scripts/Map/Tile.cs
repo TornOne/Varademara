@@ -8,31 +8,10 @@ public class Tile : MonoBehaviour {
 	public int difficulty = 1;
 	public bool isWall = false;
 	public bool isHole = false;
+	public SpriteRenderer sprite;
 	public Unit unit;
 	public List<Tile> neighbors;
     //public List<StatusEffect> effects;
-
-    public SpriteRenderer sprite;
-    public Color baseColor = new Color(0,0,0);
-
-    public void SetMovableHighlight(Color value)
-    {
-        if (value.a == 0)
-        {
-            if (unit != null)
-            {
-                Color unitColor = unit.GetMyColor();
-                if (unitColor.a == 0) sprite.color = baseColor;
-                else sprite.color = unitColor;
-            }
-            else sprite.color = baseColor;
-        }
-        else
-        {
-            //baseColor = sprite.color;
-            sprite.color = value;
-        }
-    }
 
     public bool IsWalkable {
 		get {
