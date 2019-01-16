@@ -67,7 +67,9 @@ public class TurnManager : MonoBehaviour {
 	}
 
 	public void NextTurn() {
-		activeUnit.EndTurn();
+		if (activeUnit != null) { //First turn
+			activeUnit.EndTurn();
+		}
 
 		//If the current turn has ended, start the next turn
 		if (thisTurn.Count == 0) {
