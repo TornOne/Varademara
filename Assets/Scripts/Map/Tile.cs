@@ -14,7 +14,7 @@ public class Tile : MonoBehaviour {
 
 	SpriteRenderer sprite; //Make color changes through the highlight property.
 	bool highLit = false;
-	public bool HighLit { //Use the corresponding Map function for highlighting. That automatically turns old highlights off too.
+	public bool HighLit { //Use the corresponding Map function for highlighting instead. That automatically turns old highlights off too.
 		get {
 			return highLit;
 		} set {

@@ -85,8 +85,6 @@ public class CardManager : MonoBehaviour {
 		hand.Remove(card);
 
 		//UI
-		Debug.Log(turnManager.activeUnit == owner);
-		Debug.Log(owner is PlayerController);
 		if (turnManager.activeUnit == owner && owner is PlayerController) {
 			UpdateDiscardUI();
 			UpdateHandUI();
