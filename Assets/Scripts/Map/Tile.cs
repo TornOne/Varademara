@@ -8,12 +8,33 @@ public class Tile : MonoBehaviour {
 	public int difficulty = 1;
 	public bool isWall = false;
 	public bool isHole = false;
-	public SpriteRenderer sprite;
 	public Unit unit;
 	public List<Tile> neighbors;
-    //public List<StatusEffect> effects;
+	//public List<StatusEffect> effects;
 
-    public bool IsWalkable {
+	SpriteRenderer sprite; //Make color changes through the highlight property.
+	bool highLit = false;
+	public bool HighLit { //Use the corresponding Map function for highlighting. That automatically turns old highlights off too.
+		get {
+			return highLit;
+		} set {
+			if (highLit != value) {
+				highLit = value;
+				Color = Color; //Reassigning color updates the highlight
+			}
+		}
+	}
+	Color color;
+	public Color Color {
+		get {
+			return sprite.color;
+		} set {
+			color = value;
+			sprite.color = highLit ? new Color(Mathf.Min(color.r + 0.5f, 1), Mathf.Min(color.g + 0.5f, 1), Mathf.Min(color.b + 0.5f, 1)) : color;
+		}
+	}
+
+	public bool IsWalkable {
 		get {
 			return !(isWall || isHole || unit != null);
 		}
@@ -23,6 +44,10 @@ public class Tile : MonoBehaviour {
 		get {
 			return !isWall && unit == null;
 		}
+	}
+
+	void Awake() {
+		sprite = GetComponent<SpriteRenderer>();
 	}
 
 	void Start() {

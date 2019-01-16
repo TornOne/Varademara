@@ -4,10 +4,13 @@ using UnityEngine;
 using System.Linq;
 
 public class EnemyAI : Unit {
+	void Awake() {
+		unitColor = Color.red;
+	}
 
-    //TODO: aggro system, unit who caused most damage becomes main aggor target
-    //will need to keep track aggro dmg dealt by each opponent
-    private Unit aggroTarget;
+	//TODO: aggro system, unit who caused most damage becomes main aggor target
+	//will need to keep track aggro dmg dealt by each opponent
+	private Unit aggroTarget;
 
     //TODO: AI movement, best distance for the ai to be from its target
     public int optimalDistane;

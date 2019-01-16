@@ -13,11 +13,11 @@ public class AttackCard : Card {
 		if (select) {
 			tiles = caster.tile.BuildFlightMap(castRange);
 			foreach (KeyValuePair<Tile, int> tile in tiles) {
-				tile.Key.sprite.color = new Color(0.8f, 0, 0);
+				tile.Key.Color = new Color(0.8f, 0, 0);
 			}
 		} else {
 			foreach (KeyValuePair<Tile, int> tile in tiles) {
-				tile.Key.sprite.color = Color.black;
+				tile.Key.Color = Color.black;
 			}
 		}
 		return true;

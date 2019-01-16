@@ -54,23 +54,22 @@ public abstract class Unit : MonoBehaviour {
 	public AudioClipGroup deathAudio;
 	public AudioClipGroup walkAudio;
 
-	[HideInInspector]
-	public Color unitColor;
+	protected Color unitColor;
 
 	void Start() {
 		TurnManager.instance.AddNewUnit(this);
-		tile.sprite.color = unitColor;
+		tile.Color = unitColor;
 	}
 
 	public void StartTurn() {
-		tile.sprite.color = Color.yellow;
+		tile.Color = Color.yellow;
 		ap = maxAP;
 		cardManager.StartTurn();
 		Activate();
 	}
 
 	public void EndTurn() {
-		tile.sprite.color = unitColor;
+		tile.Color = unitColor;
 		cardManager.EndTurn();
 	}
 
@@ -95,8 +94,8 @@ public abstract class Unit : MonoBehaviour {
 			origin = target;
 			target = path[i].transform.position;
 
-			path[i].sprite.color = Color.yellow;
-			path[i - 1].sprite.color = Color.black;
+			path[i].Color = Color.yellow;
+			path[i - 1].Color = Color.black;
 
 			while (currentTime < endTime) {
 				yield return null;

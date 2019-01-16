@@ -8,6 +8,7 @@ public class Map : MonoBehaviour {
 	Camera cam;
 	Dictionary<Tile, int> distanceMap;
 	Dictionary<Tile, Tile> backtrackMap;
+	List<Tile> litTiles = new List<Tile>();
 
 	public int width, height;
 	public Tile tile;
@@ -67,8 +68,14 @@ public class Map : MonoBehaviour {
 	}
 
 	public void HighlightTiles<T>(T tiles) where T : IEnumerable<Tile> {
+		//Dehighlight old tiles
+		foreach (Tile tile in litTiles) {
+			tile.HighLit = false;
+		}
+		//Light new tiles
+		litTiles = new List<Tile>(tiles);
 		foreach (Tile tile in tiles) {
-			//TODO: Highlight tiles
+			tile.HighLit = true;
 		}
 	}
 

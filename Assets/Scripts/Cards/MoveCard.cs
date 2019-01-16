@@ -15,11 +15,11 @@ public class MoveCard : Card {
 		if (select) {
 			tiles = caster.tile.BuildWalkMap(moveValue);
 			foreach (KeyValuePair<Tile, int> tile in tiles) {
-				tile.Key.sprite.color = new Color(0, 0.8f, 0.8f);
+				tile.Key.Color = new Color(0, 0.8f, 0.8f);
 			}
 		} else {
 			foreach (KeyValuePair<Tile, int> tile in tiles) {
-				tile.Key.sprite.color = Color.black;
+				tile.Key.Color = Color.black;
 			}
 		}
 		return true;
