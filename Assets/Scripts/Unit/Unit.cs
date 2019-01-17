@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(CardManager))]
 public abstract class Unit : MonoBehaviour {
@@ -14,14 +15,16 @@ public abstract class Unit : MonoBehaviour {
 		}
 		set {
 			hp = value;
+			if (value > maxHP) {
+				hp = maxHP;
+			}
+			hpBar.fillAmount = (float) hp / maxHP;
 			if (value <= 0) {
 				if (deathAudio != null)
 					deathAudio.Play();
-				tile.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0);
+				tile.Color = Color.black;
 				TurnManager.instance.RemoveUnit(this);
 				Destroy(gameObject);
-			} else if (value > maxHP) {
-				hp = maxHP;
 			}
 		}
 	}
@@ -55,8 +58,11 @@ public abstract class Unit : MonoBehaviour {
 	public AudioClipGroup walkAudio;
 
 	protected Color unitColor;
+	public GameObject hpBarPrefab;
+	Image hpBar;
 
 	void Start() {
+		InitializeHPBar();
 		TurnManager.instance.AddNewUnit(this);
 		tile.Color = unitColor;
 	}
@@ -126,5 +132,11 @@ public abstract class Unit : MonoBehaviour {
 	public int CalculateDamage(int baseDmg, int att, int def) {
 		float b = Mathf.Clamp(balance, 1, 99);
 		return (int) (baseDmg * (att + 100) * (0.5f + Mathf.Pow(Random.value, balance >= 50 ? (0.02f * (100 - b)) : (50f / b))) / (def + 100));
+	}
+
+	void InitializeHPBar() {
+		GameObject canvas = Instantiate(hpBarPrefab, transform);
+		canvas.transform.localPosition = new Vector3(0, -0.5f);
+		hpBar = canvas.GetComponentsInChildren<Image>()[1];
 	}
 }
