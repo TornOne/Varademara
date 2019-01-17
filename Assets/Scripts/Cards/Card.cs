@@ -44,8 +44,9 @@ public abstract class Card : MonoBehaviour {
 	public IEnumerator MoveWithMouse() {
 		handPos = transform.localPosition;
 		Camera cam = Camera.main;
+		float camHeightDeci = cam.pixelHeight / 10f;
 		while (true) {
-			transform.position = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y - 64, 10));
+			transform.position = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y - camHeightDeci, 10));
 			yield return null;
 		}
 	}
