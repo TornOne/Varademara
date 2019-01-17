@@ -1038,6 +1038,8 @@ MonoBehaviour:
   avatar: {fileID: 21300004, guid: 40b27d717cc5b5342abbb511677fe7d6, type: 3}
   deathAudio: {fileID: 11400000, guid: 8ff44eac82d86234292e540839e7fb45, type: 2}
   walkAudio: {fileID: 11400000, guid: d7311f2f321f72b40bf3b94d0a4cbe62, type: 2}
+  hpBarPrefab: {fileID: 6054835091408943852, guid: e164e13b0a287b8479a19580f6b5c2bc,
+    type: 3}
   optimalDistane: 4
 --- !u!95 &1444415596062537
 Animator:
