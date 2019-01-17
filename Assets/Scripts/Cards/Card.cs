@@ -11,6 +11,7 @@ public abstract class Card : MonoBehaviour {
 	public int apCost;
 
 	protected Dictionary<Tile, int> tiles;
+	public Vector3 handPos;
 
 	void Awake() {
 		rectTransform = GetComponent<RectTransform>();
@@ -37,6 +38,15 @@ public abstract class Card : MonoBehaviour {
 			return true;
 		} else {
 			return false;
+		}
+	}
+
+	public IEnumerator MoveWithMouse() {
+		handPos = transform.localPosition;
+		Camera cam = Camera.main;
+		while (true) {
+			transform.position = cam.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y - 64, 10));
+			yield return null;
 		}
 	}
 
