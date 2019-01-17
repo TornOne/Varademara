@@ -393,7 +393,7 @@ MonoBehaviour:
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_SortingLayerID: -247367641
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_BoneTransforms:
   - {fileID: 6725890027254961577}
   - {fileID: 8158430348811571350}
@@ -433,7 +433,7 @@ SkinnedMeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -247367641
   m_SortingLayer: 4
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   serializedVersion: 2
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
