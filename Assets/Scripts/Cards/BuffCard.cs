@@ -34,7 +34,7 @@ public class BuffCard : Card
 
             if (all_enemies)
             {
-                foreach (Unit unit in TurnManager.instance.friendlies)
+                foreach (Unit unit in TurnManager.instance.enemies)
                 {
                     unit.HP += healValue;
                     unit.initiative += initiativeValue;

@@ -14,7 +14,7 @@ public abstract class Card : MonoBehaviour {
 	public Vector3 handPos;
 
 	void Awake() {
-		rectTransform = GetComponent<RectTransform>();
+        rectTransform = GetComponent<RectTransform>();
 		canvas = GetComponent<Canvas>();
 		inputManager = InputManager.instance;
 	}

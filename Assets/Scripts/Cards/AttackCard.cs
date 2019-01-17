@@ -28,19 +28,23 @@ public class AttackCard : Card {
 
 	protected override bool Activate(Tile tile, Unit caster) {
 
+        Debug.Log("k");
+
         if (all_allies || all_enemies)
         {
+            Debug.Log("i");
             if (all_allies)
             {
                 foreach (Unit unit in TurnManager.instance.friendlies)
                 {
+                    Debug.Log("j");
                     unit.HP -= dmgValue;
                 }
             }
 
             if (all_enemies)
             {
-                foreach (Unit unit in TurnManager.instance.friendlies)
+                foreach (Unit unit in TurnManager.instance.enemies)
                 {
                     unit.HP -= dmgValue;
                 }
@@ -52,6 +56,7 @@ public class AttackCard : Card {
         if (castRange==0)
         {
             caster.HP -= dmgValue;
+            return true;
         }
 
 		else if (caster.tile.DistanceTo(tile) <= castRange && tile.unit != null) {

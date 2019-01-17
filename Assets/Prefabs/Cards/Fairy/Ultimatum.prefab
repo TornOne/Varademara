@@ -166,9 +166,9 @@ GameObject:
   - component: {fileID: 114897498410320264}
   - component: {fileID: 114131851027716316}
   - component: {fileID: 114230575617164014}
-  - component: {fileID: 8371774424487666561}
-  - component: {fileID: 8303956821349488208}
-  - component: {fileID: 2622328698321950402}
+  - component: {fileID: 5182652271658760915}
+  - component: {fileID: 125839612967543934}
+  - component: {fileID: 5802488536449641945}
   m_Layer: 0
   m_Name: Ultimatum
   m_TagString: Untagged
@@ -274,12 +274,12 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2622328698321950402}
-          m_MethodName: 
+        - m_Target: {fileID: 5182652271658760915}
+          m_MethodName: MouseDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -288,7 +288,7 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!114 &8371774424487666561
+--- !u!114 &5182652271658760915
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -303,12 +303,34 @@ MonoBehaviour:
   canvas: {fileID: 0}
   rectTransform: {fileID: 0}
   deleteOnUse: 0
-  apCost: 3
+  apCost: 1
   handPos: {x: 0, y: 0, z: 0}
   cardfunctions:
-  - {fileID: 8303956821349488208}
-  - {fileID: 2622328698321950402}
---- !u!114 &8303956821349488208
+  - {fileID: 125839612967543934}
+  - {fileID: 5802488536449641945}
+--- !u!114 &125839612967543934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354782730786578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8c6e6ac47a9d848bf7ad605328cbfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  rectTransform: {fileID: 0}
+  deleteOnUse: 0
+  apCost: 0
+  handPos: {x: 0, y: 0, z: 0}
+  dmgValue: 10
+  castRange: 0
+  all_allies: 1
+  all_enemies: 1
+  attackAudio: {fileID: 0}
+--- !u!114 &5802488536449641945
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -326,29 +348,7 @@ MonoBehaviour:
   apCost: 0
   handPos: {x: 0, y: 0, z: 0}
   healValue: 0
-  initiativeValue: -5
+  initiativeValue: -10
   castRange: 0
   all_allies: 0
   all_enemies: 1
---- !u!114 &2622328698321950402
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354782730786578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb8c6e6ac47a9d848bf7ad605328cbfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  rectTransform: {fileID: 0}
-  deleteOnUse: 0
-  apCost: 0
-  handPos: {x: 0, y: 0, z: 0}
-  dmgValue: 1
-  castRange: 1
-  all_allies: 0
-  all_enemies: 0
-  attackAudio: {fileID: 0}

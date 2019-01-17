@@ -275,7 +275,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 6922964997829561504}
-          m_MethodName: 
+          m_MethodName: MouseDown
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -306,8 +306,8 @@ MonoBehaviour:
   apCost: 1
   handPos: {x: 0, y: 0, z: 0}
   cardfunctions:
-  - {fileID: 7744384509678235375}
   - {fileID: 7529902086261799353}
+  - {fileID: 7744384509678235375}
 --- !u!114 &7744384509678235375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -347,7 +347,7 @@ MonoBehaviour:
   deleteOnUse: 0
   apCost: 0
   handPos: {x: 0, y: 0, z: 0}
-  dmgValue: 10
+  dmgValue: 20
   castRange: 0
   all_allies: 0
   all_enemies: 0
