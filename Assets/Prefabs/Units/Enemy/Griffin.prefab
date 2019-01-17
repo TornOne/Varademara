@@ -2229,16 +2229,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc50ae72c3a5d9469d82d8d1dbf0fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 50
-  hp: 50
+  maxHP: 40
+  hp: 40
   maxAP: 4
   ap: 4
-  initiative: 60
-  pAtt: 8
+  initiative: 50
+  pAtt: 5
   mAtt: 5
-  pDef: 8
-  mDef: 5
-  balance: 40
+  pDef: 3
+  mDef: 3
+  balance: 50
   title: Griffin
   isAnimating: 0
   tile: {fileID: 0}

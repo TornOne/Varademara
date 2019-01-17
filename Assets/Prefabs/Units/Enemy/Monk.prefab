@@ -1023,14 +1023,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 20
   hp: 20
-  maxAP: 2
-  ap: 2
-  initiative: 30
-  pAtt: 0
-  mAtt: 0
-  pDef: 0
-  mDef: 0
-  balance: 0
+  maxAP: 4
+  ap: 4
+  initiative: 45
+  pAtt: 3
+  mAtt: 3
+  pDef: 2
+  mDef: 2
+  balance: 40
   title: Monk
   isAnimating: 0
   tile: {fileID: 0}
