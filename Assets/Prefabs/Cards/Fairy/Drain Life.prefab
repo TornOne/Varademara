@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Wait
+  m_Text: Drain Life
 --- !u!1 &1289698611075994
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,10 +165,13 @@ GameObject:
   - component: {fileID: 223638555036836440}
   - component: {fileID: 114897498410320264}
   - component: {fileID: 114131851027716316}
-  - component: {fileID: 114210665036274746}
   - component: {fileID: 114230575617164014}
+  - component: {fileID: 5182652271658760915}
+  - component: {fileID: 125839612967543934}
+  - component: {fileID: 5802488536449641945}
+  - component: {fileID: 4134428577465999401}
   m_Layer: 0
-  m_Name: Wait
+  m_Name: Drain Life
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,26 +258,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114210665036274746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354782730786578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e902489345775aa408ea07ec367e483a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  rectTransform: {fileID: 0}
-  deleteOnUse: 0
-  apCost: 1
-  handPos: {x: 0, y: 0, z: 0}
-  healValue: 0
-  initiativeValue: 20
-  castRange: 0
 --- !u!114 &114230575617164014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,8 +275,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114210665036274746}
-          m_MethodName: MouseDown
+        - m_Target: {fileID: 5182652271658760915}
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -306,3 +289,88 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &5182652271658760915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354782730786578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fce9270098f0581439ebedad7da3e681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  rectTransform: {fileID: 0}
+  deleteOnUse: 0
+  apCost: 1
+  handPos: {x: 0, y: 0, z: 0}
+  cardfunctions:
+  - {fileID: 125839612967543934}
+  - {fileID: 5802488536449641945}
+  - {fileID: 4134428577465999401}
+--- !u!114 &125839612967543934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354782730786578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8c6e6ac47a9d848bf7ad605328cbfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  rectTransform: {fileID: 0}
+  deleteOnUse: 0
+  apCost: 0
+  handPos: {x: 0, y: 0, z: 0}
+  dmgValue: 3
+  castRange: 1
+  all_allies: 0
+  all_enemies: 0
+  attackAudio: {fileID: 0}
+--- !u!114 &5802488536449641945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354782730786578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e902489345775aa408ea07ec367e483a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  rectTransform: {fileID: 0}
+  deleteOnUse: 0
+  apCost: 0
+  handPos: {x: 0, y: 0, z: 0}
+  healValue: 3
+  initiativeValue: 0
+  castRange: 0
+  all_allies: 0
+  all_enemies: 0
+--- !u!114 &4134428577465999401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354782730786578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8faccb1b01b4a458db867d1dcd14c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  rectTransform: {fileID: 0}
+  deleteOnUse: 0
+  apCost: 0
+  handPos: {x: 0, y: 0, z: 0}
+  drawCount: 1
+  fillHand: 0
+  discardHand: 0

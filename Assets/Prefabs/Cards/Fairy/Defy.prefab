@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Wait
+  m_Text: Defy
 --- !u!1 &1289698611075994
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,10 +165,10 @@ GameObject:
   - component: {fileID: 223638555036836440}
   - component: {fileID: 114897498410320264}
   - component: {fileID: 114131851027716316}
-  - component: {fileID: 114210665036274746}
+  - component: {fileID: 6788095699823136266}
   - component: {fileID: 114230575617164014}
   m_Layer: 0
-  m_Name: Wait
+  m_Name: Defy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114210665036274746
+--- !u!114 &6788095699823136266
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,11 +270,13 @@ MonoBehaviour:
   canvas: {fileID: 0}
   rectTransform: {fileID: 0}
   deleteOnUse: 0
-  apCost: 1
+  apCost: 2
   handPos: {x: 0, y: 0, z: 0}
   healValue: 0
-  initiativeValue: 20
+  initiativeValue: -10
   castRange: 0
+  all_allies: 0
+  all_enemies: 1
 --- !u!114 &114230575617164014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,8 +294,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114210665036274746}
-          m_MethodName: MouseDown
+        - m_Target: {fileID: 6788095699823136266}
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

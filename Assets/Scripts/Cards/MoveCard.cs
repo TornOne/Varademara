@@ -7,14 +7,23 @@ public class MoveCard : Card {
 
 	public int moveValue = 3;
 
+    public bool flightmap = false;
+
 	//public Color highlightColor = new Color(0.7f,0.7f,0); //Doesnt init
 	//protected Dictionary<Tile, int> tiles;
 	//protected int value = 0;
 
 	protected override bool PreActivate(Unit caster, bool select) {
-		if (select) {
-			tiles = caster.tile.BuildWalkMap(moveValue);
-			foreach (KeyValuePair<Tile, int> tile in tiles) {
+        if (select) {
+
+            if (!flightmap) {
+                tiles = caster.tile.BuildWalkMap(moveValue);
+            }
+            else {
+                tiles = caster.tile.BuildFlightMap(moveValue);
+            }
+
+            foreach (KeyValuePair<Tile, int> tile in tiles) {
 				tile.Key.Color = new Color(0, 0.8f, 0.8f);
 			}
 		} else {

@@ -1784,12 +1784,36 @@ MonoBehaviour:
   handSize: 4
   hand: []
   deck:
-  - {fileID: 114241258360355312, guid: 3a90adcea8ba26a4e9e390ee34dad79e, type: 3}
-  - {fileID: 114241258360355312, guid: 42a5fe9fa7208ad4f86b0c985ce03153, type: 3}
-  - {fileID: 114241258360355312, guid: 06a02b90cb8afd2409571fd050575f5c, type: 3}
-  - {fileID: 114640272784829546, guid: 48aa01f3de0947a4c9a0071f6bd8dac1, type: 3}
   - {fileID: 114842126500371114, guid: f93b70c746fa6d64ba19899c66f344c4, type: 3}
+  - {fileID: 114842126500371114, guid: f93b70c746fa6d64ba19899c66f344c4, type: 3}
+  - {fileID: 114842126500371114, guid: f93b70c746fa6d64ba19899c66f344c4, type: 3}
+  - {fileID: 114640272784829546, guid: 48aa01f3de0947a4c9a0071f6bd8dac1, type: 3}
+  - {fileID: 114640272784829546, guid: 48aa01f3de0947a4c9a0071f6bd8dac1, type: 3}
+  - {fileID: 114640272784829546, guid: 48aa01f3de0947a4c9a0071f6bd8dac1, type: 3}
+  - {fileID: 114640272784829546, guid: 48aa01f3de0947a4c9a0071f6bd8dac1, type: 3}
+  - {fileID: 114241258360355312, guid: 42a5fe9fa7208ad4f86b0c985ce03153, type: 3}
+  - {fileID: 114241258360355312, guid: 42a5fe9fa7208ad4f86b0c985ce03153, type: 3}
+  - {fileID: 114241258360355312, guid: 3a90adcea8ba26a4e9e390ee34dad79e, type: 3}
+  - {fileID: 114241258360355312, guid: 3a90adcea8ba26a4e9e390ee34dad79e, type: 3}
+  - {fileID: 114241258360355312, guid: 3a90adcea8ba26a4e9e390ee34dad79e, type: 3}
+  - {fileID: 114842126500371114, guid: 278eb16147511ff4fb135f58b5db092f, type: 3}
+  - {fileID: 114842126500371114, guid: 278eb16147511ff4fb135f58b5db092f, type: 3}
   - {fileID: 114424197056794548, guid: b145eb83d6e8c824ba3db8ce01faf84d, type: 3}
+  - {fileID: 114424197056794548, guid: b145eb83d6e8c824ba3db8ce01faf84d, type: 3}
+  - {fileID: 114424197056794548, guid: b145eb83d6e8c824ba3db8ce01faf84d, type: 3}
+  - {fileID: 311135632971721053, guid: c6a1adca4c2d00f4397feff425ecd492, type: 3}
+  - {fileID: 311135632971721053, guid: c6a1adca4c2d00f4397feff425ecd492, type: 3}
+  - {fileID: 6788095699823136266, guid: 900f8a4d88451d141b1bccc1f3154a95, type: 3}
+  - {fileID: 6788095699823136266, guid: 900f8a4d88451d141b1bccc1f3154a95, type: 3}
+  - {fileID: 125839612967543934, guid: 91d899a0a3c3fa04db0a182e0c26c645, type: 3}
+  - {fileID: 125839612967543934, guid: 91d899a0a3c3fa04db0a182e0c26c645, type: 3}
+  - {fileID: 125839612967543934, guid: 91d899a0a3c3fa04db0a182e0c26c645, type: 3}
+  - {fileID: 114241258360355312, guid: db3f1164ef0c25049b90e0a59cb5886f, type: 3}
+  - {fileID: 114241258360355312, guid: db3f1164ef0c25049b90e0a59cb5886f, type: 3}
+  - {fileID: 114241258360355312, guid: db3f1164ef0c25049b90e0a59cb5886f, type: 3}
+  - {fileID: 114241258360355312, guid: db3f1164ef0c25049b90e0a59cb5886f, type: 3}
+  - {fileID: 7744384509678235375, guid: 60eae2423dbdbbe4e9e3edfbacbb7b07, type: 3}
+  - {fileID: 8303956821349488208, guid: 7f9bb18943e57ae4a91db73653d7025e, type: 3}
   discard: []
   owner: {fileID: 0}
   drawAudio: {fileID: 11400000, guid: f163f07d3577356459136eb96daba9ce, type: 2}
