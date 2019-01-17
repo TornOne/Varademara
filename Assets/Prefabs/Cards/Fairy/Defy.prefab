@@ -277,7 +277,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 6008089499911577682}
+        - m_Target: {fileID: 1862112667744393290}
           m_MethodName: MouseDown
           m_Mode: 1
           m_Arguments:
@@ -328,7 +328,7 @@ MonoBehaviour:
   deleteOnUse: 0
   apCost: 0
   handPos: {x: 0, y: 0, z: 0}
-  healValue: 0
+  healValue: -1
   initiativeValue: 0
   castRange: 0
   all_allies: 0
@@ -351,7 +351,7 @@ MonoBehaviour:
   apCost: 0
   handPos: {x: 0, y: 0, z: 0}
   dmgValue: 10
-  castRange: 2
+  castRange: 0
   all_allies: 1
   all_enemies: 1
   attackAudio: {fileID: 11400000, guid: 532222d47e3591a409a587fb35ea23b4, type: 2}
@@ -433,7 +433,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Does absolutebly nothing
+  m_Text: 'All enemies
+
+    Damage 1
+
+    Initiative -10'
 --- !u!1 &6821906820510901702
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +516,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' 1 AP'
+  m_Text: ' 2 AP'
 --- !u!1 &8991643000107016676
 GameObject:
   m_ObjectHideFlags: 0

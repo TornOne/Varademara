@@ -306,7 +306,7 @@ MonoBehaviour:
   canvas: {fileID: 0}
   rectTransform: {fileID: 0}
   deleteOnUse: 0
-  apCost: 1
+  apCost: 3
   handPos: {x: 0, y: 0, z: 0}
   cardfunctions:
   - {fileID: 125839612967543934}
@@ -353,7 +353,7 @@ MonoBehaviour:
   healValue: 0
   initiativeValue: -10
   castRange: 0
-  all_allies: 0
+  all_allies: 1
   all_enemies: 1
 --- !u!1 &725274016699888395
 GameObject:
@@ -433,7 +433,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Does absolutebly nothing
+  m_Text: 'To all units
+
+    Damage 3
+
+    Initative -10'
 --- !u!1 &1504709859859209206
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +516,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' 1 AP'
+  m_Text: ' 3 AP'
 --- !u!1 &2973409539960253721
 GameObject:
   m_ObjectHideFlags: 0

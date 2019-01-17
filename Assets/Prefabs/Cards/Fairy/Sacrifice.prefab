@@ -167,8 +167,8 @@ GameObject:
   - component: {fileID: 114131851027716316}
   - component: {fileID: 114230575617164014}
   - component: {fileID: 6922964997829561504}
-  - component: {fileID: 7744384509678235375}
   - component: {fileID: 7529902086261799353}
+  - component: {fileID: 7744384509678235375}
   m_Layer: 0
   m_Name: Sacrifice
   m_TagString: Untagged
@@ -311,28 +311,6 @@ MonoBehaviour:
   cardfunctions:
   - {fileID: 7529902086261799353}
   - {fileID: 7744384509678235375}
---- !u!114 &7744384509678235375
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354782730786578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e902489345775aa408ea07ec367e483a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  rectTransform: {fileID: 0}
-  deleteOnUse: 0
-  apCost: 0
-  handPos: {x: 0, y: 0, z: 0}
-  healValue: 10
-  initiativeValue: 5
-  castRange: 0
-  all_allies: 1
-  all_enemies: 0
 --- !u!114 &7529902086261799353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,11 +328,33 @@ MonoBehaviour:
   deleteOnUse: 0
   apCost: 0
   handPos: {x: 0, y: 0, z: 0}
-  dmgValue: 5
+  dmgValue: 9
   castRange: 0
   all_allies: 0
   all_enemies: 0
   attackAudio: {fileID: 0}
+--- !u!114 &7744384509678235375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354782730786578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e902489345775aa408ea07ec367e483a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  rectTransform: {fileID: 0}
+  deleteOnUse: 0
+  apCost: 0
+  handPos: {x: 0, y: 0, z: 0}
+  healValue: 5
+  initiativeValue: 5
+  castRange: 0
+  all_allies: 1
+  all_enemies: 0
 --- !u!1 &1894989595164108111
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +512,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Does absolutebly nothing
+  m_Text: Damage self for 6 heal all allies for 5
 --- !u!1 &8755417648400416124
 GameObject:
   m_ObjectHideFlags: 0

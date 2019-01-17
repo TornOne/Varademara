@@ -166,9 +166,9 @@ GameObject:
   - component: {fileID: 114897498410320264}
   - component: {fileID: 114131851027716316}
   - component: {fileID: 114230575617164014}
-  - component: {fileID: 311135632971721053}
-  - component: {fileID: 883688492197485753}
   - component: {fileID: 2993841832694560124}
+  - component: {fileID: 311135632971721053}
+  - component: {fileID: 204666974440488045}
   m_Layer: 0
   m_Name: Dark Pact
   m_TagString: Untagged
@@ -291,7 +291,7 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
---- !u!114 &311135632971721053
+--- !u!114 &2993841832694560124
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -300,20 +300,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1354782730786578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb8c6e6ac47a9d848bf7ad605328cbfd, type: 3}
+  m_Script: {fileID: 11500000, guid: fce9270098f0581439ebedad7da3e681, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   rectTransform: {fileID: 0}
   deleteOnUse: 0
-  apCost: 0
+  apCost: 2
   handPos: {x: 0, y: 0, z: 0}
-  dmgValue: 6
-  castRange: 0
-  all_allies: 0
-  all_enemies: 0
-  attackAudio: {fileID: 0}
---- !u!114 &883688492197485753
+  cardfunctions:
+  - {fileID: 204666974440488045}
+  - {fileID: 311135632971721053}
+--- !u!114 &311135632971721053
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -334,8 +332,8 @@ MonoBehaviour:
   castRange: 5
   all_allies: 0
   all_enemies: 0
-  attackAudio: {fileID: 11400000, guid: 8ff44eac82d86234292e540839e7fb45, type: 2}
---- !u!114 &2993841832694560124
+  attackAudio: {fileID: 0}
+--- !u!114 &204666974440488045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -344,17 +342,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1354782730786578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fce9270098f0581439ebedad7da3e681, type: 3}
+  m_Script: {fileID: 11500000, guid: e902489345775aa408ea07ec367e483a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
   rectTransform: {fileID: 0}
   deleteOnUse: 0
-  apCost: 2
+  apCost: 0
   handPos: {x: 0, y: 0, z: 0}
-  cardfunctions:
-  - {fileID: 883688492197485753}
-  - {fileID: 311135632971721053}
+  healValue: -6
+  initiativeValue: 0
+  castRange: 0
+  all_allies: 0
+  all_enemies: 0
 --- !u!1 &6255693409447390768
 GameObject:
   m_ObjectHideFlags: 0
@@ -389,8 +389,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.2000005, y: 6.6900373}
-  m_SizeDelta: {x: 87.11, y: 59.16}
+  m_AnchoredPosition: {x: -0.6225, y: 6.6900373}
+  m_SizeDelta: {x: 88.755, y: 59.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2459948092819208987
 CanvasRenderer:
@@ -422,10 +422,10 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 13
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -433,7 +433,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Does absolutebly nothing
+  m_Text: 'Ranged attack
+
+    6 Damage to target and self'
 --- !u!1 &6650891870306219482
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +514,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' 1 AP'
+  m_Text: ' 2 AP'
 --- !u!1 &9221613682685926804
 GameObject:
   m_ObjectHideFlags: 0
