@@ -1320,16 +1320,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc50ae72c3a5d9469d82d8d1dbf0fc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 60
-  hp: 60
+  maxHP: 30
+  hp: 30
   maxAP: 3
   ap: 3
-  initiative: 50
-  pAtt: 0
-  mAtt: 0
-  pDef: 0
-  mDef: 0
-  balance: 0
+  initiative: 30
+  pAtt: 3
+  mAtt: 3
+  pDef: 4
+  mDef: 4
+  balance: 10
   title: Swordsman
   isAnimating: 0
   tile: {fileID: 0}

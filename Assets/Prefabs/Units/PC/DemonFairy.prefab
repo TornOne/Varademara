@@ -1805,16 +1805,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940e7ef8474e4694d9e6a94e710c33de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 50
-  hp: 50
-  maxAP: 3
-  ap: 3
-  initiative: 75
-  pAtt: 1
-  mAtt: 5
+  maxHP: 10
+  hp: 10
+  maxAP: 6
+  ap: 6
+  initiative: 60
+  pAtt: 2
+  mAtt: 2
   pDef: 1
-  mDef: 3
-  balance: 60
+  mDef: 1
+  balance: 20
   title: DemonFairy
   isAnimating: 0
   tile: {fileID: 0}

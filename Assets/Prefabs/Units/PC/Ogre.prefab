@@ -249,16 +249,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 940e7ef8474e4694d9e6a94e710c33de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 100
-  hp: 100
+  maxHP: 45
+  hp: 45
   maxAP: 3
   ap: 3
   initiative: 20
-  pAtt: 15
-  mAtt: 2
-  pDef: 10
-  mDef: 3
-  balance: 45
+  pAtt: 8
+  mAtt: 8
+  pDef: 5
+  mDef: 5
+  balance: 50
   title: Ogre
   isAnimating: 1
   tile: {fileID: 0}
