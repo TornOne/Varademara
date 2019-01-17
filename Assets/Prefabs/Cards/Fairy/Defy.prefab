@@ -274,7 +274,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1862112667744393290}
+        - m_Target: {fileID: 6008089499911577682}
           m_MethodName: MouseDown
           m_Mode: 1
           m_Arguments:
@@ -347,8 +347,8 @@ MonoBehaviour:
   deleteOnUse: 0
   apCost: 0
   handPos: {x: 0, y: 0, z: 0}
-  dmgValue: 100
+  dmgValue: 10
   castRange: 2
   all_allies: 1
   all_enemies: 1
-  attackAudio: {fileID: 0}
+  attackAudio: {fileID: 11400000, guid: 532222d47e3591a409a587fb35ea23b4, type: 2}

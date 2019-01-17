@@ -32,6 +32,8 @@ public class AttackCard : Card {
 
         if (all_allies || all_enemies)
         {
+            if (attackAudio != null)
+                attackAudio.Play();
             Debug.Log("i");
             if (all_allies)
             {
@@ -55,6 +57,8 @@ public class AttackCard : Card {
 
         if (castRange==0)
         {
+            if (attackAudio != null)
+                attackAudio.Play();
             caster.HP -= dmgValue;
             return true;
         }

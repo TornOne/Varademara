@@ -304,7 +304,7 @@ MonoBehaviour:
   canvas: {fileID: 0}
   rectTransform: {fileID: 0}
   deleteOnUse: 0
-  apCost: 1
+  apCost: 2
   handPos: {x: 0, y: 0, z: 0}
   cardfunctions:
   - {fileID: 125839612967543934}

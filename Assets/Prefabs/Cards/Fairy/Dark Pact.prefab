@@ -305,8 +305,8 @@ MonoBehaviour:
   deleteOnUse: 0
   apCost: 0
   handPos: {x: 0, y: 0, z: 0}
-  dmgValue: 10
-  castRange: 5
+  dmgValue: 6
+  castRange: 0
   all_allies: 0
   all_enemies: 0
   attackAudio: {fileID: 0}
@@ -327,11 +327,11 @@ MonoBehaviour:
   deleteOnUse: 0
   apCost: 0
   handPos: {x: 0, y: 0, z: 0}
-  dmgValue: 20
-  castRange: 0
-  all_allies: 1
+  dmgValue: 6
+  castRange: 5
+  all_allies: 0
   all_enemies: 0
-  attackAudio: {fileID: 0}
+  attackAudio: {fileID: 11400000, guid: 8ff44eac82d86234292e540839e7fb45, type: 2}
 --- !u!114 &2993841832694560124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,5 +350,5 @@ MonoBehaviour:
   apCost: 2
   handPos: {x: 0, y: 0, z: 0}
   cardfunctions:
-  - {fileID: 311135632971721053}
   - {fileID: 883688492197485753}
+  - {fileID: 311135632971721053}

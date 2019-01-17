@@ -325,7 +325,7 @@ MonoBehaviour:
   deleteOnUse: 0
   apCost: 0
   handPos: {x: 0, y: 0, z: 0}
-  dmgValue: 10
+  dmgValue: 3
   castRange: 0
   all_allies: 1
   all_enemies: 1
