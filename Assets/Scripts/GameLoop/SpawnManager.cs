@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class SpawnManager : MonoBehaviour {
 	[System.Serializable]
@@ -64,6 +65,13 @@ public class SpawnManager : MonoBehaviour {
 	public PlayerController player1, player2, player3;
 	void Start() {
 		SpawnPlayers(player1, player2, player3);
-		SpawnNextWave();
+		StartCoroutine(DelayedStart(3));
     }
+
+	IEnumerator DelayedStart(int frames) {
+		for (int i = 0; i < frames; i++) {
+			yield return null;
+		}
+		SpawnNextWave();
+	}
 }
