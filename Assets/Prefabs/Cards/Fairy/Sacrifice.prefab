@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Wait
+  m_Text: Sacrifice
 --- !u!1 &1289698611075994
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,10 +165,12 @@ GameObject:
   - component: {fileID: 223638555036836440}
   - component: {fileID: 114897498410320264}
   - component: {fileID: 114131851027716316}
-  - component: {fileID: 114210665036274746}
   - component: {fileID: 114230575617164014}
+  - component: {fileID: 6922964997829561504}
+  - component: {fileID: 7744384509678235375}
+  - component: {fileID: 7529902086261799353}
   m_Layer: 0
-  m_Name: Wait
+  m_Name: Sacrifice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,26 +257,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114210665036274746
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354782730786578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e902489345775aa408ea07ec367e483a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  rectTransform: {fileID: 0}
-  deleteOnUse: 0
-  apCost: 1
-  handPos: {x: 0, y: 0, z: 0}
-  healValue: 0
-  initiativeValue: 20
-  castRange: 0
 --- !u!114 &114230575617164014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,8 +274,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114210665036274746}
-          m_MethodName: MouseDown
+        - m_Target: {fileID: 6922964997829561504}
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -306,3 +288,67 @@ MonoBehaviour:
       m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
         Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   delegates: []
+--- !u!114 &6922964997829561504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354782730786578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fce9270098f0581439ebedad7da3e681, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  rectTransform: {fileID: 0}
+  deleteOnUse: 0
+  apCost: 1
+  handPos: {x: 0, y: 0, z: 0}
+  cardfunctions:
+  - {fileID: 7744384509678235375}
+  - {fileID: 7529902086261799353}
+--- !u!114 &7744384509678235375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354782730786578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e902489345775aa408ea07ec367e483a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  rectTransform: {fileID: 0}
+  deleteOnUse: 0
+  apCost: 0
+  handPos: {x: 0, y: 0, z: 0}
+  healValue: 10
+  initiativeValue: 5
+  castRange: 0
+  all_allies: 1
+  all_enemies: 0
+--- !u!114 &7529902086261799353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354782730786578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb8c6e6ac47a9d848bf7ad605328cbfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  rectTransform: {fileID: 0}
+  deleteOnUse: 0
+  apCost: 0
+  handPos: {x: 0, y: 0, z: 0}
+  dmgValue: 10
+  castRange: 0
+  all_allies: 0
+  all_enemies: 0
+  attackAudio: {fileID: 0}

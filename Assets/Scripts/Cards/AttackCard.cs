@@ -7,7 +7,10 @@ public class AttackCard : Card {
 	public int dmgValue = 1;
 	public int castRange = 1;
 
-	public AudioClipGroup attackAudio;
+    public bool all_allies = false;
+    public bool all_enemies = false;
+
+    public AudioClipGroup attackAudio;
 
 	protected override bool PreActivate(Unit caster, bool select) {
 		if (select) {
@@ -24,7 +27,34 @@ public class AttackCard : Card {
 	}
 
 	protected override bool Activate(Tile tile, Unit caster) {
-		if (caster.tile.DistanceTo(tile) <= castRange && tile.unit != null) {
+
+        if (all_allies || all_enemies)
+        {
+            if (all_allies)
+            {
+                foreach (Unit unit in TurnManager.instance.friendlies)
+                {
+                    unit.HP -= dmgValue;
+                }
+            }
+
+            if (all_enemies)
+            {
+                foreach (Unit unit in TurnManager.instance.friendlies)
+                {
+                    unit.HP -= dmgValue;
+                }
+            }
+
+            return true;
+        }
+
+        if (castRange==0)
+        {
+            caster.HP -= dmgValue;
+        }
+
+		else if (caster.tile.DistanceTo(tile) <= castRange && tile.unit != null) {
 			if (attackAudio != null)
 				attackAudio.Play();
 			tile.unit.HP -= dmgValue;

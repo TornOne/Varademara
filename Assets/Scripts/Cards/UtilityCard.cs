@@ -7,7 +7,7 @@ public class UtilityCard : Card
 
     protected override bool Activate(Tile tile, Unit caster)
     {
-        return false;
+        return true;
     }
 
     protected override bool PreActivate(Unit caster, bool select)

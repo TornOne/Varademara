@@ -9,6 +9,10 @@ public class BuffCard : Card
   
     public int castRange = 1;
 
+    public bool all_allies = false;
+    public bool all_enemies = false;
+
+
     protected override bool PreActivate(Unit caster, bool select)
     {
         return true;
@@ -16,12 +20,43 @@ public class BuffCard : Card
 
     protected override bool Activate(Tile tile, Unit caster)
     {
-        if (caster.tile.DistanceTo(tile) <= castRange && tile.unit != null)
+
+        if (all_allies || all_enemies)
+        {
+            if (all_allies)
+            {
+                foreach (Unit unit in TurnManager.instance.friendlies)
+                {
+                    unit.HP += healValue;
+                    unit.initiative += initiativeValue;
+                }
+            }
+
+            if (all_enemies)
+            {
+                foreach (Unit unit in TurnManager.instance.friendlies)
+                {
+                    unit.HP += healValue;
+                    unit.initiative += initiativeValue;
+                }
+            }
+
+            return true;
+        }
+        else if (castRange == 0)
+        {
+            caster.HP += healValue;
+            caster.initiative += initiativeValue;
+            return true;
+        }
+
+        else if (caster.tile.DistanceTo(tile) <= castRange && tile.unit != null)
         {
             tile.unit.HP += healValue;
             tile.unit.initiative += initiativeValue;
             return true;
         }
+
         return false;
     }
 

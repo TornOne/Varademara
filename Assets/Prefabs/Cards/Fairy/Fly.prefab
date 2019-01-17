@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Wait
+  m_Text: Fly
 --- !u!1 &1289698611075994
 GameObject:
   m_ObjectHideFlags: 0
@@ -165,10 +165,10 @@ GameObject:
   - component: {fileID: 223638555036836440}
   - component: {fileID: 114897498410320264}
   - component: {fileID: 114131851027716316}
-  - component: {fileID: 114210665036274746}
+  - component: {fileID: 114241258360355312}
   - component: {fileID: 114230575617164014}
   m_Layer: 0
-  m_Name: Wait
+  m_Name: Fly
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -255,7 +255,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &114210665036274746
+--- !u!114 &114241258360355312
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -264,7 +264,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1354782730786578}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e902489345775aa408ea07ec367e483a, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d76fc3d3e73fb94799b47bfaaa5f749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   canvas: {fileID: 0}
@@ -272,9 +272,8 @@ MonoBehaviour:
   deleteOnUse: 0
   apCost: 1
   handPos: {x: 0, y: 0, z: 0}
-  healValue: 0
-  initiativeValue: 20
-  castRange: 0
+  moveValue: 3
+  flightmap: 1
 --- !u!114 &114230575617164014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,7 +291,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 114210665036274746}
+        - m_Target: {fileID: 114241258360355312}
           m_MethodName: MouseDown
           m_Mode: 1
           m_Arguments:
