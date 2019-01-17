@@ -8,7 +8,7 @@ public class SpawnManager : MonoBehaviour {
 
 	public static SpawnManager instance;
 	public Wave[] waves;
-	int waveCounter = 0;
+	int waveCounter = -1;
 
 	void Awake() {
 		instance = this;
@@ -41,9 +41,9 @@ public class SpawnManager : MonoBehaviour {
 		int[] distances = new int[38];
 		Tile[] spawnTiles = new Tile[38];
 		int[] edgeCoords = new int[76] { 1, 1, 1, 2, 1, 3, 1, 4, 1, 5, 1, 6, 1, 7, 1, 8, 1, 9, 1, 10, 2, 11, 3, 10, 4, 11, 5, 10, 6, 11, 7, 10, 8, 11, 9, 10, 10, 11, 11, 10, 11, 9, 11, 8, 11, 7, 11, 6, 11, 5, 11, 4, 11, 3, 11, 2, 11, 1, 10, 1, 9, 1, 8, 1, 7, 1, 6, 1, 5, 1, 4, 1, 3, 1, 2, 1 };
-		for (int i = 0; i < 40; i++) {
+		for (int i = 0; i < 38; i++) {
 			int i2 = i * 2;
-			Tile tile = Map.instance.tiles[i2][i2 + 1];
+			Tile tile = Map.instance.tiles[edgeCoords[i2]][edgeCoords[i2 + 1]];
 			spawnTiles[i] = tile;
 			int minDistance = int.MaxValue;
 			foreach (Unit player in TurnManager.instance.friendlies) {
@@ -55,8 +55,8 @@ public class SpawnManager : MonoBehaviour {
 
 		//Spawn new enemies to those tiles
 		Unit[] units = waves[waveCounter].units;
-		for (int i = 1; i <= units.Length; i++) {
-			SpawnUnit(units[i], spawnTiles[38 - i]);
+		for (int i = 0; i < units.Length; i++) {
+			SpawnUnit(units[i], spawnTiles[37 - i]);
 		}
 	}
 
@@ -64,5 +64,6 @@ public class SpawnManager : MonoBehaviour {
 	public PlayerController player1, player2, player3;
 	void Start() {
 		SpawnPlayers(player1, player2, player3);
+		SpawnNextWave();
     }
 }

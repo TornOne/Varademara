@@ -27,7 +27,6 @@ public class TurnManager : MonoBehaviour {
 	}
 
 	void Start() {
-		SpawnManager.instance.SpawnNextWave();
 		StartCoroutine(DelayedStart(5));
 	}
 
