@@ -9,6 +9,7 @@ public class InputManager : MonoBehaviour {
 	public SidebarInformation sidebar;
 	public TileHighlighter tileHighlighter;
 	Card selectedCard;
+	Card attachedCard;
 	Map map;
 	TurnManager turnManager;
 	EventSystem eventSystem;
@@ -28,15 +29,22 @@ public class InputManager : MonoBehaviour {
 			DeselectCard();
 		}
 		selectedCard = card;
+		//Attach to mouse
+		selectedCard.StartCoroutine(selectedCard.MoveWithMouse());
+		attachedCard = selectedCard;
 
 		selectedCard = turnManager.activeUnit.cardManager.hand[selectedCard.canvas.sortingOrder];
 		selectedCard.Select(turnManager.activeUnit, true);
-		//TODO: Highlight the card or something
 	}
 
 	public void DeselectCard() {
 		selectedCard.Select(turnManager.activeUnit, false);
 		selectedCard = null;
+
+		if (attachedCard != null) {
+			attachedCard.transform.localPosition = attachedCard.handPos;
+			attachedCard.StopAllCoroutines();
+		}
 	}
 
 	public void DiscardClicked() {
