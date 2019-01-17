@@ -1822,6 +1822,8 @@ MonoBehaviour:
   avatar: {fileID: 21300010, guid: 7f30911c9e1c2504c868941cf7e61181, type: 3}
   deathAudio: {fileID: 11400000, guid: f9cb2f625a28578428b5765378250966, type: 2}
   walkAudio: {fileID: 11400000, guid: d7311f2f321f72b40bf3b94d0a4cbe62, type: 2}
+  hpBarPrefab: {fileID: 6054835091408943852, guid: e164e13b0a287b8479a19580f6b5c2bc,
+    type: 3}
 --- !u!1 &1890811925318614
 GameObject:
   m_ObjectHideFlags: 0
