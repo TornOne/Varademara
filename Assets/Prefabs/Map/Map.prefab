@@ -171,6 +171,8 @@ MonoBehaviour:
   waves:
   - units:
     - {fileID: 114819559990632748, guid: ab80bc2ae1189294681304015bc39540, type: 3}
+    - {fileID: 114819559990632748, guid: ab80bc2ae1189294681304015bc39540, type: 3}
+    - {fileID: 114819559990632748, guid: ab80bc2ae1189294681304015bc39540, type: 3}
   player1: {fileID: 114972539905170634, guid: 49b77baa44cd0eb49a3ff2a8ac12b931, type: 3}
   player2: {fileID: 114588487704148054, guid: fdb2d6c1c12765d4c81505eed0d8cc2e, type: 3}
   player3: {fileID: 114828705121053650, guid: c6711461c8a7ad34cbb0d6b10c718fe2, type: 3}
