@@ -92,8 +92,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4dfada452fad2c340a6e58bf54ed5029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitHighlight: {r: 0, g: 0.979579, b: 1, a: 1}
-  emptyTileHighlight: {r: 0, g: 0.3679245, b: 0.3642073, a: 1}
   sprite: {fileID: 212605221444205940}
 --- !u!1 &1694855177356942
 GameObject:
@@ -170,7 +168,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbcbebdef89c3714db590fb08fcecb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waves: []
+  waves:
+  - units:
+    - {fileID: 114819559990632748, guid: ab80bc2ae1189294681304015bc39540, type: 3}
   player1: {fileID: 114972539905170634, guid: 49b77baa44cd0eb49a3ff2a8ac12b931, type: 3}
   player2: {fileID: 114588487704148054, guid: fdb2d6c1c12765d4c81505eed0d8cc2e, type: 3}
   player3: {fileID: 114828705121053650, guid: c6711461c8a7ad34cbb0d6b10c718fe2, type: 3}

@@ -90,12 +90,12 @@ TextureImporter:
       name: output-2_0
       rect:
         serializedVersion: 2
-        x: 28
-        y: 313
-        width: 489
-        height: 1607
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 76.07559
+        y: 322.93765
+        width: 419.99487
+        height: 1622.1385
+      alignment: 9
+      pivot: {x: 0.46768278, y: 0.48920748}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -110,12 +110,12 @@ TextureImporter:
       name: output-2_1
       rect:
         serializedVersion: 2
-        x: 641
-        y: 1519
-        width: 371
-        height: 1162
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 668.7821
+        y: 1547.1078
+        width: 331.04785
+        height: 1109.161
+      alignment: 9
+      pivot: {x: 0.47642022, y: 0.49847788}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -130,12 +130,12 @@ TextureImporter:
       name: output-2_2
       rect:
         serializedVersion: 2
-        x: 122
-        y: 1994
-        width: 415
-        height: 677
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 165.6089
+        y: 2031.6873
+        width: 348.086
+        height: 619.5249
+      alignment: 9
+      pivot: {x: 0.4708351, y: 0.48555392}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -157,6 +157,6 @@ TextureImporter:
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
-  userData: 
+  userData: 636833384833587538
   assetBundleName: 
   assetBundleVariant: 
