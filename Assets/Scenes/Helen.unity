@@ -2725,6 +2725,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1711105684532628, guid: c6711461c8a7ad34cbb0d6b10c718fe2, type: 3}
+      propertyPath: m_Name
+      value: KnightRider
+      objectReference: {fileID: 0}
     - target: {fileID: 4669628897138278, guid: c6711461c8a7ad34cbb0d6b10c718fe2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.17
@@ -2756,6 +2760,18 @@ PrefabInstance:
     - target: {fileID: 4669628897138278, guid: c6711461c8a7ad34cbb0d6b10c718fe2, type: 3}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669628897138278, guid: c6711461c8a7ad34cbb0d6b10c718fe2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669628897138278, guid: c6711461c8a7ad34cbb0d6b10c718fe2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4669628897138278, guid: c6711461c8a7ad34cbb0d6b10c718fe2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6711461c8a7ad34cbb0d6b10c718fe2, type: 3}
