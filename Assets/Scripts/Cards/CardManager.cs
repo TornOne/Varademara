@@ -20,7 +20,7 @@ public class CardManager : MonoBehaviour {
 		handManager = HandManager.instance;
 		discardPile = DiscardPile.instance;
 		turnManager = TurnManager.instance;
-        //Shuffle();
+        Shuffle();
 
     }
 

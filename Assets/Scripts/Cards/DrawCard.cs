@@ -16,7 +16,13 @@ public class DrawCard : Card
 
     protected override bool Activate(Tile tile, Unit caster)
     {
-        if (discardHand) caster.cardManager.FillHand();
+        if (discardHand)
+        {
+            foreach (Card card in caster.cardManager.hand)
+            {
+                caster.cardManager.Discard(card);
+            }
+        }
 
         if (fillHand) caster.cardManager.FillHand();
         else

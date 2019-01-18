@@ -25,6 +25,17 @@ public class EnemyAI : Unit {
 
 		aggroTarget = friendlies.Current;
 
+        float distance = 1000;
+        foreach (Unit friendly in TurnManager.instance.friendlies)
+        {
+            if (this.tile.DistanceTo(friendly.tile) < distance)
+            {
+                aggroTarget = friendly;
+                distance = this.tile.DistanceTo(friendly.tile);
+            }
+        }
+
+
         //cardManager.hand.Add(new MoveCard());//TODO: ai needs cards
 
 
@@ -61,6 +72,13 @@ public class EnemyAI : Unit {
             while (isAnimating) yield return null;
         }
 
+        if (ap > 0)
+        {
+            foreach (Card card in cardManager.hand) {
+                cardManager.Discard(card);
+            }
+            cardManager.FillHand();
+        }
 
         TurnManager.instance.NextTurn();
         yield return null;

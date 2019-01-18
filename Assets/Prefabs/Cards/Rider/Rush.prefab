@@ -67,7 +67,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: eb55de31a06a4fe4cba4f8fe68a52097, type: 3}
-    m_FontSize: 16
+    m_FontSize: 22
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 0
@@ -78,7 +78,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Tune
+  m_Text: Rush
 --- !u!1 &1289698611075994
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,10 +167,10 @@ GameObject:
   - component: {fileID: 114131851027716316}
   - component: {fileID: 114230575617164014}
   - component: {fileID: 5182652271658760915}
-  - component: {fileID: 5802488536449641945}
   - component: {fileID: 4134428577465999401}
+  - component: {fileID: 7435627197888251376}
   m_Layer: 0
-  m_Name: Tune
+  m_Name: Rush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -306,33 +306,11 @@ MonoBehaviour:
   canvas: {fileID: 0}
   rectTransform: {fileID: 0}
   deleteOnUse: 0
-  apCost: 1
+  apCost: 2
   handPos: {x: 0, y: 0, z: 0}
   cardfunctions:
-  - {fileID: 5802488536449641945}
+  - {fileID: 7435627197888251376}
   - {fileID: 4134428577465999401}
---- !u!114 &5802488536449641945
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354782730786578}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e902489345775aa408ea07ec367e483a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  canvas: {fileID: 0}
-  rectTransform: {fileID: 0}
-  deleteOnUse: 0
-  apCost: 0
-  handPos: {x: 0, y: 0, z: 0}
-  healValue: 3
-  initiativeValue: 5
-  castRange: 0
-  all_allies: 0
-  all_enemies: 0
 --- !u!114 &4134428577465999401
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -353,6 +331,25 @@ MonoBehaviour:
   drawCount: 1
   fillHand: 0
   discardHand: 0
+--- !u!114 &7435627197888251376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1354782730786578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d76fc3d3e73fb94799b47bfaaa5f749, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  rectTransform: {fileID: 0}
+  deleteOnUse: 0
+  apCost: 0
+  handPos: {x: 0, y: 0, z: 0}
+  moveValue: 4
+  flightmap: 0
 --- !u!1 &1916182461983026197
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,7 +428,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ' 1 AP'
+  m_Text: ' 2 AP'
 --- !u!1 &3235393001153135126
 GameObject:
   m_ObjectHideFlags: 0
@@ -510,9 +507,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Heal 3
-
-    Initiative 5
+  m_Text: 'Move 4
 
     Draw 1'
 --- !u!1 &8542254106966245964
@@ -573,7 +568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5471698, g: 0.41199178, b: 0.16260235, a: 1}
+  m_Color: {r: 0.21693662, g: 0.30722493, b: 0.3679245, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

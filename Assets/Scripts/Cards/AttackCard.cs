@@ -28,18 +28,14 @@ public class AttackCard : Card {
 
 	protected override bool Activate(Tile tile, Unit caster) {
 
-        Debug.Log("k");
-
         if (all_allies || all_enemies)
         {
             if (attackAudio != null)
                 attackAudio.Play();
-            Debug.Log("i");
             if (all_allies)
             {
                 foreach (Unit unit in TurnManager.instance.friendlies)
                 {
-                    Debug.Log("j");
                     unit.HP -= dmgValue;
                 }
             }
